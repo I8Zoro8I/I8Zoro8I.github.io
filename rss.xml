@@ -15,18 +15,18 @@
         <category term="鑫" />
         <category term="springboot" />
         <item>
-            <guid isPermalink="true">http://example.com/2024/06/09/webH/demo/</guid>
+            <guid isPermalink="true">http://example.com/2024/06/09/post/webH/demo/</guid>
             <title>demo</title>
-            <link>http://example.com/2024/06/09/webH/demo/</link>
+            <link>http://example.com/2024/06/09/post/webH/demo/</link>
             <category term="web前端" scheme="http://example.com/categories/webQ/" />
             <category term="demo" scheme="http://example.com/tags/demo/" />
             <pubDate>Sun, 09 Jun 2024 14:48:16 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">http://example.com/2024/06/09/webQ/hello-world/</guid>
+            <guid isPermalink="true">http://example.com/2024/06/09/post/webQ/hello-world/</guid>
             <title>暂时置顶文章</title>
-            <link>http://example.com/2024/06/09/webQ/hello-world/</link>
+            <link>http://example.com/2024/06/09/post/webQ/hello-world/</link>
             <category term="web后端" scheme="http://example.com/categories/webH/" />
             <category term="demo" scheme="http://example.com/tags/demo/" />
             <category term="demo2" scheme="http://example.com/tags/demo2/" />

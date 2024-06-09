@@ -12,18 +12,18 @@
     <category term="鑫" />
     <category term="springboot" />
     <entry>
-        <id>http://example.com/2024/06/09/webH/demo/</id>
+        <id>http://example.com/2024/06/09/post/webH/demo/</id>
         <title>demo</title>
-        <link rel="alternate" href="http://example.com/2024/06/09/webH/demo/"/>
+        <link rel="alternate" href="http://example.com/2024/06/09/post/webH/demo/"/>
         <content type="html"></content>
         <category term="web前端" scheme="http://example.com/categories/webQ/" />
         <category term="demo" scheme="http://example.com/tags/demo/" />
         <updated>2024-06-09T06:48:16.000Z</updated>
     </entry>
     <entry>
-        <id>http://example.com/2024/06/09/webQ/hello-world/</id>
+        <id>http://example.com/2024/06/09/post/webQ/hello-world/</id>
         <title>暂时置顶文章</title>
-        <link rel="alternate" href="http://example.com/2024/06/09/webQ/hello-world/"/>
+        <link rel="alternate" href="http://example.com/2024/06/09/post/webQ/hello-world/"/>
         <content type="html">&lt;p&gt;欢迎来到&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt; Hexo&lt;/span&gt;&lt;br /&gt;
 ！这是你的第一篇文章。有关详细信息，请查看 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt;&lt;br /&gt;
 。如果你在使用 Hexo 时遇到任何问题，可以在 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;疑难解答&lt;/span&gt;&lt;br /&gt;
