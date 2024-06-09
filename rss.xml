@@ -18,6 +18,8 @@
             <guid isPermalink="true">http://example.com/2024/06/09/demo/demo/</guid>
             <title>demo</title>
             <link>http://example.com/2024/06/09/demo/demo/</link>
+            <category term="web前端" scheme="http://example.com/categories/web%E5%89%8D%E7%AB%AF/" />
+            <category term="demo" scheme="http://example.com/tags/demo/" />
             <pubDate>Sun, 09 Jun 2024 14:48:16 +0800</pubDate>
             <description><![CDATA[  ]]></description>
         </item>
@@ -25,6 +27,9 @@
             <guid isPermalink="true">http://example.com/2024/06/09/Category1/hello-world/</guid>
             <title>暂时置顶文章</title>
             <link>http://example.com/2024/06/09/Category1/hello-world/</link>
+            <category term="web后端" scheme="http://example.com/categories/web%E5%90%8E%E7%AB%AF/" />
+            <category term="demo" scheme="http://example.com/tags/demo/" />
+            <category term="demo2" scheme="http://example.com/tags/demo2/" />
             <pubDate>Sun, 09 Jun 2024 12:34:29 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;欢迎来到&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt; Hexo&lt;/span&gt;&lt;br /&gt;
 ！这是你的第一篇文章。有关详细信息，请查看 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt;&lt;br /&gt;
