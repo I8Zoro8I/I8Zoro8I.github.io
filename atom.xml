@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://example.com</id>
+    <title>CYX</title>
+    <subtitle>Blog</subtitle>
+    <icon>http://example.com/images/favicon.ico</icon>
+    <link href="http://example.com" />
+    <author>
+      <name>ZoroJan</name>
+    </author>
+    <updated>2024-06-09T06:48:16.000Z</updated>
+    <category term="鑫" />
+    <category term="springboot" />
+    <entry>
+        <id>http://example.com/2024/06/09/demo/demo/</id>
+        <title>demo</title>
+        <link rel="alternate" href="http://example.com/2024/06/09/demo/demo/"/>
+        <content type="html"></content>
+        <updated>2024-06-09T06:48:16.000Z</updated>
+    </entry>
+    <entry>
+        <id>http://example.com/2024/06/09/Category1/hello-world/</id>
+        <title>暂时置顶文章</title>
+        <link rel="alternate" href="http://example.com/2024/06/09/Category1/hello-world/"/>
+        <content type="html">&lt;p&gt;欢迎来到&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt; Hexo&lt;/span&gt;&lt;br /&gt;
+！这是你的第一篇文章。有关详细信息，请查看 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt;&lt;br /&gt;
+。如果你在使用 Hexo 时遇到任何问题，可以在 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;疑难解答&lt;/span&gt;&lt;br /&gt;
+中找到答案，也可以在 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==&#34;&gt;GitHub&lt;/span&gt; 上问我。&lt;/p&gt;
+&lt;h2 id=&#34;quick-start-快速上手&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#quick-start-快速上手&#34;&gt;#&lt;/a&gt; Quick Start - 快速上手&lt;/h2&gt;
+&lt;h3 id=&#34;create-a-new-post-创建新帖子&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#create-a-new-post-创建新帖子&#34;&gt;#&lt;/a&gt; Create a new post - 创建新帖子&lt;/h3&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo new &lt;span class=&#34;string&#34;&gt;&amp;quot;My New Post&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvd3JpdGluZy5odG1s&#34;&gt;Writing&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;run-server-运行服务器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#run-server-运行服务器&#34;&gt;#&lt;/a&gt; Run server - 运行服务器&lt;/h3&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo server  or  $ hexo s&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvc2VydmVyLmh0bWw=&#34;&gt;Server&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;generate-static-files-生成静态文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#generate-static-files-生成静态文件&#34;&gt;#&lt;/a&gt; Generate static files - 生成静态文件&lt;/h3&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvZ2VuZXJhdGluZy5odG1s&#34;&gt;Generating&lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&#34;deploy-to-remote-sites-部署到远程站点&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#deploy-to-remote-sites-部署到远程站点&#34;&gt;#&lt;/a&gt; Deploy to remote sites - 部署到远程站点&lt;/h3&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;More info: &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudC5odG1s&#34;&gt;Deployment&lt;/span&gt;&lt;/p&gt;
+</content>
+        <updated>2024-06-09T04:34:29.549Z</updated>
+    </entry>
+</feed>
