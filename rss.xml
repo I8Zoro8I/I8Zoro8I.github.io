@@ -485,7 +485,7 @@ ii. 输出的测量结果成功概率可以通过输入状态精度进行调控�
             <guid isPermalink="true">http://example.com/2024/06/09/post/webH/demo/</guid>
             <title>demo</title>
             <link>http://example.com/2024/06/09/post/webH/demo/</link>
-            <category term="web前端" scheme="http://example.com/categories/webQ/" />
+            <category term="web后端" scheme="http://example.com/categories/webH/" />
             <category term="demo" scheme="http://example.com/tags/demo/" />
             <pubDate>Sun, 09 Jun 2024 14:48:16 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;暂时没有内容&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#暂时没有内容&#34;&gt;#&lt;/a&gt; 暂时没有内容&lt;/h1&gt;
@@ -495,7 +495,7 @@ ii. 输出的测量结果成功概率可以通过输入状态精度进行调控�
             <guid isPermalink="true">http://example.com/2024/06/09/post/webQ/hello-world/</guid>
             <title>暂时置顶文章</title>
             <link>http://example.com/2024/06/09/post/webQ/hello-world/</link>
-            <category term="web后端" scheme="http://example.com/categories/webH/" />
+            <category term="web前端" scheme="http://example.com/categories/webQ/" />
             <category term="demo" scheme="http://example.com/tags/demo/" />
             <category term="demo2" scheme="http://example.com/tags/demo2/" />
             <pubDate>Sun, 09 Jun 2024 12:34:29 +0800</pubDate>
