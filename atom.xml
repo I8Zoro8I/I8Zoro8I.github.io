@@ -8,9 +8,35 @@
     <author>
       <name>ZoroJan</name>
     </author>
-    <updated>2024-06-10T05:48:16.000Z</updated>
+    <updated>2024-06-12T18:42:16.000Z</updated>
     <category term="鑫" />
     <category term="springboot" />
+    <entry>
+        <id>http://example.com/2024/06/13/post/windows/pid/windows%E8%BF%9B%E7%A8%8B/</id>
+        <title>windows进程命令</title>
+        <link rel="alternate" href="http://example.com/2024/06/13/post/windows/pid/windows%E8%BF%9B%E7%A8%8B/"/>
+        <content type="html">&lt;h1 id=&#34;windows进程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#windows进程&#34;&gt;#&lt;/a&gt; windows 进程&lt;/h1&gt;
+&lt;h3 id=&#34;查看进程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#查看进程&#34;&gt;#&lt;/a&gt; 查看进程&lt;/h3&gt;
+&lt;p&gt;查看该服务的进程&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;tasklist | findstr &lt;span class=&#34;string&#34;&gt;&amp;quot;jupyter&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;查看端口占用&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;netstat -ano&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;查看指定端口的占用情况&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;netstat -aon|findstr 8080&lt;/span&gt;  &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;查看 PID 对应的进程&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;tasklist|findstr 21692&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&#34;杀死进程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#杀死进程&#34;&gt;#&lt;/a&gt; 杀死进程&lt;/h3&gt;
+&lt;p&gt;杀程序&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;taskkill /f /t /im jupyter-notebook.exe&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;杀 PID&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;taskkill /f /PID 22524&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
+        <category term="Windows" scheme="http://example.com/categories/windows/" />
+        <category term="进程" scheme="http://example.com/categories/windows/pid/" />
+        <category term="Windows" scheme="http://example.com/tags/Windows/" />
+        <category term="进程" scheme="http://example.com/tags/%E8%BF%9B%E7%A8%8B/" />
+        <updated>2024-06-12T18:42:16.000Z</updated>
+    </entry>
     <entry>
         <id>http://example.com/2024/06/10/post/biao/cryptology/Elliptic%20Curve/</id>
         <title>密码学中的椭圆曲线（一）——代数曲线</title>
@@ -256,8 +282,8 @@ M834 80h400000v40h-400000z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/s
 </content>
         <category term="标标备忘录" scheme="http://example.com/categories/biao/" />
         <category term="密码学中的椭圆曲线" scheme="http://example.com/categories/biao/cryptology/" />
-        <category term="标标备忘录" scheme="http://example.com/tags/biao/" />
-        <category term="密码学" scheme="http://example.com/tags/cryptology/" />
+        <category term="标标备忘录" scheme="http://example.com/tags/%E6%A0%87%E6%A0%87%E5%A4%87%E5%BF%98%E5%BD%95/" />
+        <category term="密码学" scheme="http://example.com/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/" />
         <updated>2024-06-10T05:48:16.000Z</updated>
     </entry>
     <entry>
@@ -474,7 +500,7 @@ ii. 输出的测量结果成功概率可以通过输入状态精度进行调控�
 </content>
         <category term="标标备忘录" scheme="http://example.com/categories/biao/" />
         <category term="Shor算法详解" scheme="http://example.com/categories/biao/shor/" />
-        <category term="标标备忘录" scheme="http://example.com/tags/biao/" />
+        <category term="标标备忘录" scheme="http://example.com/tags/%E6%A0%87%E6%A0%87%E5%A4%87%E5%BF%98%E5%BD%95/" />
         <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/" />
         <updated>2024-06-10T05:42:16.000Z</updated>
     </entry>

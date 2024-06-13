@@ -7,6 +7,19 @@
     "home_page_url": "http://example.com",
     "items": [
         {
+            "id": "http://example.com/2024/06/13/post/windows/pid/windows%E8%BF%9B%E7%A8%8B/",
+            "url": "http://example.com/2024/06/13/post/windows/pid/windows%E8%BF%9B%E7%A8%8B/",
+            "title": "windows进程命令",
+            "date_published": "2024-06-12T18:42:16.000Z",
+            "content_html": "<h1 id=\"windows进程\"><a class=\"anchor\" href=\"#windows进程\">#</a> windows 进程</h1>\n<h3 id=\"查看进程\"><a class=\"anchor\" href=\"#查看进程\">#</a> 查看进程</h3>\n<p>查看该服务的进程</p>\n<p><figure class=\"highlight shell\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br></pre></td><td class=\"code\"><pre><span class=\"line\"><span class=\"meta prompt_\">#</span><span class=\"language-bash\">tasklist | findstr <span class=\"string\">&quot;jupyter&quot;</span></span></span><br></pre></td></tr></table></figure></p>\n<p>查看端口占用</p>\n<p><figure class=\"highlight shell\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br></pre></td><td class=\"code\"><pre><span class=\"line\"><span class=\"meta prompt_\">#</span><span class=\"language-bash\">netstat -ano</span></span><br></pre></td></tr></table></figure></p>\n<p>查看指定端口的占用情况</p>\n<p><figure class=\"highlight shell\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br></pre></td><td class=\"code\"><pre><span class=\"line\"><span class=\"meta prompt_\">#</span><span class=\"language-bash\">netstat -aon|findstr 8080</span>  </span><br></pre></td></tr></table></figure></p>\n<p>查看 PID 对应的进程</p>\n<p><figure class=\"highlight shell\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br></pre></td><td class=\"code\"><pre><span class=\"line\"><span class=\"meta prompt_\">#</span><span class=\"language-bash\">tasklist|findstr 21692</span></span><br></pre></td></tr></table></figure></p>\n<h3 id=\"杀死进程\"><a class=\"anchor\" href=\"#杀死进程\">#</a> 杀死进程</h3>\n<p>杀程序</p>\n<p><figure class=\"highlight shell\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br></pre></td><td class=\"code\"><pre><span class=\"line\"><span class=\"meta prompt_\">#</span><span class=\"language-bash\">taskkill /f /t /im jupyter-notebook.exe</span></span><br></pre></td></tr></table></figure></p>\n<p>杀 PID</p>\n<p><figure class=\"highlight shell\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br></pre></td><td class=\"code\"><pre><span class=\"line\"><span class=\"meta prompt_\">#</span><span class=\"language-bash\">taskkill /f /PID 22524</span> </span><br></pre></td></tr></table></figure></p>\n",
+            "tags": [
+                "Windows",
+                "进程",
+                "Windows",
+                "进程"
+            ]
+        },
+        {
             "id": "http://example.com/2024/06/10/post/biao/cryptology/Elliptic%20Curve/",
             "url": "http://example.com/2024/06/10/post/biao/cryptology/Elliptic%20Curve/",
             "title": "密码学中的椭圆曲线（一）——代数曲线",
