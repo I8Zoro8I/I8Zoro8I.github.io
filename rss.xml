@@ -10,10 +10,143 @@
         </author>
         <description>我的个人博客</description>
         <language>zh-CN,en,default</language>
-        <pubDate>Thu, 13 Jun 2024 02:42:16 +0800</pubDate>
-        <lastBuildDate>Thu, 13 Jun 2024 02:42:16 +0800</lastBuildDate>
+        <pubDate>Sun, 16 Jun 2024 22:58:49 +0800</pubDate>
+        <lastBuildDate>Sun, 16 Jun 2024 22:58:49 +0800</lastBuildDate>
         <category term="鑫" />
         <category term="springboot" />
+        <item>
+            <guid isPermalink="true">http://example.com/2024/06/16/post/job/01-git%E6%8B%89%E5%8F%96%E9%A1%B9%E7%9B%AE/</guid>
+            <title>01-如何使用git拉取项目</title>
+            <link>http://example.com/2024/06/16/post/job/01-git%E6%8B%89%E5%8F%96%E9%A1%B9%E7%9B%AE/</link>
+            <category term="工作日志" scheme="http://example.com/categories/job/" />
+            <category term="job" scheme="http://example.com/tags/job/" />
+            <pubDate>Sun, 16 Jun 2024 22:58:49 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;一-拉取项目到本地运行&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#一-拉取项目到本地运行&#34;&gt;#&lt;/a&gt; 一、拉取项目到本地运行&lt;/h1&gt;
+&lt;h3 id=&#34;1-拉取项目&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-拉取项目&#34;&gt;#&lt;/a&gt; 1、拉取项目&lt;/h3&gt;
+&lt;h4 id=&#34;后端项目&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后端项目&#34;&gt;#&lt;/a&gt; 后端项目&lt;/h4&gt;
+&lt;p&gt;创建目录在目录 cmd [初始化]&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;git init&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;[克隆地址] 一般为 gitLab 或者 gitHub&lt;br /&gt;
+ 建议使用 ssh，没有再使用 http&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# git remote add origin &amp;lt;url&amp;gt;克隆地址&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;公司的项目一般来说都有很多分支，[查看分支]&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# git fetch &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;[拉取远程分支到本地]&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# git fetch origin &amp;lt;分支名&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# git pull origin &amp;lt;分支名&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;[查看当前分支]&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# git branch --show-current&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;[切换分支]&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# git checkout &amp;lt;分支名&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;将从远程仓库的 &lt;code&gt; demo&lt;/code&gt;  分支拉取最新的提交并自动合并到本地的  &lt;code&gt;master&lt;/code&gt;  分支。 &lt;code&gt;-Xtheirs&lt;/code&gt;  标志指示 Git 在解决合并冲突时选择使用 &lt;code&gt; demo&lt;/code&gt;  分支的更改。&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# git pull -s recursive -Xtheirs origin demo&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;然后使用 Maven 下载依赖包&lt;/p&gt;
+&lt;h4 id=&#34;前端项目&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前端项目&#34;&gt;#&lt;/a&gt; 前端项目&lt;/h4&gt;
+&lt;p&gt;拉取本地同后端&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# npm install&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;如果 node 版本过高，请使用 nvm 管理 node&lt;/p&gt;
+&lt;p&gt;相关链接：&lt;br /&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0h1YW5nc1RpbmcvYXJ0aWNsZS9kZXRhaWxzLzExMzg1NzE0NQ==&#34;&gt;https://blog.csdn.net/HuangsTing/article/details/113857145&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;二-window下安装并使用nvm&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#二-window下安装并使用nvm&#34;&gt;#&lt;/a&gt; 二、Window 下安装并使用 nvm&lt;/h1&gt;
+&lt;h4 id=&#34;1-卸载已经安装好的没被nvm管理的node&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-卸载已经安装好的没被nvm管理的node&#34;&gt;#&lt;/a&gt; 1、卸载已经安装好的没被 nvm 管理的 node&lt;/h4&gt;
+&lt;p&gt;如果你已经安装了 node，那么你需要先卸载 node，如果你没有安装那直接跳过这一步到下一步。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;打开控制面板 -&amp;gt; 打开程序和功能 -&amp;gt; 右上角搜索输入 node -&amp;gt; 右键卸载&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;为了确保彻底删除 node 在看看你的 node 安装目录中还有没有 node 文件夹，有的话一起删除。再看看 C:\Users\ 用户名 文件夹下有没有.npmrc 以及.yarnrc 等等统统删除。再去看看你的环境变量有没有 node 相关的，有的话也一起删除了。&lt;/p&gt;
+&lt;h4 id=&#34;2-安装nvm&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-安装nvm&#34;&gt;#&lt;/a&gt; 2、安装 nvm&lt;/h4&gt;
+&lt;p&gt;去 github &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2NvcmV5YnV0bGVyL252bS13aW5kb3dzL3JlbGVhc2Vz&#34;&gt;下载最新的 nvm&lt;/span&gt; 找到  &lt;code&gt;nvm-setup.zip&lt;/code&gt;  点击下载&lt;/p&gt;
+&lt;p&gt;选择 nvm 安装路径&lt;/p&gt;
+&lt;p&gt;选择 nodejs 的安装路径&lt;/p&gt;
+&lt;p&gt;点击 next，安装完成后在终端输入 &lt;code&gt;nvm version&lt;/code&gt; , 就能查到版本号说明安装成功了。&lt;/p&gt;
+&lt;h4 id=&#34;3-配置路径和下载源&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3-配置路径和下载源&#34;&gt;#&lt;/a&gt; 3、配置路径和下载源&lt;/h4&gt;
+&lt;p&gt;安装完 nvm 后先不要着急安装 node。&lt;/p&gt;
+&lt;p&gt;找到 nvm 安装路径 -&amp;gt; 找到 settings.txt 文件 -&amp;gt; 配置下载源&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 旧：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# node_mirror: https://npm.taobao.org/mirrors/node/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# npm_mirror: https://npm.taobao.org/mirrors/npm/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 新：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# nvm node_mirror https://npmmirror.com/mirrors/node/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# nvm npm_mirror https://npmmirror.com/mirrors/npm/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h4 id=&#34;4-使用nvm安装node&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#4-使用nvm安装node&#34;&gt;#&lt;/a&gt; 4、使用 nvm 安装 node&lt;/h4&gt;
+&lt;p&gt;在终端输入  &lt;code&gt;nvm list available&lt;/code&gt; ， 查看网络可以安装的版本。&lt;/p&gt;
+&lt;p&gt;选择一个版本安装，比如  &lt;code&gt;nvm install 14.14.0&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;使用这个版本的 node， &lt;code&gt;nvm use 14.14.0&lt;/code&gt; 。输入 &lt;code&gt;node -v&lt;/code&gt;  和  &lt;code&gt;npm -v&lt;/code&gt;  可以查询到 node 和 npm 的版本号。&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;nvm list&lt;/code&gt;  查看已经安装的 node， &lt;code&gt;*&lt;/code&gt;  号表示当前使用的 node 版本。&lt;/p&gt;
+&lt;h4 id=&#34;5-nvm常用命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#5-nvm常用命令&#34;&gt;#&lt;/a&gt; 5、nvm 常用命令&lt;/h4&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;命令&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;说明&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;nvm list&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;查看已经安装的版本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;nvm list installed&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;查看已经安装的版本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;nvm list available&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;查看网络可以安装的版本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;nvm arch&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;查看当前系统的位数和当前 nodejs 的位数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;nvm install [arch]&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;安装制定版本的 node 并且可以指定平台 version 版本号 arch 平台&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;nvm on&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;打开 nodejs 版本控制&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;nvm off&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;关闭 nodejs 版本控制&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;nvm proxy [url]&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;查看和设置代理&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;nvm node_mirror [url]&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;设置或者查看 setting.txt 中的 node_mirror，如果不设置的默认是 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ub2RlanMub3JnL2Rpc3Qv&#34;&gt;https://nodejs.org/dist/&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;nvm npm_mirror [url]&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;设置或者查看 setting.txt 中的 npm_mirror, 如果不设置的话默认的是：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL25wbS9ucG0vYXJjaGl2ZS8=&#34;&gt;https://github.com/npm/npm/archive/&lt;/span&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;nvm uninstall&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;卸载指定的版本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;nvm use [version] [arch]&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;切换指定的 node 版本和位数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;nvm root [path]&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;设置和查看 root 路径&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;nvm version&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;查看当前的版本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;6-全局安装npmcnpm&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#6-全局安装npmcnpm&#34;&gt;#&lt;/a&gt; 6、全局安装 npm，cnpm&lt;/h4&gt;
+&lt;p&gt;安装 node 的时候，npm 其实也已经一起安装了。因为 nvm 可以管理多个版本的 node，如果每次添加一个 node 版本都要安装一堆的包很麻烦，如果有一个 npm 可以让各个版本的 node 共用，就不会这么麻烦了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;简单的三步就可以配置一个全局的 npm。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1.npm config set prefix &amp;quot;E:\nvm\npm&amp;quot; // 配置用 npm 下载包时全局安装的包路径。&lt;/p&gt;
+&lt;p&gt;2.npm install npm -g --registry=https://npmmirror.com/mirrors/ 安装全局 npm，不同的 node 都使用这个 npm。想更新全局的 npm 的话首先删除全局路径 (就是上一行命令的地址，可以使用 npm config ls 查看) 下的 npm，再执行一次这个命令即可。&lt;/p&gt;
+&lt;p&gt;3. 在用户变量中添加 NPM_HOME = E:\nvm\npm，path 中添加 % NPM_HOME%。这里需要注意的是，% NPM_HOME% 要添加在 % NVM_SYMLINK% 之前，避免 npm 访问到的是 nodejs 中自带的 npm 包管理工具。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;使用淘宝镜像 cnpm。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1. &lt;code&gt;npm install -g cnpm --registry=https://npmmirror.com/mirrors&lt;/code&gt;  // 使用淘宝镜像 cnmp 替代 npm&lt;/p&gt;
+&lt;p&gt;2. &lt;code&gt;cnpm config get registry&lt;/code&gt;  // 验证 cnpm 是否可用&lt;/p&gt;
+&lt;h4 id=&#34;7-遇到的问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#7-遇到的问题&#34;&gt;#&lt;/a&gt; 7、遇到的问题&lt;/h4&gt;
+&lt;p&gt;1. 在安装 nvm 的时候没有卸载 node，导致使用 nvm 安装完之后，node 和 npm 都不可用。&lt;/p&gt;
+&lt;p&gt;2. 在第一次使用 nvm 安装 node 后，要记得使用 nvm use 切换下 node 版本，以及用 nvm on 打开 nodejs 版本控制，不然这时候 node 和 npm 也都不可用。&lt;/p&gt;
+&lt;p&gt;3. 全局安装完 npm 的时候，需要关掉终端窗口重新打开，才能装得上 cnpm。&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://example.com/2024/06/13/post/windows/pid/windows%E8%BF%9B%E7%A8%8B/</guid>
             <title>windows进程命令</title>
