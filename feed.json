@@ -7,6 +7,20 @@
     "home_page_url": "http://example.com",
     "items": [
         {
+            "id": "http://example.com/2024/06/25/post/game/VALORANT/errorCode/",
+            "url": "http://example.com/2024/06/25/post/game/VALORANT/errorCode/",
+            "title": "无畏契约错误代码[解决方案]",
+            "date_published": "2024-06-25T14:56:45.954Z",
+            "content_html": "<h1 id=\"无畏契约错误代码解决方案\"><a class=\"anchor\" href=\"#无畏契约错误代码解决方案\">#</a> 无畏契约错误代码解决方案</h1>\n<h1 id=\"港服-riot\"><a class=\"anchor\" href=\"#港服-riot\">#</a> 港服 Riot</h1>\n<h3 id=\"错误代码van79\"><a class=\"anchor\" href=\"#错误代码van79\">#</a> 错误代码 Van79</h3>\n<p>解释：van79 的问题就是没有成功启用拳头反作弊的程序</p>\n<p>方案：重新打开反作弊程序</p>\n<p>1、添加信任区，允许 vgc 服务自启动，【设置】-【应用】-【启动】-【找到 vanguard tray notification】。</p>\n<p>2、然后我们在【我的电脑】-【右键管理】-【服务和应用程序】-【服务】找到 vgc，接着在 vgc 里右键属性，启动类型（自动），服务状态（启动），最后应用确定，再重启电脑即可</p>\n<h1 id=\"国服-wegame\"><a class=\"anchor\" href=\"#国服-wegame\">#</a> 国服 Wegame</h1>\n",
+            "tags": [
+                "游戏",
+                "VALORANT",
+                "game",
+                "VALORANT",
+                "无畏契约"
+            ]
+        },
+        {
             "id": "http://example.com/2024/06/18/post/job/02-quartz%E5%AE%9A%E6%97%B6%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/",
             "url": "http://example.com/2024/06/18/post/job/02-quartz%E5%AE%9A%E6%97%B6%E8%B0%83%E5%BA%A6%E4%BB%BB%E5%8A%A1/",
             "title": "02-quartz定时调度任务",
