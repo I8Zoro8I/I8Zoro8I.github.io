@@ -8,9 +8,37 @@
     <author>
       <name>ZoroJan</name>
     </author>
-    <updated>2024-06-27T09:49:15.300Z</updated>
+    <updated>2024-06-28T01:37:25.457Z</updated>
     <category term="鑫" />
     <category term="springboot" />
+    <entry>
+        <id>http://example.com/2024/06/28/post/utils/utils/</id>
+        <title>实用小工具</title>
+        <link rel="alternate" href="http://example.com/2024/06/28/post/utils/utils/"/>
+        <content type="html">&lt;h1 id=&#34;实用小工具&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#实用小工具&#34;&gt;#&lt;/a&gt; 实用小工具&lt;/h1&gt;
+&lt;h2 id=&#34;windows系统&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#windows系统&#34;&gt;#&lt;/a&gt; Windows 系统&lt;/h2&gt;
+&lt;h4 id=&#34;1-geek软件卸载工具&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-geek软件卸载工具&#34;&gt;#&lt;/a&gt; 1、Geek：软件卸载工具&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;简介&lt;/strong&gt;：GeekUninstaller 正式版是一款相当不错的单文件绿色卸载软件，它体积轻巧，反映迅速，并且完全免费，支持多国语言，完美支持支持 32 位与 64 位系统，并且它只有一个 exe 文件 (软件大小不到 2M)，你不需要安装即可直接卸载软件、强制彻底清除软件残留垃圾文件或是查看某软件的注册表项目等等，让你的系统瞬间变得高速流畅。&lt;/p&gt;
+&lt;p&gt;果核剥壳链接：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZ2h4aS5jb20vZ2Vlay5odG1s&#34;&gt;https://www.ghxi.com/geek.html&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;网盘分享链接：&lt;/p&gt;
+&lt;h4 id=&#34;2-everything数据检索工具&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#2-everything数据检索工具&#34;&gt;#&lt;/a&gt; 2、Everything：数据检索工具&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;简介&lt;/strong&gt;：Everything 是速度最快的文件搜索软件，可以瞬间搜索到你需要的文件。如果你用过 Windows 自 Everything 是速度最快的文件搜索软件，可以瞬间搜索到你需要的文件。如果你用过 Windows 自带的搜索工具、Total Commander 的搜索、Google 桌面搜索或百度硬盘搜索，都因为速度或其他原因而不满意；或者用了 Locate32 也不满意（或满意），推荐这款体积小巧、免安装、免费、速度极快（比 Locate32 更快）的文件搜索工具 Everything！&lt;/p&gt;
+&lt;p&gt;果核剥壳链接：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZ2h4aS5jb20vZXZlcnl0aGluZy5odG1s&#34;&gt;https://www.ghxi.com/everything.html&lt;/span&gt;&lt;/p&gt;
+&lt;h4 id=&#34;3-formatfactory格式工厂格式转换工具&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#3-formatfactory格式工厂格式转换工具&#34;&gt;#&lt;/a&gt; 3、FormatFactory 格式工厂：格式转换工具&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;简介&lt;/strong&gt;：格式工厂是套万能的多媒体格式转换器，提供以下功能：所有类型视频转到 MP4/3GP/MPG/AVI/WMV/FLV/SWF。所有类型音频转到 MP3/WMA/MMF/AMR/OGG/M4A/WAV。你可以在格式工厂中文版界面的左侧列表中看到软件提供的主要功能，如视频转换、音频转换、图片转换、DVD/CD/ISO 转换，以及视频合并、音频合并、混流等高级功能。格式工厂强大的格式转换功能和友好的操作性，无疑使格式工厂成为同类软件中的佼者。&lt;/p&gt;
+&lt;p&gt;果核剥壳链接：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZ2h4aS5jb20vZm9ybWF0ZmFjdG9yeS0yLmh0bWw=&#34;&gt;https://www.ghxi.com/formatfactory-2.html&lt;/span&gt;&lt;/p&gt;
+&lt;h4 id=&#34;4-timesync系统时间校准工具&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#4-timesync系统时间校准工具&#34;&gt;#&lt;/a&gt; 4、Timesync：系统时间校准工具&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;简介&lt;/strong&gt;：&lt;strong&gt;TimeSync&lt;/strong&gt; 是一款由德国知名自由软件开发工程师 &lt;strong&gt;Horst Schaeffer&lt;/strong&gt; 精心设计与荣誉出品的可用于获取来自 &lt;strong&gt;NIST&lt;/strong&gt; 标准互联网时间服务的当前时间并在必要时校准与同步用户计算机时钟时间的实用管理工具。尽管当前系统的确切时间可以由较新版本的微软 Windows 平台的官方服务器或者您的路由器提供，然而在特定需要时您可能希望拥有这样一款额外的时间校准同步助手随叫随到。&lt;/p&gt;
+&lt;p&gt;下载地址：&lt;/p&gt;
+&lt;p&gt;【网站】&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubGFuem91eC5jb20vYjA1YW8xYTRm&#34;&gt;蓝奏云&lt;/span&gt;      &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuOTBwYW4uY29tL28xNDM4NzA=&#34;&gt;90 网盘&lt;/span&gt;       &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9jbG91ZC5kZWdvby5jb20vc2hhcmUvcmJDZ0VsUUlPU2FKTVk=&#34;&gt;Degoo 网盘&lt;/span&gt;&lt;/p&gt;
+&lt;h4 id=&#34;5-contextmenumanagernet35-右键管理工具&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#5-contextmenumanagernet35-右键管理工具&#34;&gt;#&lt;/a&gt; 5、ContextMenuManager.NET.3.5 ： 右键管理工具&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;简介&lt;/strong&gt;：ContextMenuManager 是一款 C# 开发的 Windows10 右键菜单管理软件，软件小巧，功能强大，使用起来非常方便。遗憾的是软件只支持 Windows10。&lt;/p&gt;
+&lt;p&gt;果核剥壳链接：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZ2h4aS5jb20vY29udGV4dG1lbnVtYW5hZ2VyLmh0bWw=&#34;&gt;https://www.ghxi.com/contextmenumanager.html&lt;/span&gt;&lt;/p&gt;
+</content>
+        <category term="实用小工具" scheme="http://example.com/categories/utils/" />
+        <category term="tools" scheme="http://example.com/tags/tools/" />
+        <updated>2024-06-28T01:37:25.457Z</updated>
+    </entry>
     <entry>
         <id>http://example.com/2024/06/27/post/cloud/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E7%A1%80%E7%89%88%EF%BC%89/</id>
         <title>云服务器部署-基础版本（前后端）</title>
