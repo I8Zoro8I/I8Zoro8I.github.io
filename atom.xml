@@ -8,9 +8,58 @@
     <author>
       <name>ZoroJan</name>
     </author>
-    <updated>2024-06-28T01:37:25.457Z</updated>
+    <updated>2024-07-01T10:55:20.257Z</updated>
     <category term="鑫" />
     <category term="springboot" />
+    <entry>
+        <id>http://example.com/2024/07/01/post/job/06-%E7%8F%A0%E5%95%A4%E5%BC%80%E5%8F%91%E4%BB%BB%E5%8A%A1%E5%B0%8F%E8%AE%B0/</id>
+        <title>06-珠啤开发任务小记</title>
+        <link rel="alternate" href="http://example.com/2024/07/01/post/job/06-%E7%8F%A0%E5%95%A4%E5%BC%80%E5%8F%91%E4%BB%BB%E5%8A%A1%E5%B0%8F%E8%AE%B0/"/>
+        <content type="html">&lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34; data-wpm=&#34;抱歉，这个密码看着不太对，请再试试。&#34; data-whm=&#34;抱歉，这个文章不能被校验，不过您还是能看看解密后的内容。&#34;&gt;
+  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34; data-hmacdigest=&#34;16e3b122656cf0d926e5f5eacb32276a143fe17b2b88e9e7e191d21720cbe292&#34;&gt;2c43a34c906e7926d65a40b8b08e3a787750a29c37268cd5da2cc3893bd0b660&lt;/script&gt;
+  &lt;div class=&#34;hbe hbe-content&#34;&gt;
+    &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
+      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
+      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
+        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;您好，这里需要输入密码查看。&lt;/span&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script data-pjax src=&#34;/lib/hbe.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;</content>
+        <category term="工作日志" scheme="http://example.com/categories/job/" />
+        <category term="job" scheme="http://example.com/tags/job/" />
+        <updated>2024-07-01T10:55:20.257Z</updated>
+    </entry>
+    <entry>
+        <id>http://example.com/2024/07/01/post/job/05-%E6%B7%B1%E8%83%BD%E5%BC%80%E5%8F%91%E4%BB%BB%E5%8A%A1%E5%B0%8F%E8%AE%B0/</id>
+        <title>05-深能开发任务小记</title>
+        <link rel="alternate" href="http://example.com/2024/07/01/post/job/05-%E6%B7%B1%E8%83%BD%E5%BC%80%E5%8F%91%E4%BB%BB%E5%8A%A1%E5%B0%8F%E8%AE%B0/"/>
+        <content type="html">&lt;div class=&#34;hbe hbe-container&#34; id=&#34;hexo-blog-encrypt&#34; data-wpm=&#34;抱歉，这个密码看着不太对，请再试试。&#34; data-whm=&#34;抱歉，这个文章不能被校验，不过您还是能看看解密后的内容。&#34;&gt;
+  &lt;script id=&#34;hbeData&#34; type=&#34;hbeData&#34; data-hmacdigest=&#34;16e3b122656cf0d926e5f5eacb32276a143fe17b2b88e9e7e191d21720cbe292&#34;&gt;2c43a34c906e7926d65a40b8b08e3a787750a29c37268cd5da2cc3893bd0b660&lt;/script&gt;
+  &lt;div class=&#34;hbe hbe-content&#34;&gt;
+    &lt;div class=&#34;hbe hbe-input hbe-input-default&#34;&gt;
+      &lt;input class=&#34;hbe hbe-input-field hbe-input-field-default&#34; type=&#34;password&#34; id=&#34;hbePass&#34;&gt;
+      &lt;label class=&#34;hbe hbe-input-label hbe-input-label-default&#34; for=&#34;hbePass&#34;&gt;
+        &lt;span class=&#34;hbe hbe-input-label-content hbe-input-label-content-default&#34;&gt;您好，这里需要输入密码查看。&lt;/span&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script data-pjax src=&#34;/lib/hbe.js&#34;&gt;&lt;/script&gt;&lt;link href=&#34;/css/hbe.style.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;</content>
+        <category term="工作日志" scheme="http://example.com/categories/job/" />
+        <category term="job" scheme="http://example.com/tags/job/" />
+        <updated>2024-07-01T10:53:17.270Z</updated>
+    </entry>
+    <entry>
+        <id>http://example.com/2024/07/01/post/job/04-%E5%9B%BD%E9%99%85%E5%8C%96%E6%93%8D%E4%BD%9Ci18n/</id>
+        <title>04-国际化操作i18n</title>
+        <link rel="alternate" href="http://example.com/2024/07/01/post/job/04-%E5%9B%BD%E9%99%85%E5%8C%96%E6%93%8D%E4%BD%9Ci18n/"/>
+        <content type="html"></content>
+        <category term="工作日志" scheme="http://example.com/categories/job/" />
+        <category term="job" scheme="http://example.com/tags/job/" />
+        <updated>2024-07-01T10:45:56.545Z</updated>
+    </entry>
     <entry>
         <id>http://example.com/2024/06/28/post/utils/utils/</id>
         <title>实用小工具</title>
@@ -39,6 +88,12 @@
 &lt;p&gt;使用 IObit Unlocker，您不会再收到 “无法删除文件”、“访问被拒绝”、“文件未删除”、“该文件正被另一个程序或用户使用” 或 “共享冲突” 等提示消息。它是一个强大的工具，通过终止所有阻止您删除或访问文件 / 文件夹的相关进程解决这些问题。&lt;/p&gt;
 &lt;p&gt;通过 “解锁 &amp;amp; 删除”、“解锁 &amp;amp; 重命名”、“解锁 &amp;amp; 移动” 和 “解锁 &amp;amp; 复制” 功能，为您提供了一种安全的方法修改您计算机上的文件和文件夹，以确保您的数据安全和磁盘的稳定性。&lt;/p&gt;
 &lt;p&gt;果核剥壳链接：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZ2h4aS5jb20vaW9iaXR1bmxvY2tlci5odG1s&#34;&gt;https://www.ghxi.com/iobitunlocker.html&lt;/span&gt;&lt;/p&gt;
+&lt;h4 id=&#34;7-spacesniffer磁盘分析工具&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#7-spacesniffer磁盘分析工具&#34;&gt;#&lt;/a&gt; 7、SpaceSniffer：磁盘分析工具&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;简介&lt;/strong&gt;：有时候我们在整理磁盘时，想知道磁盘中哪些文件或文件夹占用了多少空间，要是一个个文件夹点进去看，那岂不是非常浪费时间，对整体也没有一个很直观的印象。&lt;br /&gt;
+SpaceSniffer 可让您了解文件夹和文件在磁盘上的结构。通过使用可视化布局，您可以立即看到某个文件在磁盘中到底有 “多大”！看看是哪个文件夹或文件占用了大量空间，以便迅速一键删除。&lt;/p&gt;
+&lt;p&gt;果核剥壳链接：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZ2h4aS5jb20vc3BhY2VzbmlmZmVyLmh0bWw=&#34;&gt;https://www.ghxi.com/spacesniffer.html&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;开发工具&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#开发工具&#34;&gt;#&lt;/a&gt; 开发工具&lt;/h2&gt;
+&lt;h4 id=&#34;1-idea-jrebel热部署插件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#1-idea-jrebel热部署插件&#34;&gt;#&lt;/a&gt; 1、idea-&amp;gt;JRebel 热部署插件&lt;/h4&gt;
 </content>
         <category term="实用小工具" scheme="http://example.com/categories/utils/" />
         <category term="tools" scheme="http://example.com/tags/tools/" />
@@ -1833,24 +1888,22 @@ ii. 输出的测量结果成功概率可以通过输入状态精度进行调控�
         <updated>2024-06-10T05:42:16.000Z</updated>
     </entry>
     <entry>
-        <id>http://example.com/2024/06/09/post/webH/demo/</id>
-        <title>demo</title>
-        <link rel="alternate" href="http://example.com/2024/06/09/post/webH/demo/"/>
-        <content type="html">&lt;h1 id=&#34;暂时没有内容&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#暂时没有内容&#34;&gt;#&lt;/a&gt; 暂时没有内容&lt;/h1&gt;
+        <id>http://example.com/2024/06/09/post/springboot/01-java%E6%B5%81-Stream/</id>
+        <title>01-Java流-Stream</title>
+        <link rel="alternate" href="http://example.com/2024/06/09/post/springboot/01-java%E6%B5%81-Stream/"/>
+        <content type="html">&lt;h1 id=&#34;java基础吐血总结stream流操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#java基础吐血总结stream流操作&#34;&gt;#&lt;/a&gt; 【java 基础】吐血总结 Stream 流操作&lt;/h1&gt;
 </content>
-        <category term="web后端" scheme="http://example.com/categories/webH/" />
+        <category term="后端" scheme="http://example.com/categories/springboot/" />
         <category term="demo" scheme="http://example.com/tags/demo/" />
         <updated>2024-06-09T06:48:16.000Z</updated>
     </entry>
     <entry>
-        <id>http://example.com/2024/06/09/post/webQ/hello-world/</id>
+        <id>http://example.com/2024/06/09/post/vue/hello-world/</id>
         <title>暂时置顶文章</title>
-        <link rel="alternate" href="http://example.com/2024/06/09/post/webQ/hello-world/"/>
+        <link rel="alternate" href="http://example.com/2024/06/09/post/vue/hello-world/"/>
         <content type="html">&lt;h1 id=&#34;暂时没有内容窝&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#暂时没有内容窝&#34;&gt;#&lt;/a&gt; 暂时没有内容窝&lt;/h1&gt;
 </content>
-        <category term="web前端" scheme="http://example.com/categories/webQ/" />
-        <category term="demo" scheme="http://example.com/tags/demo/" />
-        <category term="demo2" scheme="http://example.com/tags/demo2/" />
+        <category term="前端" scheme="http://example.com/categories/vue/" />
         <updated>2024-06-09T04:34:29.549Z</updated>
     </entry>
 </feed>
