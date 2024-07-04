@@ -8,9 +8,72 @@
     <author>
       <name>ZoroJan</name>
     </author>
-    <updated>2024-07-03T09:34:49.804Z</updated>
+    <updated>2024-07-04T00:40:36.865Z</updated>
     <category term="鑫" />
     <category term="springboot" />
+    <entry>
+        <id>http://example.com/2024/07/04/post/hexo/01-Hexo%E4%B8%AD%E6%94%AF%E6%8C%81Latex%E5%85%AC%E5%BC%8F/</id>
+        <title>Hexo中支持Latex公式</title>
+        <link rel="alternate" href="http://example.com/2024/07/04/post/hexo/01-Hexo%E4%B8%AD%E6%94%AF%E6%8C%81Latex%E5%85%AC%E5%BC%8F/"/>
+        <content type="html">&lt;h1 id=&#34;hexo中支持latex公式&#34;&gt;Hexo中支持Latex公式&lt;/h1&gt;
+&lt;h2 id=&#34;关于hexo和主题&#34;&gt;关于Hexo和主题&lt;/h2&gt;
+&lt;p&gt;这个问题实际&lt;strong&gt;与主题无关&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;我用的是hexo和shoka截止目前的最新版本：&lt;/p&gt;
+&lt;p&gt;hexo：6.3.0&lt;/p&gt;
+&lt;p&gt;shoka：0.2.5&lt;/p&gt;
+&lt;h3 id=&#34;让hexo支持数学公式&#34;&gt;让Hexo支持数学公式&lt;/h3&gt;
+&lt;p&gt;其实要做的步骤很少：&lt;/p&gt;
+&lt;p&gt;1.首先卸载hexo-math和hexo-renderer-marked。然而hexo应该是没有自带hexo-math的，所以只需要卸载第二个就行。以防万一还是可以直接执行：&lt;/p&gt;
+&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm un hexo-math&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;npm un hexo-renderer-marked&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;​ 2.安装hexo-renderer-pandoc渲染器&lt;/p&gt;
+&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm i hexo-renderer-pandoc&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;​ 好，到此为止，需要的包就迭代好了。&lt;/p&gt;
+&lt;p&gt;3.然后是配置主题配置下的mathjax设置。我用的是butterfly，那么对应路径是： _config.yml&lt;/p&gt;
+&lt;figure class=&#34;highlight yml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# MathJax&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;mathjax:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;enable:&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;per_page:&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;pandoc报错&#34;&gt;Pandoc报错&lt;/h3&gt;
+&lt;p&gt;理论上到这一步就可以用了对吧，一般的教程也都这样。就算再外加一步，我学习的那篇文章里提到，接下来还应该去Pandoc官网下载最新版本pandoc：&lt;a
+href=&#34;https://pandoc.org/index.html&#34;&gt;Pandoc - About pandoc&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;关于pandoc下载安装教程随便查一下就有，这里就不说明了。然后再在环境配置配置了pandoc路径，直到你可以在cmd输入以下命令查看它的版本：&lt;/p&gt;
+&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pandoc -v&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;我的输出：&lt;/p&gt;
+&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pandoc 2.19.2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Compiled with pandoc-types 1.22.2.1, texmath 0.12.5.2, skylighting 0.13,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;citeproc 0.8.0.1, ipynb 0.2, hslua 2.2.1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Scripting engine: Lua 5.4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;​ 有的朋友可能到这一步就发现不对了，不要慌，接下来才是重点。&lt;/p&gt;
+&lt;h3 id=&#34;注意都有可能出现的错误&#34;&gt;注意：都有可能出现的错误&lt;/h3&gt;
+&lt;p&gt;先回到hexo目录，执行hexo -s,如果你没有出现这个报错：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;red&#34;&gt;&lt;strong&gt;pandoc exited with code 9: pandoc: Unknown
+extension: smart&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;找到了这篇文章：&lt;a
+href=&#34;https://www.cnblogs.com/diralpo/p/12542450.html&#34;&gt;配置hexo时遇到的问题
+- diralpo - 博客园 (cnblogs.com)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;从这篇文章得知，导致该报错的原因是pandoc版本过低
+，而且还不是一般原因引起的版本过低，因为前面我们已经安装了最新版本的pandoc。但是最新版本的没起作用。于是我打开了everything查找电脑上存在的pandoc。然后发现位于Anaconda，真正问题也出在这儿。&lt;/p&gt;
+&lt;p&gt;是因为Anaconda安装的pandoc版本过低，而且hexo默认使用的是Anaconda的pandoc。&lt;/p&gt;
+&lt;p&gt;不信的话你去找找，那个pandoc居然是2017年的。在某一篇文章得知，pandoc版本应该在2.0以上，但那个pandoc好像是1.9。那接下来的就简单了，直接把新下载的pandoc.exe替换Anaconda里的pandoc.exe。&lt;/p&gt;
+&lt;p&gt;可以用everything工具查询pandoc.exe将新安装好替换掉Anaconda里的pandoc.exe。&lt;/p&gt;
+&lt;figure&gt;
+&lt;img data-src=&#34;D:\Pictures\typore\006V2BDqly8hrbpura5igj30kb03jwf8.jpg&#34;
+alt=&#34;image-20240704084915745&#34; /&gt;
+&lt;figcaption aria-hidden=&#34;true&#34;&gt;image-20240704084915745&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;figure&gt;
+&lt;img data-src=&#34;D:\Pictures\typore\006V2BDqly8hrbptog7pfj30ma0bmjtp.jpg&#34;
+alt=&#34;alt&#34; /&gt;
+&lt;figcaption aria-hidden=&#34;true&#34;&gt;alt&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;然后你在回去hexo -s，就没问题了。&lt;/p&gt;
+&lt;h3 id=&#34;换行问题&#34;&gt;换行问题&lt;/h3&gt;
+&lt;p&gt;​
+其实做到上一步，换行问题也已经随之解决了。不过这里还是提一下关于这个换行。&lt;/p&gt;
+&lt;p&gt;首先，想直接通过 ，end这种写法是做不到换行的，我最开始就是纠结于这个，然而这写法本来也不规范，例如：A
+  B
+是不能达到换行的。但是在加上规范的begin和end就可以了。其次，换行公式应该写成行间公式而非行内公式。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;$A \\ B$  错误写法&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;\begin&amp;#123;split&amp;#125; A\\B \end&amp;#123;split&amp;#125; 写在行内错误，写在行间正确。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+        <category term="博客" scheme="http://example.com/categories/hexo/" />
+        <category term="hexo" scheme="http://example.com/tags/hexo/" />
+        <category term="Latex" scheme="http://example.com/tags/Latex/" />
+        <updated>2024-07-04T00:40:36.865Z</updated>
+    </entry>
     <entry>
         <id>http://example.com/2024/07/03/post/biao/cryptology/Exercise%202/</id>
         <title>Exercise 2</title>
