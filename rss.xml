@@ -10,10 +10,135 @@
         </author>
         <description>我的个人博客</description>
         <language>zh-CN,en,default</language>
-        <pubDate>Thu, 04 Jul 2024 08:40:36 +0800</pubDate>
-        <lastBuildDate>Thu, 04 Jul 2024 08:40:36 +0800</lastBuildDate>
+        <pubDate>Fri, 05 Jul 2024 16:33:29 +0800</pubDate>
+        <lastBuildDate>Fri, 05 Jul 2024 16:33:29 +0800</lastBuildDate>
         <category term="鑫" />
         <category term="springboot" />
+        <item>
+            <guid isPermalink="true">http://example.com/2024/07/05/post/springboot/03-Mybatis-Plus%20@SqlParser%E6%B3%A8%E8%A7%A3/</guid>
+            <title>03-Mybatis-Plus @SqlParser注解</title>
+            <link>http://example.com/2024/07/05/post/springboot/03-Mybatis-Plus%20@SqlParser%E6%B3%A8%E8%A7%A3/</link>
+            <category term="后端" scheme="http://example.com/categories/springboot/" />
+            <category term="Mybatis-Plus" scheme="http://example.com/tags/Mybatis-Plus/" />
+            <pubDate>Fri, 05 Jul 2024 16:33:29 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;mybatis-plus-sqlparser注解&#34;&gt;Mybatis-Plus &lt;span class=&#34;citation&#34;
+data-cites=&#34;SqlParser注解&#34;&gt;@SqlParser注解&lt;/span&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;span class=&#34;citation&#34; data-cites=&#34;SqlParser&#34;&gt;@SqlParser&lt;/span&gt;
+注解在&lt;a
+href=&#34;https://so.csdn.net/so/search?q=多租户&amp;amp;spm=1001.2101.3001.7020&#34;&gt;多租户&lt;/a&gt;的模式下，用来过滤的注解，在最新的
+Mybatis Plus 中这个 &lt;span class=&#34;citation&#34;
+data-cites=&#34;SqlParser1&#34;&gt;@SqlParser1&lt;/span&gt; 注解已经过时。&lt;/p&gt;
+&lt;h4 id=&#34;那什么是多租户模式&#34;&gt;那什么是多租户模式？&lt;/h4&gt;
+&lt;p&gt;MyBatis
+的多租户模式是指在数据库设计和应用程序开发中，针对需要支持多个独立用户群体（如企业客户A、B、C等，每个都有各自的业务数据）的情况，通过一些特定的技术手段来处理。在这种模式下，我们通常会做以下几个步骤：&lt;/p&gt;
+&lt;ol type=&#34;1&#34;&gt;
+&lt;li&gt;&lt;strong&gt;数据库表设计&lt;/strong&gt;：为每个租户创建单独的数据表空间或者隔离区，比如添加一个&lt;code&gt;tenant_id&lt;/code&gt;字段用于标识租户。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mapper配置&lt;/strong&gt;：在MyBatis的mapper
+XML文件中，通过&lt;code&gt;where&lt;/code&gt;条件基于&lt;code&gt;tenant_id&lt;/code&gt;动态过滤查询结果，只返回对应租户的数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;事务管理&lt;/strong&gt;：在多租户环境下，可能需要为每个租户维护单独的数据库连接或事务，避免数据交叉污染。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;服务层封装&lt;/strong&gt;：在业务层，使用工厂模式或者策略模式，为每个租户创建对应的Service实例，调用对应的Mapper。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安全访问控制&lt;/strong&gt;：除了数据库层面，还需要在应用层对租户进行权限验证和访问控制。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;替代注解&#34;&gt;替代注解&lt;/h4&gt;
+&lt;p&gt;当我们的需要过滤多租户，我们就需要用 &lt;span class=&#34;citation&#34;
+data-cites=&#34;InterceptorIgnore&#34;&gt;@InterceptorIgnore&lt;/span&gt;(tenantLine =
+“1”) 注解来代替。&lt;/p&gt;
+&lt;p&gt;拦截忽略注解 &lt;span class=&#34;citation&#34;
+data-cites=&#34;InterceptorIgnore&#34;&gt;@InterceptorIgnore&lt;/span&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col style=&#34;width: 24%&#34; /&gt;
+&lt;col style=&#34;width: 9%&#34; /&gt;
+&lt;col style=&#34;width: 9%&#34; /&gt;
+&lt;col style=&#34;width: 56%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center;&#34;&gt;属性名&lt;/th&gt;
+&lt;th style=&#34;text-align: center;&#34;&gt;类型&lt;/th&gt;
+&lt;th style=&#34;text-align: center;&#34;&gt;默认值&lt;/th&gt;
+&lt;th style=&#34;text-align: center;&#34;&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;tenantLine&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;String&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;&#34;&#34;&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;行级租户&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;dynamicTableName&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;String&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;&#34;&#34;&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;动态表名&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;blockAttack&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;String&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;&#34;&#34;&lt;/td&gt;
+&lt;td
+style=&#34;text-align: center;&#34;&gt;攻击SQL阻断解析器，防止全表更新与删除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;iillegeSql&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;String&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;&#34;&#34;&lt;/td&gt;
+&lt;td style=&#34;text-align: center;&#34;&gt;垃圾SQL拦截&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;该注解作用于 xxMapper.java 方法之上 各属性代表对应的插件
+各属性不给值则默认为 false 设置为 true 忽略拦截 更多说明详见源码注释&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;citation&#34;
+data-cites=&#34;SqlParser&#34;&gt;@SqlParser&lt;/span&gt;(filter = true) 与 &lt;span
+class=&#34;citation&#34;
+data-cites=&#34;InterceptorIgnore&#34;&gt;@InterceptorIgnore&lt;/span&gt;(tenantLine =
+“1”) 等价&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2024/07/05/post/springboot/02-String%E3%80%81Date%E3%80%81LocalDate%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2/</guid>
+            <title>02-String、Date、LocalDate之间的转换</title>
+            <link>http://example.com/2024/07/05/post/springboot/02-String%E3%80%81Date%E3%80%81LocalDate%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2/</link>
+            <category term="后端" scheme="http://example.com/categories/springboot/" />
+            <category term="Java" scheme="http://example.com/tags/Java/" />
+            <category term="数据类型" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" />
+            <pubDate>Fri, 05 Jul 2024 15:17:27 +0800</pubDate>
+            <description><![CDATA[ &lt;h1
+id=&#34;stringdatelocaldate之间的转换&#34;&gt;String、Date、LocalDate之间的转换&lt;/h1&gt;
+&lt;h3 id=&#34;一date和string&#34;&gt;一、Date和String&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用SimpleDateFormat对象指定目标日期格式&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;date转string&#34;&gt;1、Date转String&lt;/h4&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;//主要根据&amp;quot;yyyy-MM-dd HH:mm:ss&amp;quot;进行格式的变换&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;Date&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;date&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;Date&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;type&#34;&gt;SimpleDateFormat&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;formatter&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;SimpleDateFormat&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;yyyy-MM-dd HH:mm:ss&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	System.out.println(formatter.format(date));&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&#34;string转date&#34;&gt;2、String转Date&lt;/h4&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;date&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;2023-05-31 22:41:21&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;SimpleDateFormat&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;formatter&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;SimpleDateFormat&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;yyyy-MM-dd HH:mm:ss&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    System.out.println(formatter.parse(date));&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;二date和localdate&#34;&gt;二、Date和LocalDate&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;转变为中间对象Instant，都需要用到ZoneId时区&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;date转localdate&#34;&gt;1、Date转LocalDate&lt;/h4&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;====LocalDate====&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;Date&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;date&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;Date&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;LocalDate&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;localDate&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;System.out.println(localDate);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;====LocalDateTime====&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;LocalDateTime&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;localDateTime&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;System.out.println(localDateTime);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&#34;localdate转date&#34;&gt;2、LocalDate转Date&lt;/h4&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;ZoneId&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;zone&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; ZoneId.systemDefault();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;====LocalDate====&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;LocalDate&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;localDate&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; LocalDate.of(&lt;span class=&#34;number&#34;&gt;2023&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;5&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;31&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;Instant&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;instant&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; localDate.atStartOfDay().atZone(zone).toInstant();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    System.out.println(Date.from(instant));&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 	&lt;span class=&#34;type&#34;&gt;LocalDate&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;date2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; LocalDate.parse(&lt;span class=&#34;string&#34;&gt;&amp;quot;2023-05-13&amp;quot;&lt;/span&gt;, DateTimeFormatter.ISO_LOCAL_DATE);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;Instant&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;instant2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; date2.atStartOfDay().atZone(zone).toInstant();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    System.out.println(Date.from(instant2));&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;====LocalDateTime====&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;LocalDateTime&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;localDateTime2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; LocalDateTime.of(&lt;span class=&#34;number&#34;&gt;2023&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;5&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;31&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;23&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;13&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;Instant&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;instant3&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; localDateTime2.atZone(zone).toInstant();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    System.out.println(Date.from(instant3));&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;三localdate和string&#34;&gt;三、LocalDate和String&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;使用DateTimeFormatter指定目标日期格式&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;localdate转string&#34;&gt;1、LocalDate转String&lt;/h4&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;====LocalDate====&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;type&#34;&gt;DateTimeFormatter&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;df&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; DateTimeFormatter.ofPattern(&lt;span class=&#34;string&#34;&gt;&amp;quot;yyyy-MM-dd&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;type&#34;&gt;LocalDate&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;localDate&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; LocalDate.of(&lt;span class=&#34;string&#34;&gt;&amp;quot;2020-2-5&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;comment&#34;&gt;//LocalDate localDate = LocalDate.of(2020, 2, 5);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    System.out.println(localDate.format(df));&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;====LocalDateTime====&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;DateTimeFormatter&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;df3&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; DateTimeFormatter.ofPattern(YYYY_MM_DD_HH_MM_SS_12);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;comment&#34;&gt;//DateTimeFormatter df3 = DateTimeFormatter.ofPattern(&amp;quot;yyyy-MM-dd HH:mm:ss&amp;quot;);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;LocalDateTime&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;localDateTime&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; LocalDateTime.of(&lt;span class=&#34;number&#34;&gt;2020&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;5&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;14&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;30&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    System.out.println(df3.format(localDateTime));&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&#34;string转localdate&#34;&gt;2、String转LocalDate&lt;/h4&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;====LocalDate====&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;dateStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;2023-05-31&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;DateTimeFormatter&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;df&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; DateTimeFormatter.ofPattern(&lt;span class=&#34;string&#34;&gt;&amp;quot;yyyy-MM-dd&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    System.out.println(LocalDate.parse(dateStr, df));&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;====LocalDateTime====&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;timeStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;2023-05-31 16:41:21&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;DateTimeFormatter&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;df3&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; DateTimeFormatter.ofPattern(&lt;span class=&#34;string&#34;&gt;&amp;quot;yyyy-MM-dd HH:mm:ss&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    System.out.println(LocalDateTime.parse(timeStr, df3));&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;四localdate日期判断&#34;&gt;四、LocalDate日期判断&lt;/h3&gt;
+&lt;p&gt;例子：&lt;/p&gt;
+&lt;h4 id=&#34;判断月份与时间&#34;&gt;1、判断月份与时间&lt;/h4&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;DateTimeFormatter&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;df&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; DateTimeFormatter.ofPattern(&lt;span class=&#34;string&#34;&gt;&amp;quot;yyyy-MM-dd HH:mm:ss&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;LocalDateTime&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;time&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; LocalDateTime.parse(TimeStr,df);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;//判断是这个月的最后一天且 时间没有过中午十二点&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt;(time.getDayOfMonth()==time.getMonth().maxLength() &amp;amp;&amp;amp; sj.getHour()&amp;lt;&lt;span class=&#34;number&#34;&gt;12&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;//判断日期小于24号，如果为24号，也小于下午四点&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt;(time.getDayOfMonth()&amp;lt;&lt;span class=&#34;number&#34;&gt;24&lt;/span&gt; || (time.getDayOfMonth()==&lt;span class=&#34;number&#34;&gt;24&lt;/span&gt; &amp;amp;&amp;amp; time.getHour()&amp;lt;&lt;span class=&#34;number&#34;&gt;16&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&#34;设置时间&#34;&gt;2、设置时间&lt;/h4&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;//比time 多一个月，设1日  00:00:00&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;LocalDateTime&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;transDate&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; time.plusMonths(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;).withDayOfMonth(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;).withHour(&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;).withMinute(&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;).withSecond(&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://example.com/2024/07/04/post/hexo/01-Hexo%E4%B8%AD%E6%94%AF%E6%8C%81Latex%E5%85%AC%E5%BC%8F/</guid>
             <title>Hexo中支持Latex公式</title>
@@ -3238,6 +3363,8 @@ parallelStream 来输出空字符串的数量：&lt;/p&gt;
 &lt;h4 id=&#34;统计&#34;&gt;8、统计&lt;/h4&gt;
 &lt;p&gt;另外，一些产生统计结果的收集器也非常有用。它们主要用于int、double、long等基本类型上，它们可以用来产生类似如下的统计结果。&lt;/p&gt;
 &lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;List&amp;lt;Integer&amp;gt; numbers = Arrays.asList(&lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;7&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;5&lt;/span&gt;);  &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;IntSummaryStatistics&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;stats&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; numbers.stream().mapToInt((x) -&amp;gt; x).summaryStatistics();  System.out.println(&lt;span class=&#34;string&#34;&gt;&amp;quot;列表中最大的数 : &amp;quot;&lt;/span&gt; + stats.getMax()); &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;System.out.println(&lt;span class=&#34;string&#34;&gt;&amp;quot;列表中最小的数 : &amp;quot;&lt;/span&gt; + stats.getMin()); &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;System.out.println(&lt;span class=&#34;string&#34;&gt;&amp;quot;所有数之和 : &amp;quot;&lt;/span&gt; + stats.getSum()); &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;System.out.println(&lt;span class=&#34;string&#34;&gt;&amp;quot;平均数 : &amp;quot;&lt;/span&gt; + stats.getAverage());&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;一些例子&#34;&gt;一些例子&lt;/h3&gt;
+&lt;h4 id=&#34;section&#34;&gt;&lt;/h4&gt;
  ]]></description>
         </item>
         <item>
