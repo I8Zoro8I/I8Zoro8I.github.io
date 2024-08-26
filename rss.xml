@@ -10,10 +10,141 @@
         </author>
         <description>我的个人博客</description>
         <language>zh-CN,en,default</language>
-        <pubDate>Thu, 22 Aug 2024 18:02:07 +0800</pubDate>
-        <lastBuildDate>Thu, 22 Aug 2024 18:02:07 +0800</lastBuildDate>
+        <pubDate>Mon, 26 Aug 2024 17:12:33 +0800</pubDate>
+        <lastBuildDate>Mon, 26 Aug 2024 17:12:33 +0800</lastBuildDate>
         <category term="鑫" />
         <category term="springboot" />
+        <item>
+            <guid isPermalink="true">http://example.com/2024/08/26/post/golang/6-Gin-%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%90/</guid>
+            <title>5-Go框架</title>
+            <link>http://example.com/2024/08/26/post/golang/6-Gin-%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%90/</link>
+            <category term="Go" scheme="http://example.com/categories/Go/" />
+            <category term="go" scheme="http://example.com/tags/go/" />
+            <pubDate>Mon, 26 Aug 2024 17:12:33 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;goweb框架--gin&#34;&gt;GoWeb框架--Gin&lt;/h1&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">http://example.com/2024/08/26/post/golang/5-Gin-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/</guid>
+            <title>5-Gin-快速开始</title>
+            <link>http://example.com/2024/08/26/post/golang/5-Gin-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/</link>
+            <category term="Go" scheme="http://example.com/categories/Go/" />
+            <category term="go" scheme="http://example.com/tags/go/" />
+            <pubDate>Mon, 26 Aug 2024 16:53:08 +0800</pubDate>
+            <description><![CDATA[ &lt;h1
+id=&#34;go-web框架-gin-快速开始&#34;&gt;Go-&amp;gt;Web框架-&amp;gt;Gin-&amp;gt;快速开始&lt;/h1&gt;
+&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
+&lt;p&gt;Gin 是一个用 Go (Golang) 编写的 Web 框架。 它具有类似 martini 的
+API，性能要好得多，多亏了 &lt;code&gt;httprouter&lt;/code&gt;，速度提高了 40 倍。
+如果您需要性能和良好的生产力，您一定会喜欢
+Gin。Gin相比于Iris和Beego而言，更倾向于轻量化的框架，只负责Web部分，追求极致的路由性能，功能或许没那么全，胜在轻量易拓展，这也是它的优点。因此，在所有的Web框架中，Gin是最容易上手和学习的。&lt;/p&gt;
+&lt;h2 id=&#34;特性&#34;&gt;特性&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;快速&lt;/strong&gt;：基于 Radix
+树的路由，小内存占用。没有反射。可预测的 API 性能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;支持中间件&lt;/strong&gt;：传入的 HTTP
+请求可以由一系列中间件和最终操作来处理。
+例如：Logger，Authorization，GZIP，最终操作 DB。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Crash 处理&lt;/strong&gt;：Gin 可以 catch 一个发生在 HTTP 请求中的
+panic 并 recover 它。这样，你的服务器将始终可用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;JSON 验证&lt;/strong&gt;：Gin 可以解析并验证请求的
+JSON，例如检查所需值的存在。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;路由组&lt;/strong&gt;：更好地组织路由。是否需要授权，不同的 API
+版本…… 此外，这些组可以无限制地嵌套而不会降低性能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;错误管理&lt;/strong&gt;：Gin 提供了一种方便的方法来收集 HTTP
+请求期间发生的所有错误。最终，中间件可以将它们写入日志文件，数据库并通过网络发送。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内置渲染&lt;/strong&gt;：Gin 为 JSON，XML 和 HTML
+渲染提供了易于使用的 API。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可扩展性&lt;/strong&gt;：新建一个中间件非常简单&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;安装&#34;&gt;&lt;a
+href=&#34;https://golang.halfiisland.com/community/pkgs/web/gin.html#安装&#34;&gt;&lt;/a&gt;安装&lt;/h2&gt;
+&lt;p&gt;截止目前&lt;code&gt;2022/11/22&lt;/code&gt;，gin支持的go最低版本为&lt;code&gt;1.16&lt;/code&gt;，建议使用&lt;code&gt;go mod&lt;/code&gt;来管理项目依赖。&lt;/p&gt;
+&lt;figure class=&#34;highlight powershell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;go get &lt;span class=&#34;literal&#34;&gt;-u&lt;/span&gt; github.com/&lt;span class=&#34;built_in&#34;&gt;gin&lt;/span&gt;&lt;span class=&#34;literal&#34;&gt;-gonic&lt;/span&gt;/&lt;span class=&#34;built_in&#34;&gt;gin&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;导入&lt;/p&gt;
+&lt;figure class=&#34;highlight go&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;github.com/gin-gonic/gin&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;这边网站是github会出现下载超时问题如出现则重新配置代理&lt;/p&gt;
+&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt; go &lt;span class=&#34;built_in&#34;&gt;env&lt;/span&gt; -w GO111MODULE=on&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; go &lt;span class=&#34;built_in&#34;&gt;env&lt;/span&gt; -w GOPROXY=https://goproxy.cn,direct&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; go mod init &lt;span class=&#34;string&#34;&gt;&amp;quot;项目名称自己的&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;//安装MySQL驱动&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;go get -u gorm.io/driver/mysql&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;go get -u github.com/jinzhu/gorm&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;最后输入&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;go get -u github.com/gin-gonic/gin&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;结束后会出现go.mod文件&lt;/p&gt;
+&lt;p&gt;&lt;img
+src=&#34;https://dlink.host/wx2.sinaimg.cn/large/006V2BDqly8ht1dzztt85j310s0qrjwf.jpg&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;快速开始&#34;&gt;快速开始&lt;/h2&gt;
+&lt;p&gt;在demo2下创建main.go&lt;/p&gt;
+&lt;figure class=&#34;highlight go&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;package&lt;/span&gt; main&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;   &lt;span class=&#34;string&#34;&gt;&amp;quot;github.com/gin-gonic/gin&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;   &lt;span class=&#34;string&#34;&gt;&amp;quot;net/http&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;   engine := gin.Default() &lt;span class=&#34;comment&#34;&gt;//创建gin引擎&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;   engine.GET(&lt;span class=&#34;string&#34;&gt;&amp;quot;/ping&amp;quot;&lt;/span&gt;, &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(context *gin.Context)&lt;/span&gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      context.JSON(http.StatusOK, gin.H&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;         &lt;span class=&#34;string&#34;&gt;&amp;quot;message&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;pong&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;   &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;   engine.Run() &lt;span class=&#34;comment&#34;&gt;//开启服务器，默认监听localhost:8080&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;请求URL&lt;/p&gt;
+&lt;figure class=&#34;highlight go&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;GET localhost:&lt;span class=&#34;number&#34;&gt;8080&lt;/span&gt;/ping&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;返回&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;HTTP/1.1 200 OK&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Content-Type: application/json; charset=utf-8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Date: Tue, 22 Nov 2022 08:47:11 GMT&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Content-Length: 18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;quot;message&amp;quot;: &amp;quot;pong&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Response file saved.&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; 2022-11-22T164711.200.json&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img
+src=&#34;D:\Pictures\typore\006V2BDqly8ht1e6hxc7pj316p0qcq8r.jpg&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;基础框架搭建&#34;&gt;基础框架搭建&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;集成Swagger依赖&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在Gin框架中使用Swagger可以通过gin-swagger这个库来实现。你可以通过以下步骤来安装gin-swagger并集成Swagger：&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;go get -u github.com/swaggo/gin-swagger&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;go get -u github.com/swaggo/files&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;//安装swag命令行工具&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;go get -u github.com/swaggo/swag/cmd/swag&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;下载完之后在终端输入swag init产生docs文件。&lt;/p&gt;
+&lt;p&gt;&lt;img
+src=&#34;D:\Pictures\typore\006V2BDqly8ht1evrr89lj308y05aq33.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：如果产生报错--显示 &#39;swag&#39;
+不是内部或外部命令&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;swag : The term &amp;#x27;swag&amp;#x27; is not recognized as the name of a cmdlet, function, script file, or operable program. Check  &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;the spelling of the name, or if a path was included, verify that the path is correct and try again.&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;At line:1 char:1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;+ swag init&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;+ ~~~~&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    + CategoryInfo          : ObjectNotFound: (swag:String) [], CommandNotFoundException&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    + FullyQualifiedErrorId : CommandNotFoundException&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;进入到&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;C:\Users\你的用户名\go\pkg\mod\github.com\swaggo\swag@v1.8.7\cmd\swag&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后cmd，输入指令 &lt;code&gt;go install&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;C:\Users\你的用户名\go\bin   会有 swag.exe文件生成（保存路径时不带swag.exe）&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;将这个路径保存到环境变量即可&lt;/p&gt;
+&lt;h2 id=&#34;完成一个基础的登陆业务&#34;&gt;完成一个基础的登陆业务&lt;/h2&gt;
+&lt;h3
+id=&#34;创建common文件夹配置相关请求头以及请求状态&#34;&gt;创建common文件夹配置相关请求头以及请求状态&lt;/h3&gt;
+&lt;p&gt;ApiResponseEnum.go文件配置相关的请求头&lt;/p&gt;
+&lt;figure class=&#34;highlight go&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;33&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;package&lt;/span&gt; API&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;type&lt;/span&gt; ApiResponseEnum &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	AIREADY_EXISTS   ApiResponseEnum = &lt;span class=&#34;string&#34;&gt;&amp;quot;-4:密码重复&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	SUCCESS          ApiResponseEnum = &lt;span class=&#34;string&#34;&gt;&amp;quot;0:成功&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	ERROR_PARAM      ApiResponseEnum = &lt;span class=&#34;string&#34;&gt;&amp;quot;-2:参数错误&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	ERROR_DATA_EMPTY ApiResponseEnum = &lt;span class=&#34;string&#34;&gt;&amp;quot;-3:无数据&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	FAIL             ApiResponseEnum = &lt;span class=&#34;string&#34;&gt;&amp;quot;-1:失败&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;params&#34;&gt;(a ApiResponseEnum)&lt;/span&gt;&lt;/span&gt; GetCode() &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	codeMap := &lt;span class=&#34;keyword&#34;&gt;map&lt;/span&gt;[ApiResponseEnum]&lt;span class=&#34;type&#34;&gt;string&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		AIREADY_EXISTS:   &lt;span class=&#34;string&#34;&gt;&amp;quot;-4&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		SUCCESS:          &lt;span class=&#34;string&#34;&gt;&amp;quot;0&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		ERROR_PARAM:      &lt;span class=&#34;string&#34;&gt;&amp;quot;-2&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		ERROR_DATA_EMPTY: &lt;span class=&#34;string&#34;&gt;&amp;quot;-3&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		FAIL:             &lt;span class=&#34;string&#34;&gt;&amp;quot;-1&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; codeMap[a]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;params&#34;&gt;(a ApiResponseEnum)&lt;/span&gt;&lt;/span&gt; GetName() &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	codeMsgMap := &lt;span class=&#34;keyword&#34;&gt;map&lt;/span&gt;[ApiResponseEnum]&lt;span class=&#34;type&#34;&gt;string&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		AIREADY_EXISTS:   &lt;span class=&#34;string&#34;&gt;&amp;quot;密码重复&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		SUCCESS:          &lt;span class=&#34;string&#34;&gt;&amp;quot;成功&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		ERROR_PARAM:      &lt;span class=&#34;string&#34;&gt;&amp;quot;参数错误&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		ERROR_DATA_EMPTY: &lt;span class=&#34;string&#34;&gt;&amp;quot;无数据&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		FAIL:             &lt;span class=&#34;string&#34;&gt;&amp;quot;失败&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; codeMsgMap[a]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;ApiResponseObject获取请求状态&lt;/p&gt;
+&lt;figure class=&#34;highlight go&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;31&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;package&lt;/span&gt; API&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;type&lt;/span&gt; ApiResponseObject &lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	ErrorCode &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt;      &lt;span class=&#34;string&#34;&gt;`json:&amp;quot;errorCode&amp;quot;`&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	ErrorMsg  &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt;      &lt;span class=&#34;string&#34;&gt;`json:&amp;quot;errorMsg&amp;quot;`&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	Data      &lt;span class=&#34;keyword&#34;&gt;interface&lt;/span&gt;&amp;#123;&amp;#125; &lt;span class=&#34;string&#34;&gt;`json:&amp;quot;data&amp;quot;`&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;params&#34;&gt;(response *ApiResponseObject)&lt;/span&gt;&lt;/span&gt; GetErrorCode() &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; response.ErrorCode&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;params&#34;&gt;(response *ApiResponseObject)&lt;/span&gt;&lt;/span&gt; SetErrorCode(errorCode &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	response.ErrorCode = errorCode&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;params&#34;&gt;(response *ApiResponseObject)&lt;/span&gt;&lt;/span&gt; GetErrorMsg() &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; response.ErrorMsg&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;params&#34;&gt;(response *ApiResponseObject)&lt;/span&gt;&lt;/span&gt; SetErrorMsg(errorMsg &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	response.ErrorMsg = errorMsg&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;params&#34;&gt;(response *ApiResponseObject)&lt;/span&gt;&lt;/span&gt; GetData() &lt;span class=&#34;keyword&#34;&gt;interface&lt;/span&gt;&amp;#123;&amp;#125; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; response.Data&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;params&#34;&gt;(response *ApiResponseObject)&lt;/span&gt;&lt;/span&gt; SetData(data &lt;span class=&#34;keyword&#34;&gt;interface&lt;/span&gt;&amp;#123;&amp;#125;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	response.Data = data&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;HttpClientTool配置请求接口&lt;/p&gt;
+&lt;figure class=&#34;highlight go&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;package&lt;/span&gt; API&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; LOGIN &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt; =  &lt;span class=&#34;string&#34;&gt;&amp;quot;/login&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&#34;controllers发布接口文件夹&#34;&gt;controllers发布接口文件夹&lt;/h3&gt;
+&lt;p&gt;bstractApiController.go数据处理文件&lt;/p&gt;
+&lt;figure class=&#34;highlight go&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;package&lt;/span&gt; controllerspackage&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	API &lt;span class=&#34;string&#34;&gt;&amp;quot;YV/common&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;string&#34;&gt;&amp;quot;github.com/gin-gonic/gin&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;string&#34;&gt;&amp;quot;net/http&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;ReponseJSON&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(errorCode &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt;, errorMsg &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt;, resData &lt;span class=&#34;keyword&#34;&gt;interface&lt;/span&gt;&amp;#123;&amp;#125;)&lt;/span&gt;&lt;/span&gt; API.ApiResponseObject &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	apiResponseObject := API.ApiResponseObject&amp;#123;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	apiResponseObject.SetData(resData)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	apiResponseObject.SetErrorMsg(errorMsg)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	apiResponseObject.SetErrorCode(errorCode)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; apiResponseObject&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;根据项目要求创建相应的文件我这里创建LOGIN文件等其他配置完成在写&lt;/p&gt;
+&lt;p&gt;&lt;img
+src=&#34;D:\Pictures\typore\006V2BDqly8ht1f1xxbmrj30a7095q3g.jpg&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;model数据库配置以及增删改查&#34;&gt;model数据库配置以及增删改查&lt;/h3&gt;
+&lt;p&gt;&lt;img
+src=&#34;D:\Pictures\typore\006V2BDqly8ht1f7499xwj307203lq2u.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;像这样创建文件夹&lt;/p&gt;
+&lt;p&gt;core.go配置数据库连接&lt;/p&gt;
+&lt;figure class=&#34;highlight go&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;package&lt;/span&gt; v1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;string&#34;&gt;&amp;quot;fmt&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; dsn &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;LV1&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt;&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;comment&#34;&gt;// 参考 https://github.com/go-sql-driver/mysql#dsn-data-source-name 获取详情&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	username := &lt;span class=&#34;string&#34;&gt;&amp;quot;root&amp;quot;&lt;/span&gt;   &lt;span class=&#34;comment&#34;&gt;//账号&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	password := &lt;span class=&#34;string&#34;&gt;&amp;quot;123456&amp;quot;&lt;/span&gt; &lt;span class=&#34;comment&#34;&gt;//密码&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	host := &lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;           &lt;span class=&#34;comment&#34;&gt;//数据库地123456址，可以是Ip或者域名&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	port := &lt;span class=&#34;number&#34;&gt;3306&lt;/span&gt;         &lt;span class=&#34;comment&#34;&gt;//数据库端口&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	Dbname := &lt;span class=&#34;string&#34;&gt;&amp;quot;demo&amp;quot;&lt;/span&gt;     &lt;span class=&#34;comment&#34;&gt;//数据库名&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	timeout := &lt;span class=&#34;string&#34;&gt;&amp;quot;10s&amp;quot;&lt;/span&gt;     &lt;span class=&#34;comment&#34;&gt;//连接超时，10秒&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;comment&#34;&gt;//拼接下dsn参数, dsn格式可以参考上面的语法，这里使用Sprintf动态拼接dsn参数，因为一般数据库连接参数，我们都是保存在配置文件里面，需要从配置文件加载参数，然后拼接dsn。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	dsn = fmt.Sprintf(&lt;span class=&#34;string&#34;&gt;&amp;quot;%s:%s@tcp(%s:%d)/%s?charset=utf8&amp;amp;parseTime=True&amp;amp;loc=Local&amp;amp;timeout=%s&amp;quot;&lt;/span&gt;, username, password, host, port, Dbname, timeout)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; dsn&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;初始化数据库代码，后面加到main.go&lt;/p&gt;
+&lt;figure class=&#34;highlight go&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;package&lt;/span&gt; dataBase&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	_ &lt;span class=&#34;string&#34;&gt;&amp;quot;demo2/model/dataBase/v1&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	v1 &lt;span class=&#34;string&#34;&gt;&amp;quot;demo2/model/dataBase/v1&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;string&#34;&gt;&amp;quot;fmt&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;string&#34;&gt;&amp;quot;gorm.io/driver/mysql&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;string&#34;&gt;&amp;quot;gorm.io/gorm&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; err &lt;span class=&#34;type&#34;&gt;error&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; DB *gorm.DB&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; Base &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;init&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	Base = v1.LV1() &lt;span class=&#34;comment&#34;&gt;//切换L1数据库&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	DB, err = gorm.Open(mysql.Open(Base), &amp;amp;gorm.Config&amp;#123;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; err != &lt;span class=&#34;literal&#34;&gt;nil&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		fmt.Println(&lt;span class=&#34;string&#34;&gt;&amp;quot;连接数据库失败, error=&amp;quot;&lt;/span&gt; + err.Error())&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3
+id=&#34;创建router文件夹里面创建app.go主要管理所有发布接口&#34;&gt;创建router文件夹里面创建app.go主要管理所有发布接口&lt;/h3&gt;
+&lt;p&gt;app.go&lt;/p&gt;
+&lt;figure class=&#34;highlight go&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;package&lt;/span&gt; router&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;string&#34;&gt;&amp;quot;github.com/gin-gonic/gin&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;Router&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt;&lt;/span&gt; *gin.Engine &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	r := gin.Default()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; r&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3
+id=&#34;创建services文件夹管理各自接口&#34;&gt;创建services文件夹管理各自接口&lt;/h3&gt;
+&lt;h3 id=&#34;最后修改main文件&#34;&gt;最后修改main文件&lt;/h3&gt;
+&lt;figure class=&#34;highlight go&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;package&lt;/span&gt; main&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	v1 &lt;span class=&#34;string&#34;&gt;&amp;quot;demo2/model/dataBase/v1&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;string&#34;&gt;&amp;quot;demo2/router&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;string&#34;&gt;&amp;quot;fmt&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;string&#34;&gt;&amp;quot;gorm.io/driver/mysql&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;string&#34;&gt;&amp;quot;gorm.io/gorm&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; err &lt;span class=&#34;type&#34;&gt;error&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; DB *gorm.DB&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; Base &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;init&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	Base = v1.LV1() &lt;span class=&#34;comment&#34;&gt;//切换L1数据库&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	DB, err = gorm.Open(mysql.Open(Base), &amp;amp;gorm.Config&amp;#123;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; err != &lt;span class=&#34;literal&#34;&gt;nil&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		fmt.Println(&lt;span class=&#34;string&#34;&gt;&amp;quot;连接数据库失败, error=&amp;quot;&lt;/span&gt; + err.Error())&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	r := router.Router()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	err := r.Run()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; err != &lt;span class=&#34;literal&#34;&gt;nil&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;成品如下：&lt;/p&gt;
+&lt;p&gt;&lt;img
+src=&#34;D:\Pictures\typore\006V2BDqly8ht1otcjikdj312c0l6q4x.jpg&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;简单使用&#34;&gt;简单使用&lt;/h3&gt;
+&lt;p&gt;完成一个简单的查询使用 查询id 为1 的用户&lt;/p&gt;
+&lt;p&gt;1.在HttpClientTool.go文件中生成接口&lt;/p&gt;
+&lt;figure class=&#34;highlight go&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;package&lt;/span&gt; API&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; LOGIN &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&amp;quot;/login&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;const&lt;/span&gt; GETUSER &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt; = &lt;span class=&#34;string&#34;&gt;&amp;quot;/get/user&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;2.在services文件下生UserService.go文件调用API以及调用还没有创建的方法&lt;/p&gt;
+&lt;figure class=&#34;highlight go&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;package&lt;/span&gt; services&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    API &lt;span class=&#34;string&#34;&gt;&amp;quot;demo2/common&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    controllerspackage &lt;span class=&#34;string&#34;&gt;&amp;quot;demo2/controllers&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;fmt&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;github.com/gin-gonic/gin&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;UserService&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(r *gin.Engine)&lt;/span&gt;&lt;/span&gt; *gin.Engine &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    fmt.Println(&lt;span class=&#34;string&#34;&gt;&amp;quot;注册路由&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    r.GET(API.GETUSER, controllerspackage.GetUserImpl)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; r&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;3.在app.go声明&lt;/p&gt;
+&lt;figure class=&#34;highlight go&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;package&lt;/span&gt; router&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;string&#34;&gt;&amp;quot;demo2/services&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;string&#34;&gt;&amp;quot;fmt&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;string&#34;&gt;&amp;quot;github.com/gin-gonic/gin&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;Router&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt;&lt;/span&gt; *gin.Engine &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	r := gin.Default()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	services.UserService(r)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; r&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;4.在model文件夹下的user.go文件中启动查询方法&lt;/p&gt;
+&lt;figure class=&#34;highlight go&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;38&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;package&lt;/span&gt; model&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;string&#34;&gt;&amp;quot;gorm.io/gorm&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;type&lt;/span&gt; User &lt;span class=&#34;keyword&#34;&gt;struct&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	Id   &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt;    &lt;span class=&#34;string&#34;&gt;`json:&amp;quot;id&amp;quot; gorm:&amp;quot;column:id&amp;quot;`&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	Name &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;`json:&amp;quot;name&amp;quot; gorm:&amp;quot;column:name&amp;quot;`&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	Tel  &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;`json:&amp;quot;tel&amp;quot; gorm:&amp;quot;column:tel&amp;quot;`&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;params&#34;&gt;(User)&lt;/span&gt;&lt;/span&gt; TableName() &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;user&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125; &lt;span class=&#34;comment&#34;&gt;//作用是指到user表&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// SelectUser selectUser查询&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;SelectUser&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(db *gorm.DB, userId &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt; ([]User, &lt;span class=&#34;type&#34;&gt;error&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; users []User&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	result := db.Where(&lt;span class=&#34;string&#34;&gt;&amp;quot;id = ?&amp;quot;&lt;/span&gt;, userId).Find(&amp;amp;users)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;len&lt;/span&gt;(users) == &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; users, result.Error&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; users, &lt;span class=&#34;literal&#34;&gt;nil&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// updateUser 修改&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;UpdateUser&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(db *gorm.DB, userId &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt;, name &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt; (&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt;, &lt;span class=&#34;type&#34;&gt;error&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; user User&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	result := db.Model(&amp;amp;user).Where(&lt;span class=&#34;string&#34;&gt;&amp;quot;id = ?&amp;quot;&lt;/span&gt;, userId).Update(&lt;span class=&#34;string&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;, name)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; result.Error != &lt;span class=&#34;literal&#34;&gt;nil&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;comment&#34;&gt;//创建记录时出现错误&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, result.Error&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;comment&#34;&gt;//修改成功&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, &lt;span class=&#34;literal&#34;&gt;nil&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;5.在controllers创建GetUserImpl方法&lt;/p&gt;
+&lt;figure class=&#34;highlight go&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;package&lt;/span&gt; controllerspackage&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; (&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	API &lt;span class=&#34;string&#34;&gt;&amp;quot;demo2/common&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;string&#34;&gt;&amp;quot;demo2/model&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;string&#34;&gt;&amp;quot;demo2/model/dataBase&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;string&#34;&gt;&amp;quot;github.com/gin-gonic/gin&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;string&#34;&gt;&amp;quot;net/http&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;ReponseJSON&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(errorCode &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt;, errorMsg &lt;span class=&#34;type&#34;&gt;string&lt;/span&gt;, resData &lt;span class=&#34;keyword&#34;&gt;interface&lt;/span&gt;&amp;#123;&amp;#125;)&lt;/span&gt;&lt;/span&gt; API.ApiResponseObject &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	apiResponseObject := API.ApiResponseObject&amp;#123;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	apiResponseObject.SetData(resData)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	apiResponseObject.SetErrorMsg(errorMsg)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	apiResponseObject.SetErrorCode(errorCode)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; apiResponseObject&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;title&#34;&gt;GetUserImpl&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(ctx *gin.Context)&lt;/span&gt;&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;//查询id为1的用户&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	Status, _ := model.SelectUser(dataBase.DB, &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; Status == &lt;span class=&#34;literal&#34;&gt;nil&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		ctx.JSON(http.StatusNotFound, ReponseJSON(API.FAIL.GetCode(), API.FAIL.GetName(), &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		&lt;span class=&#34;comment&#34;&gt;//打印返回值&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;		ctx.JSON(http.StatusOK, ReponseJSON(API.SUCCESS.GetCode(), API.SUCCESS.GetName(), Status))&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;启动main使用工具访问&lt;/p&gt;
+&lt;p&gt;&lt;img
+src=&#34;D:\Pictures\typore\006V2BDqly8ht1ovhwstzj30i90ek752.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;OK，就完成了一个简单的查询业务！&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://example.com/2024/08/22/post/golang/3-Go%E6%8C%87%E5%8D%97-%E6%B3%9B%E5%9E%8B/</guid>
             <title>3-Go指南-泛型</title>
@@ -2328,1127 +2459,6 @@ SpaceSniffer 可让您了解文件夹和文件在磁盘上的结构。通过使�
 &lt;h4 id=&#34;idea-jrebel热部署插件&#34;&gt;1、idea-&amp;gt;JRebel热部署插件&lt;/h4&gt;
 &lt;h4 id=&#34;datagrip-数据库jetbrains系列工具&#34;&gt;2、DataGrip
 数据库jetbrains系列工具&lt;/h4&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://example.com/2024/06/27/post/cloud/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E7%A1%80%E7%89%88%EF%BC%89/</guid>
-            <title>云服务器部署-基础版本（前后端）</title>
-            <link>http://example.com/2024/06/27/post/cloud/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E7%A1%80%E7%89%88%EF%BC%89/</link>
-            <category term="微服务框架" scheme="http://example.com/categories/cloud/" />
-            <category term="Spring Cloud" scheme="http://example.com/tags/Spring-Cloud/" />
-            <category term="云服务" scheme="http://example.com/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1/" />
-            <pubDate>Thu, 27 Jun 2024 17:49:15 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;云服务器&#34;&gt;云服务器&lt;/h1&gt;
-&lt;p&gt;基础版本（前后端），部署毕设时所用&lt;/p&gt;
-&lt;h2 id=&#34;服务器&#34;&gt;1.服务器&lt;/h2&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lY3MuY29uc29sZS5hbGl5dW4uY29tL3NlcnZlci9yZWdpb24vY24taGV5dWFu&#34;&gt;https://ecs.console.aliyun.com/server/region/cn-heyuan&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;操作系统 CentOs 7.9 Linux&lt;/p&gt;
-&lt;p&gt;重置密码**********&lt;/p&gt;
-&lt;h4 id=&#34;添加安全组-开启端口号&#34;&gt;添加安全组 开启端口号&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;Mysql 3306
-http 80
-springboot 8084
-vue 5173&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&#34;工具&#34;&gt;工具&lt;/h4&gt;
-&lt;p&gt;xshell：linux终端连接&lt;/p&gt;
-&lt;p&gt;xftp：文件传输&lt;/p&gt;
-&lt;h2 id=&#34;常用命令&#34;&gt;2.常用命令&lt;/h2&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;free -h 查看内存&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;df-h  查看存储&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;top  运行软件&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;根据端口号查看进程&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kill &amp;lt;PID&amp;gt;杀死进程&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;//如果 lsof 命令未找到，则可能是因为它没有安装在您的系统上。lsof 是一个用于列出打开文件的工具，可以用于查看正在使用指定端口的进程。在大多数 Linux 发行版中，lsof 可能不会预装，您需要手动安装它。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo yum install lsof&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo lsof -i :8084&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;//检查防火墙规则以确保 8084 端口被允许通过&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo netstat -tuln | grep 8084&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&#34;jdk&#34;&gt;JDK&lt;/h2&gt;
-&lt;p&gt;下载链接：&lt;a
-href=&#34;https://www.oracle.com/cn/java/technologies/downloads/#java17&#34;
-class=&#34;uri&#34;&gt;https://www.oracle.com/cn/java/technologies/downloads/#java17&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;命令&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1.安装jdk&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tar -zxvf jdk-*.tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2.重命名&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; mv jdk-17.0.10 jdk17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3.移动&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;mv jdk17 /usr/local/&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4.修改配置文件&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cd /usr/local/&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;vim /etc/profile&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;(按a或者i 进去编译模式  :wq保存退出)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5.添加配置&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;export JAVA_HOME=/usr/local/jdk17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;export CLASSPATH=$:CLASSPATH:$JAVA_HOME/lib/&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;export PATH=$PATH:$JAVA_HOME/bin&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cat /etc/profile（查看是否更改成功）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6.刷新配置&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;source /etc/profile&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7.检查是否安装成功&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;java -version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&#34;docker&#34;&gt;docker&lt;/h2&gt;
-&lt;p&gt;菜鸟教程：&lt;a
-href=&#34;https://www.runoob.com/docker/centos-docker-install.html&#34;
-class=&#34;uri&#34;&gt;https://www.runoob.com/docker/centos-docker-install.html&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&#34;手动安装&#34;&gt;1.手动安装&lt;/h4&gt;
-&lt;p&gt;1.卸载旧版本&lt;/p&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sudo yum remove docker \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                  docker-client \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                  docker-client-latest \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                  docker-common \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                  docker-latest \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                  docker-latest-logrotate \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                  docker-logrotate \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                  docker-engine&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;2.安装所需软件包&lt;/p&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sudo yum install -y yum-utils \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  device-mapper-persistent-data \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  lvm2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;3.设置仓库 阿里云&lt;/p&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sudo yum-config-manager \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    --add-repo \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;4.安装 Docker Engine-Community&lt;/p&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sudo yum install docker-ce docker-ce-cli containerd.io docker-compose-plugin&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h4 id=&#34;启动docker&#34;&gt;2.启动docker&lt;/h4&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sudo systemctl start docker&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker version 验证成功&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;用户设置Docker需要用户具有sudo权限，为了避免每次命令都输入sudo，可以把用户加入到Dokcer用户组&lt;/p&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sudo usermod -aG docker &lt;span class=&#34;variable&#34;&gt;$USER&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;查看镜像文件&lt;/p&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;docker images&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker ps 查看所有进程&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;设置开机自启&lt;/p&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;systemctl &lt;span class=&#34;built_in&#34;&gt;enable&lt;/span&gt; docker&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;镜像加速&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sudo mkdir -p /etc/docker&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo tee /etc/docker/daemon.json &amp;lt;&amp;lt;-&amp;#x27;EOF&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;quot;registry-mirrors&amp;quot;: [&amp;quot;https://3n4m4jry.mirror.aliyuncs.com&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;EOF&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo systemctl daemon-reload&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo systemctl restart docker&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h4 id=&#34;卸载docker&#34;&gt;卸载docker&lt;/h4&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;删除安装包：&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;yum remove docker-ce&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;删除镜像、容器、配置文件等内容：&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;rm&lt;/span&gt; -rf /var/lib/docker&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;docker-安装mysql&#34;&gt;docker 安装mysql&lt;/h3&gt;
-&lt;p&gt;安装mysql&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;docker pull mysql:8.0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;启动mysql&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;docker run -p 3306:3306 --name mysql \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;-v /mydata/mysql/log:/var/log/mysql \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;-v /mydata/mysql/data:/var/lib/mysql \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;-v /mydata/mysql/conf:/etc/mysql \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;-e MYSQL_ROOT_PASSWORD=root \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;-d mysql:8.0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker run -p 3309:3306 --name mysql \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;-e MYSQL_ROOT_PASSWORD=root \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;-d mysql:8.0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker run -p 3309:3306 --name mysql3309 \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;-v /mydata/mysql3309/log:/var/log/mysql \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;-v /mydata/mysql3309/data:/var/lib/mysql \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;-v /mydata/mysql3309/conf:/etc/mysql \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;-e MYSQL_ROOT_PASSWORD=root \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;-d mysql:8.0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;//用这个就可以&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=cyx -d mysql:8.0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker start mysql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;进入容器命令&lt;/p&gt;
-&lt;figure&gt;
-&lt;img data-src=&#34;D:\Pictures\typore\image-20240408222327539.png&#34;
-alt=&#34;image-20240408222327539&#34; /&gt;
-&lt;figcaption aria-hidden=&#34;true&#34;&gt;image-20240408222327539&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;//进入mysql容器&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker &lt;span class=&#34;built_in&#34;&gt;exec&lt;/span&gt; -it 8388d7a823cb /bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;//登录mysql&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;mysql -uroot -pcyx123(账号密码)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;//修改权限&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ALTER USER &lt;span class=&#34;string&#34;&gt;&amp;#x27;root&amp;#x27;&lt;/span&gt;@&lt;span class=&#34;string&#34;&gt;&amp;#x27;%&amp;#x27;&lt;/span&gt; IDENTIFIED WITH mysql_native_password BY &lt;span class=&#34;string&#34;&gt;&amp;#x27;cyx123&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;//修改密码&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ALTER USER &lt;span class=&#34;string&#34;&gt;&amp;#x27;root&amp;#x27;&lt;/span&gt;@&lt;span class=&#34;string&#34;&gt;&amp;#x27;%&amp;#x27;&lt;/span&gt;  IDENTIFIED BY &lt;span class=&#34;string&#34;&gt;&amp;quot;cyx123&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;然后可以用Navicat 直接连接mysql拷贝数据库数据&lt;/p&gt;
-&lt;p&gt;数据库授权&lt;/p&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;//先进入mysql&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;-- 查询mysql用于&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;select&lt;/span&gt; user,host,authentication_string from mysql.user;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;--授权&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;GRANT ALL PRIVILEGES ON TO *.* &lt;span class=&#34;string&#34;&gt;&amp;#x27;root&amp;#x27;&lt;/span&gt;@&lt;span class=&#34;string&#34;&gt;&amp;#x27;%&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;--刷新&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;FLUSH PRIVILEGES;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;容器&lt;/p&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1、停止容器&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker stop 容器&lt;span class=&#34;built_in&#34;&gt;id&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2、开启容器&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker start 容器&lt;span class=&#34;built_in&#34;&gt;id&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3、查看所有容器&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker ps -a 查看&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&#34;springboot项目打包&#34;&gt;springboot项目打包&lt;/h2&gt;
-&lt;p&gt;参考连接：&lt;a
-href=&#34;https://blog.csdn.net/qq_34491508/article/details/91490434&#34;
-class=&#34;uri&#34;&gt;https://blog.csdn.net/qq_34491508/article/details/91490434&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;把所有本地的地址改成服务器上的&lt;/p&gt;
-&lt;p&gt;mysql端口连接&lt;/p&gt;
-&lt;p&gt;图片路径&lt;/p&gt;
-&lt;p&gt;打包命令：&lt;/p&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;mvn clean package -DskipTests&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h4 id=&#34;idea打包&#34;&gt;idea打包：&lt;/h4&gt;
-&lt;p&gt;1、pom文件引入插件&lt;/p&gt;
-&lt;figure class=&#34;highlight xml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;build&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;plugins&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;plugin&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;groupId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;           &lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;spring-boot-maven-plugin&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;artifactId&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;plugin&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;plugins&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;build&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;2、打包 &lt;img
-src=&#34;D:\Pictures\typore\watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0NDkxNTA4,size_16,color_FFFFFF,t_70.png&#34;
-alt=&#34;img&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;3、jar包运行&lt;/p&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;//指定java17的版本&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;D:\Iot\jdk17\jdk-17.0.7\bin\java -jar tobacco-0.0.1-SNAPSHOT.jar&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;java -jar tobacco-0.0.1-SNAPSHOT.jar&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;设置权限&lt;/p&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;chmod&lt;/span&gt; 777 tobacco-0.0.1-SNAPSHOT.jar&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;后台启动&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;nohup java -jar tobacco-0.0.1-SNAPSHOT.jar &amp;amp;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;java 有没有启动&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ps -ef grep java
-kill -9(进程号)&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;vue项目打包&#34;&gt;VUE项目打包&lt;/h3&gt;
-&lt;p&gt;端口5173&lt;/p&gt;
-&lt;p&gt;1、请求路径更改axios&lt;/p&gt;
-&lt;figure&gt;
-&lt;img data-src=&#34;D:\Pictures\typore\image-20240409212908376.png&#34;
-alt=&#34;image-20240409212908376&#34; /&gt;
-&lt;figcaption aria-hidden=&#34;true&#34;&gt;image-20240409212908376&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;2、动态路由修改&lt;/p&gt;
-&lt;p&gt;3、打开package.json 点击运行&lt;/p&gt;
-&lt;figure&gt;
-&lt;img data-src=&#34;D:\Pictures\typore\image-20240409213009017.png&#34;
-alt=&#34;image-20240409213009017&#34; /&gt;
-&lt;figcaption aria-hidden=&#34;true&#34;&gt;image-20240409213009017&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm run build   （X）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;packagejson中运行&lt;span class=&#34;built_in&#34;&gt;test&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;vue-tsc是代码检查，别加&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;test&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;vite build&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;build&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;vue-tsc &amp;amp;&amp;amp; vite build&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;项目上云&lt;/p&gt;
-&lt;p&gt;1.安装 Node.js 16 和 npm&lt;/p&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;安装 Node.js 的安装包&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;curl -fsSL https://rpm.nodesource.com/setup_16.x | sudo bash -&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; 安装Node.js 和 npm&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo yum install -y nodejs&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;确认安装成功&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;node -v&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;npm -v&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;2.在node环境下安装 &lt;code&gt;http-server&lt;/code&gt;&lt;/p&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm install -g http-server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;3.启动http服务器&lt;/p&gt;
-&lt;figure class=&#34;highlight sh&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;http-server -p 5173 &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;将 http-server 在后台运行&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;nohup&lt;/span&gt; http-server -p 5173 &amp;gt; /dev/null 2&amp;gt;&amp;amp;1 &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;sh启动脚本，所有放在一个压缩包里，放在云服务器上，运行启动脚本，一减部署&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">http://example.com/2024/06/27/post/cloud/%E5%88%86%E5%B8%83%E5%BC%8FSpringCloud%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4/</guid>
-            <title>分布式Spring Cloud阿里巴巴-理论</title>
-            <link>http://example.com/2024/06/27/post/cloud/%E5%88%86%E5%B8%83%E5%BC%8FSpringCloud%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4/</link>
-            <category term="微服务框架" scheme="http://example.com/categories/cloud/" />
-            <category term="Spring Cloud" scheme="http://example.com/tags/Spring-Cloud/" />
-            <pubDate>Thu, 27 Jun 2024 17:42:00 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;分布式spring-cloud阿里巴巴&#34;&gt;分布式Spring Cloud阿里巴巴&lt;/h1&gt;
-&lt;p&gt;（图片还未上传云）&lt;/p&gt;
-&lt;h1 id=&#34;spring-cloud&#34;&gt;---01-Spring Cloud&lt;/h1&gt;
-&lt;h2 id=&#34;一微服务架构&#34;&gt;一、微服务架构&lt;/h2&gt;
-&lt;h4 id=&#34;什么是微服务架构&#34;&gt;1、什么是微服务架构&lt;/h4&gt;
-&lt;p&gt;分布式强调系统的拆分，微服务也是强调系统的拆分，微服务架构属于分布式架构的范畴；&lt;/p&gt;
-&lt;p&gt;并且到目前为止，微服务并没有一个统一的标准的定义，那么微服务究竟是什么？&lt;/p&gt;
-&lt;p&gt;微服务一词源于Martin Fowler（马丁.福勒）的名为 Microservices 的博文，
-可以在他的官方博客上找到这篇文章：
-http://martinfowler.com/articles/microservices.html&lt;/p&gt;
-&lt;p&gt;中文翻译版本：&lt;/p&gt;
-&lt;p&gt;https://www.martinfowler.cn/articles/microservices.html&lt;/p&gt;
-&lt;p&gt;简单地说， 微服务是系统架构上的一种设计风格，
-它的主旨是将一个原本独立的系统拆分成多个小型服务，这些小型服务都在各自独立的进程中运行，服务之间通过基于HTTP的RESTful
-API进行通信协作；&lt;/p&gt;
-&lt;p&gt;被拆分后的每一个小型服务都围绕着系统中的某一项业务功能进行构建，
-并且每个服务都是一个独立的项目，可以进行独立的测试、开发和部署等；&lt;/p&gt;
-&lt;p&gt;由于各个独立的服务之间使用的是基于HTTP的作为数据通信协作的基础，所以这些微服务可以使用不同的语言来开发；&lt;/p&gt;
-&lt;h4 id=&#34;微服务架构的优缺点&#34;&gt;2、微服务架构的优缺点&lt;/h4&gt;
-&lt;p&gt;优：&lt;/p&gt;
-&lt;ol type=&#34;1&#34;&gt;
-&lt;li&gt;微服务架构是将系统中的不同功能模块拆分成多个不同的服务，这些服务进行独立地开发和部署，每个服务都运行在自己的进程内，这样每个服务的更新都不会影响其他服务的运行；&lt;/li&gt;
-&lt;li&gt;由于每个服务是独立部署的，所以我们可以更准确地监控每个服务的资源消耗情况，进行性能容量的评估，通过压力测试，也很容易发现各个服务间的性能瓶颈所在；&lt;/li&gt;
-&lt;li&gt;由于每个服务都是独立开发，项目的开发也比较方便，减少代码的冲突、代码的重复，逻辑处理流程也更加清晰，让后续的维护与扩展更加容易；&lt;/li&gt;
-&lt;li&gt;微服务可以使用不同的编程语言进行开发；&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;缺：&lt;/p&gt;
-&lt;ol type=&#34;1&#34;&gt;
-&lt;li&gt;&lt;p&gt;微服务架构增加了系统维护、部署的难度，导致一些功能模块或代码无法复用；&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;随着系统规模的日渐增长，微服务在一定程度上也会导致系统变得越来越复杂，增加了集成测试的复杂度；&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;随着微服务的增多，数据的一致性问题，服务之间的通信成本等都凸显了出来；&lt;/p&gt;
-&lt;p&gt;所以在系统架构时也要提醒自己：不要为了微服务而微服务&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;为什么选择spring-cloud-来构建微服务&#34;&gt;3、为什么选择Spring Cloud
-来构建微服务&lt;/h4&gt;
-&lt;p&gt;我们国内的互联网企业也有一些著名的框架和方案；&lt;/p&gt;
-&lt;p&gt;整个微服务架构是由大量的技术框架和方案构成，比如：&lt;/p&gt;
-&lt;table&gt;
-&lt;colgroup&gt;
-&lt;col style=&#34;width: 18%&#34; /&gt;
-&lt;col style=&#34;width: 81%&#34; /&gt;
-&lt;/colgroup&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;服务基础开发&lt;/th&gt;
-&lt;th&gt;Spring MVC、Spring、SpringBoot&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;服务注册与发现&lt;/td&gt;
-&lt;td&gt;Netflix的Eureka、Apache的ZooKeeper等&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;服务调用&lt;/td&gt;
-&lt;td&gt;RPC调用有阿里巴巴的Dubbo，Rest方式调用有当当网Dubbo基础上扩展的Dubbox、还有其他方式实现的Rest，比如Ribbon、Feign&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;分布式配置管理&lt;/td&gt;
-&lt;td&gt;百度的Disconf、360的QConf、淘宝的Diamond、Netflix的Archaius等&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;负载均衡&lt;/td&gt;
-&lt;td&gt;Ribbon&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;服务熔断&lt;/td&gt;
-&lt;td&gt;Hystrix&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;API网关&lt;/td&gt;
-&lt;td&gt;Zuul&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;批量任务&lt;/td&gt;
-&lt;td&gt;当当网的Elastic-Job、Linkedln的Azkaban&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;服务跟踪&lt;/td&gt;
-&lt;td&gt;京东的Hydra、Twitter的Zipkin等&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;二spring-cloud&#34;&gt;二、Spring Cloud&lt;/h3&gt;
-&lt;p&gt;官网：http://spring.io&lt;/p&gt;
-&lt;h4 id=&#34;spring-cloud是什么&#34;&gt;1、Spring Cloud是什么&lt;/h4&gt;
-&lt;ol type=&#34;1&#34;&gt;
-&lt;li&gt;Spring
-Cloud是一个一站式的开发分布式系统的框架，为开发者提供了一系列的构建分布式系统的工具集；&lt;/li&gt;
-&lt;li&gt;Spring
-Cloud为开发人员提供了快速构建分布式系统中一些常见模式的工具（比如：配置管理，服务发现，断路器，智能路由、微代理、控制总线、全局锁、决策竞选、分布式会话和集群状态管理等）；&lt;/li&gt;
-&lt;li&gt;开发分布式系统都需要解决一系列共同关心的问题，而使用Spring
-Cloud可以快速地实现这些分布式开发共同关心的问题，并能方便地在任何分布式环境中部署与运行。&lt;/li&gt;
-&lt;li&gt;Spring
-Cloud这个一站式地分布式开发框架，被近年来流行的“微服务”架构所大力推崇，成为目前进行微服务架构的优先选择工具；&lt;/li&gt;
-&lt;li&gt;Spring Cloud基于Spring Boot框架构建微服务架构，学习Spring
-Cloud需要先学习Spring Boot；&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;整体框架&#34;&gt;2、整体框架&lt;/h4&gt;
-&lt;figure&gt;
-&lt;img data-src=&#34;D:\Pictures\typore\image-20240507092722104.png&#34;
-alt=&#34;image-20240507092722104&#34; /&gt;
-&lt;figcaption aria-hidden=&#34;true&#34;&gt;image-20240507092722104&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;Service Provider： 暴露服务的服务提供方。&lt;/p&gt;
-&lt;p&gt;Service Consumer：调用远程服务的服务消费方。&lt;/p&gt;
-&lt;p&gt;EureKa Server： 服务注册中心和服务发现中心。&lt;/p&gt;
-&lt;h3 id=&#34;三服务注册中心eureka&#34;&gt;三、服务注册中心Eureka&lt;/h3&gt;
-&lt;h4 id=&#34;走进服务中心eureka&#34;&gt;1、走进服务中心Eureka&lt;/h4&gt;
-&lt;p&gt;在微服务架构中，&lt;strong&gt;服务注册与发现是核心组件之一&lt;/strong&gt;，手动指定每个服务是很低效的，Spring
-Cloud提供了多种服务注册与发现的实现方式，例如：Eureka、Zookeeper。&lt;/p&gt;
-&lt;p&gt;Spring Cloud支持得最好的是Eureka，其次是Zookeeper。&lt;/p&gt;
-&lt;p&gt;1、什么是服务注册&lt;/p&gt;
-&lt;p&gt;服务注册：将服务所在主机、端口、版本号、通信协议等信息登记到注册中心上。&lt;/p&gt;
-&lt;p&gt;2、什么是服务发现&lt;/p&gt;
-&lt;p&gt;服务发现：服务消费者向注册中心请求已经登记的服务列表，然后得到某个服务的主机、端口、版本号、通信协议等信息，从而实现对具体服务的调用。&lt;/p&gt;
-&lt;p&gt;3、Eureka是什么&lt;/p&gt;
-&lt;p&gt;Eureka是一个服务治理组件，它主要包括服务注册和服务发现，主要用来搭建服务注册中心。&lt;/p&gt;
-&lt;p&gt;Eureka 是一个基于 REST
-的服务，用来定位服务，进行中间层服务器的负载均衡和故障转移；&lt;/p&gt;
-&lt;p&gt;Eureka
-采用了C-S（客户端/服务端）的设计架构，也就是Eureka由两个组件组成：Eureka服务端和Eureka客户端。Eureka
-Server
-作为服务注册的服务端，它是服务注册中心，而系统中的其他微服务，使用
-Eureka 的客户端连接到 Eureka
-Server服务端，并维持心跳连接，Eureka客户端是一个Java客户端，用来简化与服务器的交互、负载均衡，服务的故障切换等；&lt;/p&gt;
-&lt;p&gt;有了Eureka注册中心，系统的维护人员就可以通过 Eureka Server
-来监控系统中各个微服务是否正常运行。&lt;/p&gt;
-&lt;h4 id=&#34;eureka与zookeeper的比较&#34;&gt;2、Eureka与Zookeeper的比较&lt;/h4&gt;
-&lt;p&gt;著名的CAP理论指出，一个分布式系统不可能同时满足C(一致性)、A(可用性)和P(分区容错性)。&lt;/p&gt;
-&lt;p&gt;由于分区容错性在是分布式系统中必须要保证的，因此我们只能在A和C之间进行权衡，在此Zookeeper保证的是CP,
-而Eureka则是AP。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1、Zookeeper保证CP&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;在ZooKeeper中，当master节点因为网络故障与其他节点失去联系时，剩余节点会重新进行leader选举，但是问题在于，选举leader需要一定时间,
-且选举期间整个ZooKeeper集群都是不可用的，这就导致在选举期间注册服务瘫痪。在云部署的环境下，因网络问题使得ZooKeeper集群失去master节点是大概率事件，虽然服务最终能够恢复，但是在选举时间内导致服务注册长期不可用是难以容忍的。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2、Eureka保证AP&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Eureka优先保证可用性，Eureka各个节点是平等的，某几个节点挂掉不会影响正常节点的工作，剩余的节点依然可以提供注册和查询服务。而Eureka的客户端在向某个Eureka注册或时如果发现连接失败，则会自动切换至其它节点，只要有一台Eureka还在，就能保证注册服务可用(保证可用性)，只不过查到的信息可能不是最新的(不保证强一致性)。&lt;/p&gt;
-&lt;p&gt;所以Eureka在网络故障导致部分节点失去联系的情况下，只要有一个节点可用，那么注册和查询服务就可以正常使用，而不会像zookeeper那样使整个注册服务瘫痪，Eureka优先保证了可用性。&lt;/p&gt;
-&lt;h3 id=&#34;四客户端负载均衡ribbon&#34;&gt;四、客户端负载均衡Ribbon&lt;/h3&gt;
-&lt;h4 id=&#34;负载均衡&#34;&gt;1、负载均衡&lt;/h4&gt;
-&lt;p&gt;负载均衡：&lt;strong&gt;指将一个请求均匀地分摊到不同的节点单元上执行，负载均和分为硬件负载均衡和软件负载均衡&lt;/strong&gt;：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;硬件负载均衡&lt;/strong&gt;：比如 F5、深信服、Array 等&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;软件负载均衡&lt;/strong&gt;：比如 Nginx、LVS、HAProxy 等&lt;/p&gt;
-&lt;p&gt;硬件负载均衡或是软件负载均衡，他们都会维护一个可用的服务端清单，通过心跳检测来剔除故障的服务端节点以保证清单中都是可以正常访问的服务端节点。当客户端发送请求到负载均衡设备的时候，该设备按某种算法（比如轮询、权重、
-最小连接数等）从维护的可用服务端清单中取出一台服务端的地址，然后进行转发。&lt;/p&gt;
-&lt;h4 id=&#34;ribbon介绍&#34;&gt;2、Ribbon介绍&lt;/h4&gt;
-&lt;p&gt;Ribbon是Netflix发布的开源项目，&lt;strong&gt;主要功能&lt;/strong&gt;是&lt;u&gt;提供客户端的软件负载均衡算法，是一个基于HTTP和TCP的客户端负载均衡工具&lt;/u&gt;。&lt;/p&gt;
-&lt;p&gt;Spring
-Cloud对Ribbon做了二次封装，可以让我们使用&lt;strong&gt;RestTemplate&lt;/strong&gt;的服务请求，自动转换成客户端负载均衡的服务调用。&lt;/p&gt;
-&lt;p&gt;Ribbon支持多种负载均衡算法，还支持自定义的负载均衡算法。&lt;/p&gt;
-&lt;p&gt;Ribbon只是一个工具类框架，比较小巧，Spring
-Cloud对它封装后使用也非常方便，它不像服务注册中心、配置中心、API网关那样需要独立部署，&lt;strong&gt;Ribbon只需要在代码直接使用即可&lt;/strong&gt;；&lt;/p&gt;
-&lt;h4 id=&#34;ribbon-与-nginx-的区别&#34;&gt;3、Ribbon 与 Nginx 的区别&lt;/h4&gt;
-&lt;p&gt;Ribbon是客户端的负载均衡工具，而客户端负载均衡和服务端负载均衡最大的区别在于服务清单所存储的位置不同，在客户端负载均衡中，所有客户端节点下的服务端清单，需要自己从服务注册中心上获取，比如Eureka服务注册中心。同服务端负载均衡的架构类似，在客户端负载均衡中也需要心跳去维护服务端清单的健康性，只是这个步骤需要与服务注册中心配合完成。在Spring
-Cloud中，由于Spring
-Cloud对Ribbon做了二次封装，所以默认会创建针对Ribbon的自动化整合配置&lt;/p&gt;
-&lt;h4 id=&#34;使用&#34;&gt;4、使用&lt;/h4&gt;
-&lt;p&gt;在Spring
-Cloud中，Ribbon主要与RestTemplate对象配合起来使用，Ribbon会自动化配置RestTemplate对象，通过@LoadBalanced开启RestTemplate对象调用时的负载均衡。&lt;/p&gt;
-&lt;figure&gt;
-&lt;img data-src=&#34;D:\Pictures\typore\image-20240507093858824.png&#34;
-alt=&#34;image-20240507093858824&#34; /&gt;
-&lt;figcaption aria-hidden=&#34;true&#34;&gt;image-20240507093858824&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;h3 id=&#34;五resttemplate模板&#34;&gt;五、RestTemplate模板&lt;/h3&gt;
-&lt;p&gt;当我们从服务消费端去调用服务提供者的服务的时候，使用了一个极其方便的对象叫RestTemplate，当时我们只使用了RestTemplate中最简单的一个功能getForEntity发起了一个get请求去调用服务端的数据，同时，我们还通过配置@LoadBalanced注解开启客户端负载均衡，RestTemplate的功能非常强大，那么接下来我们就来详细的看一下RestTemplate中几种常见请求方法的使用。&lt;/p&gt;
-&lt;p&gt;在日常操作中，基于Rest的方式通常是四种情况，它们分表是：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;GET请求 --查询数据&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;POST请求 –添加数据&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;PUT请求 – 修改数据&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;DELETE请求 –删除数据&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;下面我们逐一解读。&lt;/p&gt;
-&lt;h3 id=&#34;六服务熔断hystrix&#34;&gt;六、服务熔断Hystrix&lt;/h3&gt;
-&lt;h4 id=&#34;hystrix是什么&#34;&gt;1、Hystrix是什么&lt;/h4&gt;
-&lt;p&gt;​
-在微服务架构中，我们是将一个&lt;strong&gt;单体应用拆分成多个服务单元&lt;/strong&gt;，各个服务单元之间通过注册中心彼此发现和消费对方提供的服务，每个服务单元都是单独部署，在各自的服务进程中运行，服务之间通过远程调用实现信息交互，那么当某个服务的响应太慢或者故障，又或者因为网络波动或故障，则会造成调用者延迟或调用失败，当大量请求到达，则会造成请求的堆积，导致调用者的线程挂起，从而引发调用者也无法响应，调用者也发生故障。&lt;/p&gt;
-&lt;p&gt;EG：电商中的用户下订单，我们有两个服务，一个下订单服务，一个减库存服务，当用户下订单时调用下订单服务，然后下订单服务又调用减库存服务，如果减库存服务响应延迟或者没有响应，则会造成下订单服务的线程挂起等待，如果大量的用户请求下订单，或导致大量的请求堆积，引起下订单服务也不可用，如果还有另外一个服务依赖于订单服务，比如用户服务，它需要查询用户订单，那么用户服务查询订单也会引起大量的延迟和请求堆积，导致用户服务也不可用。&lt;/p&gt;
-&lt;p&gt;所以在微服务架构中，很容易造成服务故障的蔓延，引发整个微服务系统瘫痪不可用。为了解决此问题，微服务架构中引入了一种叫熔断器的服务保护机制。&lt;/p&gt;
-&lt;p&gt;微服务架构中的熔断器，就是&lt;strong&gt;当被调用方没有响应，调用方直接返回一个错误响应即可，而不是长时间的等待&lt;/strong&gt;，这样避免调用时因为等待而线程一直得不到释放，避免故障在分布式系统间蔓延；&lt;/p&gt;
-&lt;p&gt;用法：&lt;/p&gt;
-&lt;ol type=&#34;1&#34;&gt;
-&lt;li&gt;异常熔断&lt;/li&gt;
-&lt;li&gt;超时熔断&lt;/li&gt;
-&lt;li&gt;Hystrix的服务降级&lt;/li&gt;
-&lt;li&gt;Hystrix的异常处理&lt;/li&gt;
-&lt;li&gt;异常忽略&lt;/li&gt;
-&lt;li&gt;自定义熔断处理&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;3.Hystrix的服务降级&lt;/p&gt;
-&lt;p&gt;有了服务的熔断，随之就会有服务的降级，所谓服务降级，就是当某个服务熔断之后，服务端提供的服务将不再被调用，此时由客户端自己准备一个本地的fallback回调，返回一个默认值来代表服务端的返回；&lt;/p&gt;
-&lt;p&gt;这种做法，虽然不能得到正确的返回结果，但至少保证了服务的可用，比直接抛出错误或服务不可用要好很多，当然这需要根据具体的业务场景来选择；&lt;/p&gt;
-&lt;p&gt;6.自定义熔断处理&lt;/p&gt;
-&lt;p&gt;我们也可以自定义类继承自HystrixCommand来实现自定义的Hystrix请求，在getFallback方法中调用getExecutionException方法来获取服务抛出的异常，这种熔断主要针对于远程服务的异常处理。&lt;/p&gt;
-&lt;h3 id=&#34;七声明式服务消费feign&#34;&gt;七、声明式服务消费Feign&lt;/h3&gt;
-&lt;h4 id=&#34;fegin介绍&#34;&gt;1、Fegin介绍&lt;/h4&gt;
-&lt;p&gt;Feign是Netflix公司开发的一个声明式的&lt;strong&gt;REST调用客户端&lt;/strong&gt;；&lt;/p&gt;
-&lt;p&gt;Ribbon负载均衡、Hystrix服务熔断是我们Spring
-Cloud中进行微服务开发非常基础的组件，在使用的过程中我们也发现它们一般都是同时出现的，而且配置也都非常相似，每次开发都有很多相同的代码，&lt;strong&gt;因此Spring
-Cloud基于Netflix
-Feign整合了Ribbon和Hystrix两个组件&lt;/strong&gt;，让我们的开发工作变得更加简单，就像Spring
-Boot是对Spring+SpringMVC的简化一样，Spring Cloud
-Feign对Ribbon负载均衡、Hystrix服务熔断进行简化，在其基础上进行了进一步的封装，不仅在配置上大大简化了开发工作，同时还提供了一种声明式的Web服务客户端定义方式；&lt;/p&gt;
-&lt;h1 id=&#34;nacos&#34;&gt;----02-Nacos&lt;/h1&gt;
-&lt;h3 id=&#34;一springcloudalibab简介&#34;&gt;一、springCloudAlibab简介&lt;/h3&gt;
-&lt;p&gt;Spring Cloud Alibaba
-是阿里巴巴提供的微服务开发一站式解决方案，是&lt;strong&gt;阿里巴巴开源中间件与
-Spring Cloud 体系的融合&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;同 Spring Cloud 一样，Spring Cloud Alibaba
-也是一套微服务解决方案，包含开发分布式应用微服务的必需组件，方便开发者通过
-Spring Cloud 编程模型轻松使用这些组件来开发分布式应用服务。&lt;/p&gt;
-&lt;p&gt;依托 Spring Cloud Alibaba，您只需要添加一些注解和少量配置，就可以将
-Spring Cloud
-应用接入阿里微服务解决方案，通过阿里中间件来迅速搭建分布式应用系统。&lt;/p&gt;
-&lt;p&gt;作为 Spring Cloud 体系下的新实现，Spring Cloud Alibaba
-跟官方的组件或其它的第三方实现如 Netflix, Consul，Zookeeper
-等对比，具备了更多的功能:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img data-src=&#34;D:\Pictures\typore\image-20240507094612394.png&#34;
-alt=&#34;image-20240507094612394&#34; /&gt;
-&lt;figcaption aria-hidden=&#34;true&#34;&gt;image-20240507094612394&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;https://spring-cloud-alibaba-group.github.io/github-pages/hoxton/en-us/index.html&lt;/p&gt;
-&lt;h3 id=&#34;二nacos&#34;&gt;二、Nacos&lt;/h3&gt;
-&lt;h4 id=&#34;什么是nacos&#34;&gt;1、什么是nacos&lt;/h4&gt;
-&lt;p&gt;https://nacos.io/zh-cn/docs/what-is-nacos.html&lt;/p&gt;
-&lt;p&gt;Nacos 致力于帮助您发现、配置和管理微服务。Nacos
-提供了一组简单易用的特性集，帮助您快速实现动态服务发现、服务配置、服务元数据及流量管理。&lt;/p&gt;
-&lt;p&gt;Nacos 帮助您更敏捷和容易地构建、交付和管理微服务平台。 Nacos
-是构建以“服务”为中心的现代应用架构 (例如微服务范式、云原生范式)
-的服务基础设施。&lt;/p&gt;
-&lt;h4 id=&#34;使用-1&#34;&gt;2、使用&lt;/h4&gt;
-&lt;ol type=&#34;1&#34;&gt;
-&lt;li&gt;Nacos下载和安装&lt;/li&gt;
-&lt;li&gt;服务注册和发现&lt;/li&gt;
-&lt;li&gt;分布式配置中心&lt;/li&gt;
-&lt;li&gt;数据持久化
-&lt;ol type=&#34;1&#34;&gt;
-&lt;li&gt;配置数据源（数据库-表）&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;li&gt;Nacos集群配置&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;sentinel&#34;&gt;----03-Sentinel&lt;/h1&gt;
-&lt;h3 id=&#34;一sentinel&#34;&gt;一、Sentinel&lt;/h3&gt;
-&lt;h4 id=&#34;sentinel是什么&#34;&gt;1、Sentinel是什么&lt;/h4&gt;
-&lt;p&gt;随着微服务的流行，服务和服务之间的稳定性变得越来越重要。&lt;/p&gt;
-&lt;p&gt;Sentinel
-:以流量为切入点，从流量控制、熔断降级、系统负载保护等多个维度保护服务的稳定性。&lt;/p&gt;
-&lt;p&gt;主要特征：&lt;/p&gt;
-&lt;ol type=&#34;1&#34;&gt;
-&lt;li&gt;&lt;strong&gt;丰富的应用场景&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;完备的实时监控&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;广泛的开源生态&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;完善的 SPI 扩展机制&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;主要特性：&lt;/p&gt;
-&lt;figure&gt;
-&lt;img data-src=&#34;D:\Pictures\typore\image-20240507095123148.png&#34;
-alt=&#34;image-20240507095123148&#34; /&gt;
-&lt;figcaption aria-hidden=&#34;true&#34;&gt;image-20240507095123148&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;h4 id=&#34;主要功能&#34;&gt;2、主要功能&lt;/h4&gt;
-&lt;p&gt;1、流量控制&lt;/p&gt;
-&lt;p&gt;​ &lt;strong&gt;流量控制&lt;/strong&gt;（flow control），其原理是监控应用流量的
-QPS
-或并发线程数等指标，当达到指定的阈值时对流量进行控制，以避免被瞬时的流量高峰冲垮，从而保障应用的高可用性。&lt;/p&gt;
-&lt;p&gt;2、熔断降级&lt;/p&gt;
-&lt;p&gt;​
-除了流量控制以外，对调用链路中不稳定的资源进行熔断降级也是保障高可用的重要措施之一。一个服务常常会调用别的模块，可能是另外的一个远程服务、数据库，或者第三方
-API 等。例如，支付的时候，可能需要远程调用银联提供的
-API；查询某个商品的价格，可能需要进行数据库查询。然而，这个被依赖服务的稳定性是不能保证的。如果依赖的服务出现了不稳定的情况，请求的响应时间变长，那么调用服务的方法的响应时间也会变长，线程会产生堆积，最终可能耗尽业务自身的线程池，服务本身也变得不可用。&lt;/p&gt;
-&lt;p&gt;3、热点参数限流&lt;/p&gt;
-&lt;p&gt;​
-何为热点？热点即经常访问的数据。很多时候我们希望统计某个热点数据中访问频次最高的
-Top K 数据，并对其访问进行限制。比如：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;商品 ID 为参数，统计一段时间内最常购买的商品 ID 并进行限制&lt;/li&gt;
-&lt;li&gt;用户 ID 为参数，针对一段时间内频繁访问的用户 ID 进行限制&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;热点参数限流会统计传入参数中的热点参数，并根据配置的限流阈值与模式，对包含热点参数的资源调用进行限流。热点参数限流可以看做是一种特殊的流量控制，仅对包含热点参数的资源调用生效。&lt;/p&gt;
-&lt;p&gt;4、黑白名单控制&lt;/p&gt;
-&lt;p&gt;​
-很多时候，我们需要根据调用来源来判断该次请求是否允许放行，这时候可以使用
-Sentinel
-的来源访问控制（黑白名单控制）的功能。来源访问控制根据资源的请求来源（origin）限制资源是否通过，若配置白名单则只有请求来源位于白名单内时才可通过；若配置黑名单则请求来源位于黑名单时不通过，其余的请求通过。&lt;/p&gt;
-&lt;p&gt;5、系统自适应限流&lt;/p&gt;
-&lt;p&gt;​ 系统保护规则是从应用级别的入口流量进行控制，从单台机器的 load、CPU
-使用率、平均 RT、入口 QPS
-和并发线程数等几个维度监控应用指标，让系统尽可能跑在最大吞吐量的同时保证系统整体的稳定性。&lt;/p&gt;
-&lt;p&gt;系统保护规则是应用整体维度的，而不是资源维度的，并且&lt;strong&gt;仅对入口流量生效&lt;/strong&gt;。入口流量指的是进入应用的流量（EntryType.IN），比如
-Web 服务或 Dubbo 服务端接收的请求，都属于入口流量。&lt;/p&gt;
-&lt;h1 id=&#34;gateway&#34;&gt;---04-GateWay&lt;/h1&gt;
-&lt;h3 id=&#34;一认识gateway&#34;&gt;一、认识GateWay&lt;/h3&gt;
-&lt;h4 id=&#34;spring-cloud的gateway&#34;&gt;1、 Spring Cloud的Gateway&lt;/h4&gt;
-&lt;p&gt;1、Spring Cloud的Gateway是什么&lt;/p&gt;
-&lt;p&gt;首先来看一个微服务架构图：&lt;/p&gt;
-&lt;figure&gt;
-&lt;img data-src=&#34;D:\Pictures\typore\image-20240507095522777.png&#34;
-alt=&#34;image-20240507095522777&#34; /&gt;
-&lt;figcaption aria-hidden=&#34;true&#34;&gt;image-20240507095522777&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;在上面的架构图中，我们的服务包括：内部服务Service A和内部服务Service
-B，这两个服务都是集群部署，每个服务部署了3个实例，他们都会通过Eureka
-Server注册中心注册与订阅服务，而Open
-Service是一个对外的服务，也是集群部署，外部调用方通过负载均衡设备调用Open
-Service服务，比如负载均衡使用Nginx，这样的实现是否合理，或者是否有更好的实现方式呢？接下来我们主要围绕该问题展开讨论。&lt;/p&gt;
-&lt;p&gt;1、如果我们的微服务中有很多个独立服务都要对外提供服务，那么我们要如何去管理这些接口？特别是当项目非常庞大的情况下要如何管理？&lt;/p&gt;
-&lt;p&gt;2、在微服务中，一个独立的系统被拆分成了很多个独立的服务，为了确保安全，权限管理也是一个不可回避的问题，如果在每一个服务上都添加上相同的权限验证代码来确保系统不被非法访问，那么工作量也就太大了，而且维护也非常不方便。&lt;/p&gt;
-&lt;p&gt;为了解决上述问题，微服务架构中提出了API网关的概念，它就像一个安检站一样，所有外部的请求都需要经过它的调度与过滤，然后API网关来实现请求路由、负载均衡、权限验证等功能；&lt;/p&gt;
-&lt;p&gt;那么Spring Cloud这个一站式的微服务开发框架基于Netflix
-Zuul实现了Spring Cloud Zuul，采用Spring Cloud
-Zuul即可实现一套API网关服务。&lt;/p&gt;
-&lt;p&gt;2、Spring Cloud Gateway简介&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;你们项目里面 用的什么网关？ gateway zuul&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;它是Spring
-Cloud&lt;strong&gt;官方&lt;/strong&gt;提供的用来取代&lt;strong&gt;zuul（netflix）&lt;/strong&gt;的新一代网关组件&lt;/p&gt;
-&lt;p&gt;（zuul：1.0 , 2.0
-，zuul的本质，&lt;strong&gt;一组过滤器，根据自定义的过滤器顺序来执行，本质就是web组件&lt;/strong&gt;）&lt;/p&gt;
-&lt;p&gt;Zuul1.0 使用的是BIO（Blocking IO） tomcat7.0以前都是BIO 性能一般&lt;/p&gt;
-&lt;p&gt;Zuul2.0 性能好NIO&lt;/p&gt;
-&lt;p&gt;它基于spring5.x，springboot2.x和ProjectReactor等技术。&lt;/p&gt;
-&lt;p&gt;它的目地是让&lt;strong&gt;路由更加简单，灵活，还提供了一些强大的过滤器功能&lt;/strong&gt;，例如：熔断、限流、重试,自义定过滤器等
-token校验ip黑名单等&lt;/p&gt;
-&lt;p&gt;SpringCloud Gateway作为Spring
-Cloud生态的网关，目标是替代Zuul，在SpringCloud2.0以上的版本中，没有对新版本的zuul2.0以上的最新高性能版本进行集成，仍然还是使用的zuul1.x[可以看项目依赖找到]非Reactor模式的老版本。而为了提升网关的性能，SpringCloud
-Gateway是基于webFlux
-框架实现的，而webFlux框架底层则使用了高性能的Reactor模式通信框架的Netty&lt;/p&gt;
-&lt;p&gt;NIO(非阻塞式io) BIO 你只需要了解网关能做什么？ 网关里面写什么代码
-就可以了&lt;/p&gt;
-&lt;figure&gt;
-&lt;img data-src=&#34;D:\Pictures\typore\image-20240507095601997.png&#34;
-alt=&#34;image-20240507095601997&#34; /&gt;
-&lt;figcaption aria-hidden=&#34;true&#34;&gt;image-20240507095601997&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;3、工作流程&lt;/p&gt;
-&lt;figure&gt;
-&lt;img data-src=&#34;D:\Pictures\typore\image-20240507095704824.png&#34;
-alt=&#34;image-20240507095704824&#34; /&gt;
-&lt;figcaption aria-hidden=&#34;true&#34;&gt;image-20240507095704824&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;客户端向springcloud Gateway 发出请求&lt;/p&gt;
-&lt;p&gt;然后在 Gateway Handler Mapping 中找到与请求相匹配的路由，将其发送到
-Gateway Web Handler。&lt;/p&gt;
-&lt;p&gt;Handler
-再通过指定的过滤器来将请求发送到我们实际的服务的业务逻辑，然后返回。&lt;/p&gt;
-&lt;p&gt;过滤器之间用虚线分开是因为过滤器可能会在发送请求之前【pre】或之后【post】执行业务逻辑，对其进行加强或处理。&lt;/p&gt;
-&lt;p&gt;Filter在 【pre】
-类型的过滤器可以做参数校验、权限校验、流量监控、日志输出、协议转换等&lt;/p&gt;
-&lt;p&gt;在【post】
-类型的过滤器中可以做响应内容、响应头的修改、日志的输出，流量监控等有着非常重要的作用。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;总结：Gateway 的核心逻辑也就是 路由转发 +
-执行过滤器链&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;4、三大核心概念&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Route（路由）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;路由信息的组成：&lt;/p&gt;
-&lt;p&gt;由一个ID、一个目的URL、一组断言工厂、一组Filter组成。&lt;/p&gt;
-&lt;p&gt;如果路由断言为真，说明请求URL和配置路由匹配。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Predicate（断言）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Java 8中的断言函数。 lambda 四大接口
-供给形，消费性，函数型，断言型&lt;/p&gt;
-&lt;p&gt;Spring Cloud Gateway中的断言函数输入类型是Spring
-5.0框架中的ServerWebExchange。Spring Cloud
-Gateway的断言函数允许开发者去定义匹配来自于Http
-Request中的任何信息比如请求头和参数。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Filter（过滤）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;一个标准的Spring WebFilter。 Web三大组件(servlet listener filter) mvc
-interceptor&lt;/p&gt;
-&lt;p&gt;Spring Cloud Gateway中的Filter分为两种类型的Filter，分别是Gateway
-Filter和Global Filter。过滤器Filter将会对请求和响应进行修改处理。&lt;/p&gt;
-&lt;p&gt;一个是针对某一个路由的filter 对某一个接口做限流&lt;/p&gt;
-&lt;p&gt;一个是针对全局的filter token ip黑名单&lt;/p&gt;
-&lt;h1 id=&#34;rocketmq&#34;&gt;---05-RocketMQ&lt;/h1&gt;
-&lt;h3 id=&#34;一rocketmq概述&#34;&gt;一、RocketMQ概述&lt;/h3&gt;
-&lt;h4 id=&#34;什么是消息队列&#34;&gt;1、什么是消息队列&lt;/h4&gt;
-&lt;h4 id=&#34;为什么要使用消息队列&#34;&gt;2、为什么要使用消息队列&lt;/h4&gt;
-&lt;h4 id=&#34;rocketmq基本概念16条&#34;&gt;3、RocketMQ基本概念（16条）&lt;/h4&gt;
-&lt;ol type=&#34;1&#34;&gt;
-&lt;li&gt;&lt;p&gt;消息模型（Message Model）&lt;/p&gt;
-&lt;p&gt;​ RocketMQ主要由 Producer、Broker、Consumer 三部分组成，其中Producer
-负责生产消息，Consumer 负责消费消息，Broker 负责存储消息。Broker
-在实际部署过程中对应一台服务器，每个 Broker
-可以存储多个Topic的消息，每个Topic的消息也可以分片存储于不同的
-Broker。Message Queue
-用于存储消息的物理地址，每个Topic中的消息地址存储于多个 Message Queue
-中。ConsumerGroup 由多个Consumer 实例构成。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;消息生产者（Producer）&lt;/p&gt;
-&lt;p&gt;​
-负责生产消息，一般由业务系统负责生产消息。一个消息生产者会把业务应用系统里产生的消息发送到broker服务器。RocketMQ提供多种发送方式，同步发送、异步发送、顺序发送、单向发送。同步和异步方式均需要Broker返回确认信息，单向发送不需要。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;消息消费者（Consumer）&lt;/p&gt;
-&lt;p&gt;​
-负责消费消息，一般是后台系统负责异步消费。一个消息消费者会从Broker服务器拉取消息、并将其提供给应用程序。从用户应用的角度而言提供了两种消费形式：拉取式消费、推动式消费。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;主题（Topic）&lt;/p&gt;
-&lt;p&gt;​
-表示一类消息的集合，每个主题包含若干条消息，每条消息只能属于一个主题，是RocketMQ进行消息订阅的基本单位。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;代理服务器（Broker Server）&lt;/p&gt;
-&lt;p&gt;​
-消息中转角色，负责存储消息、转发消息。代理服务器在RocketMQ系统中负责接收从生产者发送来的消息并存储、同时为消费者的拉取请求作准备。代理服务器也存储消息相关的元数据，包括消费者组、消费进度偏移和主题和队列消息等。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;名字服务（Name Server）&lt;/p&gt;
-&lt;p&gt;​
-名称服务充当路由消息的提供者。生产者或消费者能够通过名字服务查找各主题相应的Broker
-IP列表。多个Namesrv实例组成集群，但相互独立，没有信息交换。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;拉取式消费（Pull Consumer）&lt;/p&gt;
-&lt;p&gt;​
-Consumer消费的一种类型，应用通常主动调用Consumer的拉消息方法从Broker服务器拉消息、主动权由应用控制。一旦获取了批量消息，应用就会启动消费过程。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;推动式消费（Push Consumer）&lt;/p&gt;
-&lt;p&gt;​
-Consumer消费的一种类型，该模式下Broker收到数据后会主动推送给消费端，该消费模式一般实时性较高。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;生产者组（Producer Group）&lt;/p&gt;
-&lt;p&gt;​
-同一类Producer的集合，这类Producer发送&lt;strong&gt;同一类消息且发送逻辑一致&lt;/strong&gt;。如果发送的是事务消息且原始生产者在发送之后崩溃，则Broker服务器会联系同一生产者组的其他生产者实例以提交或回溯消费。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;消费者组（Consumer Group）&lt;/p&gt;
-&lt;p&gt;​
-同一类Consumer的集合，这类Consumer通常&lt;strong&gt;消费同一类消息且消费逻辑一致&lt;/strong&gt;。消费者组使得在消息消费方面，实现负载均衡和容错的目标变得非常容易。要注意的是，&lt;strong&gt;消费者组的消费者实例必须订阅完全相同的Topic&lt;/strong&gt;。RocketMQ
-支持两种消息模式：集群消费（Clustering）和广播消费（Broadcasting）。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;集群消费（Clustering）&lt;/p&gt;
-&lt;p&gt;​ 集群消费模式下,相同Consumer
-Group的每个Consumer实例平均分摊消息。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;广播消费（Broadcasting）&lt;/p&gt;
-&lt;p&gt;​ 广播消费模式下，相同Consumer
-Group的每个Consumer实例都接收全量的消息。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;普通顺序消息（Normal Ordered Message）&lt;/p&gt;
-&lt;p&gt;​ 普通顺序消费模式下，消费者通过同一个消息队列（ Topic 分区，称作
-Message Queue）
-收到的消息是有顺序的，不同消息队列收到的消息则可能是无顺序的。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;严格顺序消息（Strictly Ordered Message）&lt;/p&gt;
-&lt;p&gt;​ 严格顺序消息模式下，消费者收到的所有消息均是有顺序的。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;消息（Message）&lt;/p&gt;
-&lt;p&gt;​
-消息系统所传输信息的物理载体，生产和消费数据的最小单位，每条消息必须属于一个主题。RocketMQ中每个消息拥有唯一的Message
-ID，且可以携带具有业务标识的Key。系统提供了通过Message
-ID和Key查询消息的功能。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;标签（Tag）&lt;/p&gt;
-&lt;p&gt;​
-为消息设置的标志，用于同一主题下区分不同类型的消息。来自同一业务单元的消息，可以根据不同业务目的在同一主题下设置不同标签。标签能够有效地保持代码的清晰度和连贯性，并优化RocketMQ提供的查询系统。消费者可以根据Tag实现对不同子主题的不同消费逻辑，实现更好的扩展性。&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;rocketmq特性&#34;&gt;4、RocketMQ特性&lt;/h4&gt;
-&lt;ol type=&#34;1&#34;&gt;
-&lt;li&gt;&lt;p&gt;订阅与发布&lt;/p&gt;
-&lt;p&gt;​
-消息的发布是指某个生产者向某个topic发送消息；消息的订阅是指某个消费者关注了某个topic中带有某些tag的消息，进而从该topic消费数据。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;消息顺序&lt;/p&gt;
-&lt;p&gt;​
-消息有序指的是一类消息消费时，能按照发送的顺序来消费。例如：一个订单产生了三条消息分别是订单创建、订单付款、订单完成。消费时要按照这个顺序消费才能有意义，但是同时订单之间是可以并行消费的。RocketMQ可以严格的保证消息有序。&lt;/p&gt;
-&lt;p&gt;顺序消息分为&lt;strong&gt;全局顺序消息&lt;/strong&gt;与&lt;strong&gt;分区顺序消息&lt;/strong&gt;，全局顺序是指某个Topic下的所有消息都要保证顺序；部分顺序消息只要保证每一组消息被顺序消费即可。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;全局顺序 对于指定的一个
-Topic，所有消息按照严格的先入先出（FIFO）的顺序进行发布和消费。
-适用场景：性能要求不高，所有的消息严格按照 FIFO
-原则进行消息发布和消费的场景&lt;/li&gt;
-&lt;li&gt;分区顺序 对于指定的一个 Topic，所有消息根据 sharding key
-进行区块分区。 同一个分区内的消息按照严格的 FIFO 顺序进行发布和消费。
-Sharding key 是顺序消息中用来区分不同分区的关键字段，和普通消息的 Key
-是完全不同的概念。 适用场景：性能要求高，以 sharding key
-作为分区字段，在同一个区块中严格的按照 FIFO
-原则进行消息发布和消费的场景。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;消息过滤&lt;/p&gt;
-&lt;p&gt;​
-RocketMQ的&lt;strong&gt;消费者可以根据Tag进行消息过滤&lt;/strong&gt;，也支持&lt;strong&gt;自定义属性过滤&lt;/strong&gt;。消息过滤目前是在Broker端实现的，优点是减少了对于Consumer无用消息的网络传输，缺点是增加了Broker的负担、而且实现相对复杂。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;消息可靠性&lt;/p&gt;
-&lt;p&gt;​ RocketMQ支持消息的高可靠，影响消息可靠性的几种情况：&lt;/p&gt;
-&lt;ol type=&#34;1&#34;&gt;
-&lt;li&gt;Broker非正常关闭&lt;/li&gt;
-&lt;li&gt;Broker异常Crash&lt;/li&gt;
-&lt;li&gt;OS Crash&lt;/li&gt;
-&lt;li&gt;机器掉电，但是能立即恢复供电情况&lt;/li&gt;
-&lt;li&gt;机器无法开机（可能是cpu、主板、内存等关键设备损坏）&lt;/li&gt;
-&lt;li&gt;磁盘设备损坏&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;1)、2)、3)、4)
-四种情况都属于硬件资源可立即恢复情况，RocketMQ在这四种情况下能保证消息不丢，或者丢失少量数据（依赖刷盘方式是同步还是异步）。&lt;/p&gt;
-&lt;p&gt;5)、6)属于单点故障，且无法恢复，一旦发生，在此单点上的消息全部丢失。RocketMQ在这两种情况下，通过异步复制，可保证99%的消息不丢，但是仍然会有极少量的消息可能丢失。通过同步双写技术可以完全避免单点，同步双写势必会影响性能，适合对消息可靠性要求极高的场合，例如与Money相关的应用。注：RocketMQ从3.0版本开始支持同步双写。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;至少一次&lt;/p&gt;
-&lt;p&gt;​ 至少一次(At least
-Once)指每个消息必须投递一次。Consumer先Pull消息到本地，消费完成后，才向服务器返回ack，如果没有消费一定不会ack消息，所以RocketMQ可以很好的支持此特性。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;回溯消费&lt;/p&gt;
-&lt;p&gt;​
-回溯消费是指Consumer已经消费成功的消息，由于业务上需求需要重新消费，要支持此功能，Broker在向Consumer投递成功消息后，消息仍然需要保留。并且重新消费一般是按照时间维度，例如由于Consumer系统故障，恢复后需要重新消费1小时前的数据，那么Broker要提供一种机制，可以按照时间维度来回退消费进度。RocketMQ支持按照时间回溯消费，时间维度精确到毫秒。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;事务消息&lt;/p&gt;
-&lt;p&gt;​ RocketMQ事务消息（Transactional
-Message）是&lt;strong&gt;指应用本地事务和发送消息操作可以被定义到全局事务中，要么同时成功，要么同时失败。&lt;/strong&gt;RocketMQ的事务消息提供类似
-X/Open XA
-的分布事务功能，通过事务消息能达到分布式事务的最终一致。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;定时消息&lt;/p&gt;
-&lt;p&gt;​
-定时消息（延迟队列）是指消息发送到broker后，不会立即被消费，等待特定时间投递给真正的topic。
-broker有配置项messageDelayLevel，默认值为“1s 5s 10s 30s 1m 2m 3m 4m 5m
-6m 7m 8m 9m 10m 20m 30m 1h
-2h”，18个level。可以配置自定义messageDelayLevel。注意，messageDelayLevel是broker的属性，不属于某个topic。发消息时，设置delayLevel等级即可：msg.setDelayLevel(level)。level有以下三种情况：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;level == 0，消息为非延迟消息&lt;/li&gt;
-&lt;li&gt;1&amp;lt;=level&amp;lt;=maxLevel，消息延迟特定时间，例如level==1，延迟1s&lt;/li&gt;
-&lt;li&gt;level &amp;gt; maxLevel，则level== maxLevel，例如level==20，延迟2h&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;定时消息会暂存在名为SCHEDULE_TOPIC_XXXX的topic中，并根据delayTimeLevel存入特定的queue，queueId
-= delayTimeLevel –
-1，即一个queue只存相同延迟的消息，保证具有相同发送延迟的消息能够顺序消费。broker会调度地消费SCHEDULE_TOPIC_XXXX，将消息写入真实的topic。&lt;/p&gt;
-&lt;p&gt;需要注意的是，定时消息会在第一次写入和调度写入真实topic时都会计数，因此发送数量、tps都会变高。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;消息重试&lt;/p&gt;
-&lt;p&gt;​
-Consumer消费消息失败后，要提供一种重试机制，令消息再消费一次。Consumer消费消息失败通常可以认为有以下几种情况：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;由于消息本身的原因，例如反序列化失败，消息数据本身无法处理（例如话费充值，当前消息的手机号被注销，无法充值）等。这种错误通常需要跳过这条消息，再消费其它消息，而这条失败的消息即使立刻重试消费，99%也不成功，所以最好提供一种定时重试机制，即过10秒后再重试。&lt;/li&gt;
-&lt;li&gt;由于依赖的下游应用服务不可用，例如db连接不可用，外系统网络不可达等。遇到这种错误，即使跳过当前失败的消息，消费其他消息同样也会报错。这种情况建议应用sleep
-30s，再消费下一条消息，这样可以减轻Broker重试消息的压力。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;RocketMQ会为每个消费组都设置一个Topic名称为“%RETRY%+consumerGroup”的重试队列（这里需要注意的是，这个Topic的重试队列是针对消费组，而不是针对每个Topic设置的），用于暂时保存因为各种异常而导致Consumer端无法消费的消息。考虑到异常恢复起来需要一些时间，会为重试队列设置多个重试级别，每个重试级别都有与之对应的重新投递延时，重试次数越多投递延时就越大。RocketMQ对于重试消息的处理是先保存至Topic名称为“SCHEDULE_TOPIC_XXXX”的延迟队列中，后台定时任务按照对应的时间进行Delay后重新保存至“%RETRY%+consumerGroup”的重试队列中。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;消息重投&lt;/p&gt;
-&lt;p&gt;​
-生产者在发送消息时，同步消息失败会重投，异步消息有重试，oneway没有任何保证。&lt;strong&gt;消息重投保证消息尽可能发送成功、不丢失，但可能会造成消息重复，消息重复在RocketMQ中是无法避免的问题。&lt;/strong&gt;消息重复在一般情况下不会发生，当出现消息量大、网络抖动，消息重复就会是大概率事件。另外，生产者主动重发、consumer负载变化也会导致重复消息。如下方法可以设置消息重试策略：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;retryTimesWhenSendFailed:同步发送失败重投次数，默认为2，因此生产者会最多尝试发送retryTimesWhenSendFailed
-+
-1次。不会选择上次失败的broker，尝试向其他broker发送，最大程度保证消息不丢。超过重投次数，抛出异常，由客户端保证消息不丢。当出现RemotingException、MQClientException和部分MQBrokerException时会重投。&lt;/li&gt;
-&lt;li&gt;retryTimesWhenSendAsyncFailed:异步发送失败重试次数，异步重试不会选择其他broker，仅在同一个broker上做重试，不保证消息不丢。&lt;/li&gt;
-&lt;li&gt;retryAnotherBrokerWhenNotStoreOK:消息刷盘（主或备）超时或slave不可用（返回状态非SEND_OK），是否尝试发送到其他broker，默认false。十分重要消息可以开启。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;流量控制&lt;/p&gt;
-&lt;p&gt;​
-生产者流控，因为broker处理能力达到瓶颈；消费者流控，因为消费能力达到瓶颈。&lt;/p&gt;
-&lt;p&gt;生产者流控：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;commitLog文件被锁时间超过osPageCacheBusyTimeOutMills时，参数默认为1000ms，返回流控。&lt;/li&gt;
-&lt;li&gt;如果开启transientStorePoolEnable ==
-true，且broker为异步刷盘的主机，且transientStorePool中资源不足，拒绝当前send请求，返回流控。&lt;/li&gt;
-&lt;li&gt;broker每隔10ms检查send请求队列头部请求的等待时间，如果超过waitTimeMillsInSendQueue，默认200ms，拒绝当前send请求，返回流控。&lt;/li&gt;
-&lt;li&gt;broker通过拒绝send 请求方式实现流量控制。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;注意，生产者流控，不会尝试消息重投。&lt;/p&gt;
-&lt;p&gt;消费者流控：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;消费者本地缓存消息数超过pullThresholdForQueue时，默认1000。&lt;/li&gt;
-&lt;li&gt;消费者本地缓存消息大小超过pullThresholdSizeForQueue时，默认100MB。&lt;/li&gt;
-&lt;li&gt;消费者本地缓存消息跨度超过consumeConcurrentlyMaxSpan时，默认2000。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;消费者流控的结果是降低拉取频率。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;死信队列&lt;/p&gt;
-&lt;p&gt;​
-死信队列用于&lt;strong&gt;处理无法被正常消费的消息&lt;/strong&gt;。当一条消息初次消费失败，消息队列会自动进行消息重试；达到最大重试次数后，若消费依然失败，则表明消费者在正常情况下无法正确地消费该消息，此时，消息队列
-不会立刻将消息丢弃，而是将其发送到该消费者对应的特殊队列中。&lt;/p&gt;
-&lt;p&gt;RocketMQ将这种正常情况下无法被消费的消息称为死信消息（Dead-Letter
-Message），将存储死信消息的特殊队列称为死信队列（Dead-Letter
-Queue）。在RocketMQ中，可以通过使用console控制台对死信队列中的消息进行重发来使得消费者实例再次进行消费。&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;seata&#34;&gt;---06-Seata&lt;/h1&gt;
-&lt;h3 id=&#34;一分布式事务介绍&#34;&gt;一、分布式事务介绍&lt;/h3&gt;
-&lt;p&gt;分布式事务是指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式系统的不同节点之上。&lt;/p&gt;
-&lt;p&gt;例如订单服务添加订单后，需要调用远程商品服务完成减库存操作，这时如何确保添加订单和减少库存的2个SQL要么全部执行要么全部不执行？&lt;/p&gt;
-&lt;p&gt;由于2个SQL写操作不在同一事务范围内，因此正常情况无法确保2个事务同时提交或同时回滚，这就会出现数据不一致的现象。这种情况就需要使用分布式事务框来解决这个问题。&lt;/p&gt;
-&lt;figure&gt;
-&lt;img data-src=&#34;D:\Pictures\typore\image-20240507101415093.png&#34;
-alt=&#34;image-20240507101415093&#34; /&gt;
-&lt;figcaption aria-hidden=&#34;true&#34;&gt;image-20240507101415093&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;h3 id=&#34;二seata介绍&#34;&gt;二、Seata介绍&lt;/h3&gt;
-&lt;p&gt;Seata
-是一款开源的分布式事务解决方案，致力于提供高性能和简单易用的分布式事务服务。Seata
-将为用户提供了 AT、TCC、SAGA 和 XA
-事务模式，为用户打造一站式的分布式解决方案。&lt;/p&gt;
-&lt;p&gt;官网地址&lt;a
-href=&#34;https://seata.io/zh-cn&#34;&gt;https://seata.io/zh-cn/&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&#34;相关术语&#34;&gt;1、相关术语&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;TC (Transaction Coordinator) -&lt;/strong&gt;
-&lt;strong&gt;事务协调者&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;维护全局和分支事务的状态，驱动全局事务提交或回滚。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;TM (Transaction Manager) -&lt;/strong&gt;
-&lt;strong&gt;事务管理器&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;定义全局事务的范围：开始全局事务、提交或回滚全局事务。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;RM (Resource Manager) -&lt;/strong&gt;
-&lt;strong&gt;资源管理器&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;管理分支事务处理的资源，与TC交谈以注册分支事务和报告分支事务的状态，并驱动分支事务提交或回滚。&lt;/p&gt;
-&lt;figure&gt;
-&lt;img data-src=&#34;D:\Pictures\typore\image-20240507101504277.png&#34;
-alt=&#34;image-20240507101504277&#34; /&gt;
-&lt;figcaption aria-hidden=&#34;true&#34;&gt;image-20240507101504277&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;h4 id=&#34;at模式&#34;&gt;2、AT模式&lt;/h4&gt;
-&lt;p&gt;1、前提&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;基于支持本地 ACID 事务的关系型数据库。&lt;/li&gt;
-&lt;li&gt;Java 应用，通过 JDBC 访问数据库。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;2、整体机制&lt;/p&gt;
-&lt;p&gt;两阶段提交协议：&lt;/p&gt;
-&lt;p&gt;一阶段：业务数据和回滚日志记录在同一个本地事务中提交，释放本地锁和连接资源。&lt;/p&gt;
-&lt;p&gt;二阶段：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;ul&gt;
-&lt;li&gt;提交异步化，非常快速地完成。&lt;/li&gt;
-&lt;li&gt;回滚通过一阶段的回滚日志进行反向补偿。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;3、写隔离&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一阶段本地事务提交前，需要确保先拿到 &lt;strong&gt;全局锁&lt;/strong&gt; 。&lt;/li&gt;
-&lt;li&gt;拿不到 &lt;strong&gt;全局锁&lt;/strong&gt; ，不能提交本地事务。&lt;/li&gt;
-&lt;li&gt;拿 &lt;strong&gt;全局锁&lt;/strong&gt;
-的尝试被限制在一定范围内，超出范围将放弃，并回滚本地事务，释放本地锁。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;以一个示例来说明：&lt;/p&gt;
-&lt;p&gt;两个全局事务 tx1 和 tx2，分别对 a 表的 m 字段进行更新操作，m 的初始值
-1000。&lt;/p&gt;
-&lt;p&gt;tx1 先开始，开启本地事务，拿到本地锁，更新操作 m = 1000 - 100 =
-900。本地事务提交前，先拿到该记录的 &lt;strong&gt;全局锁&lt;/strong&gt;
-，本地提交释放本地锁。 tx2 后开始，开启本地事务，拿到本地锁，更新操作 m
-= 900 - 100 = 800。本地事务提交前，尝试拿该记录的
-&lt;strong&gt;全局锁&lt;/strong&gt; ，tx1 全局提交前，该记录的全局锁被 tx1 持有，tx2
-需要重试等待 &lt;strong&gt;全局锁&lt;/strong&gt; 。&lt;/p&gt;
-&lt;figure&gt;
-&lt;img data-src=&#34;D:\Pictures\typore\image-20240507101742335.png&#34;
-alt=&#34;image-20240507101742335&#34; /&gt;
-&lt;figcaption aria-hidden=&#34;true&#34;&gt;image-20240507101742335&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;tx1 二阶段全局提交，释放 &lt;strong&gt;全局锁&lt;/strong&gt; 。tx2 拿到
-&lt;strong&gt;全局锁&lt;/strong&gt; 提交本地事务。&lt;/p&gt;
-&lt;figure&gt;
-&lt;img data-src=&#34;D:\Pictures\typore\image-20240507101755671.png&#34;
-alt=&#34;image-20240507101755671&#34; /&gt;
-&lt;figcaption aria-hidden=&#34;true&#34;&gt;image-20240507101755671&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;如果 tx1 的二阶段全局回滚，则 tx1
-需要重新获取该数据的本地锁，进行反向补偿的更新操作，实现分支的回滚。&lt;/p&gt;
-&lt;p&gt;此时，如果 tx2 仍在等待该数据的
-&lt;strong&gt;全局锁&lt;/strong&gt;，同时持有本地锁，则 tx1
-的分支回滚会失败。分支的回滚会一直重试，直到 tx2 的
-&lt;strong&gt;全局锁&lt;/strong&gt; 等锁超时，放弃 &lt;strong&gt;全局锁&lt;/strong&gt;
-并回滚本地事务释放本地锁，tx1 的分支回滚最终成功。&lt;/p&gt;
-&lt;p&gt;因为整个过程 &lt;strong&gt;全局锁&lt;/strong&gt; 在 tx1 结束前一直是被 tx1
-持有的，所以不会发生 &lt;strong&gt;脏写&lt;/strong&gt; 的问题。&lt;/p&gt;
-&lt;p&gt;4、读隔离&lt;/p&gt;
-&lt;p&gt;在数据库本地事务隔离级别 &lt;strong&gt;读已提交（Read Committed）&lt;/strong&gt;
-或以上的基础上，Seata（AT 模式）的默认全局隔离级别是
-&lt;strong&gt;读未提交（Read Uncommitted）&lt;/strong&gt; 。&lt;/p&gt;
-&lt;p&gt;如果应用在特定场景下，必需要求全局的 &lt;strong&gt;读已提交&lt;/strong&gt; ，目前
-Seata 的方式是通过 SELECT FOR UPDATE 语句的代理。&lt;/p&gt;
-&lt;figure&gt;
-&lt;img data-src=&#34;D:\Pictures\typore\image-20240507101813112.png&#34;
-alt=&#34;image-20240507101813112&#34; /&gt;
-&lt;figcaption aria-hidden=&#34;true&#34;&gt;image-20240507101813112&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;SELECT FOR UPDATE 语句的执行会申请 &lt;strong&gt;全局锁&lt;/strong&gt; ，如果
-&lt;strong&gt;全局锁&lt;/strong&gt; 被其他事务持有，则释放本地锁（回滚 SELECT FOR
-UPDATE 语句的本地执行）并重试。这个过程中，查询是被 block 住的，直到
-&lt;strong&gt;全局锁&lt;/strong&gt; 拿到，即读取的相关数据是 &lt;strong&gt;已提交&lt;/strong&gt;
-的，才返回。&lt;/p&gt;
-&lt;p&gt;出于总体性能上的考虑，Seata 目前的方案并没有对所有 SELECT
-语句都进行代理，仅针对 FOR UPDATE 的 SELECT 语句。&lt;/p&gt;
-&lt;p&gt;5、工作机制&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;以一个示例来说明整个 AT 分支的工作过程。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;业务表：&lt;code&gt;product&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;```&lt;/p&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;25&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- AT 事务的业务逻辑：&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- update` product `set` `name` = `&amp;#x27;GTS&amp;#x27;` `where` `name` = `&amp;#x27;TXC&amp;#x27;`;`&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- #### 1 一阶段&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- 过程：&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- \1. 解析 SQL：得到 SQL 的类型（UPDATE），表（product），条件（where name = &amp;#x27;TXC&amp;#x27;）等相关的信息。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- \2. 查询前镜像：根据解析得到的条件信息，生成查询语句，定位数据。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- select id, name, since from product where name = &amp;#x27;TXC&amp;#x27;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- 得到前镜像：&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- `  ```&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- \3. 执行业务 SQL：更新这条记录的 name 为 &amp;#x27;GTS&amp;#x27;。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- \4. 查询后镜像：根据前镜像的结果，通过 **主键** 定位数据。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- ```&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  select id, name, since from product where id = 1;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;\5. 插入回滚日志：把前后镜像数据以及业务 SQL
-相关的信息组成一条回滚日志记录，插入到 &lt;code&gt;UNDO_LOG&lt;/code&gt;
-表中。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;`&lt;code&gt;&amp;#123;&lt;/code&gt; &#34;branchId&#34;:
-641789253,&lt;code&gt;&#34;undoItems&#34;: [&amp;#123;&lt;/code&gt; &#34;afterImage&#34;:
-{&lt;code&gt;&#34;rows&#34;: [&amp;#123;&lt;/code&gt; &#34;fields&#34;: [{&lt;code&gt;&#34;name&#34;: &#34;id&#34;,&lt;/code&gt; &#34;type&#34;:
-4,&lt;code&gt;&#34;value&#34;: 1&lt;/code&gt; }, {&lt;code&gt;&#34;name&#34;: &#34;name&#34;,&lt;/code&gt; &#34;type&#34;:
-12,&lt;code&gt;&#34;value&#34;: &#34;GTS&#34;&lt;/code&gt; }, {&lt;code&gt;&#34;name&#34;: &#34;since&#34;,&lt;/code&gt; &#34;type&#34;:
-12,&lt;code&gt;&#34;value&#34;: &#34;2014&#34;&lt;/code&gt; }]&lt;code&gt;&amp;#125;],&lt;/code&gt; &#34;tableName&#34;:
-&#34;product&#34;&lt;code&gt;&amp;#125;,&lt;/code&gt; &#34;beforeImage&#34;: {&lt;code&gt;&#34;rows&#34;: [&amp;#123;&lt;/code&gt;
-&#34;fields&#34;: [{&lt;code&gt;&#34;name&#34;: &#34;id&#34;,&lt;/code&gt; &#34;type&#34;: 4,&lt;code&gt;&#34;value&#34;: 1&lt;/code&gt;
-}, {&lt;code&gt;&#34;name&#34;: &#34;name&#34;,&lt;/code&gt; &#34;type&#34;: 12,&lt;code&gt;&#34;value&#34;: &#34;TXC&#34;&lt;/code&gt;
-}, {&lt;code&gt;&#34;name&#34;: &#34;since&#34;,&lt;/code&gt; &#34;type&#34;:
-12,&lt;code&gt;&#34;value&#34;: &#34;2014&#34;&lt;/code&gt; }]&lt;code&gt;&amp;#125;],&lt;/code&gt; &#34;tableName&#34;:
-&#34;product&#34;&lt;code&gt;&amp;#125;,&lt;/code&gt; &#34;sqlType&#34;: &#34;UPDATE&#34;&lt;code&gt;&amp;#125;],&lt;/code&gt; &#34;xid&#34;:
-&#34;xid:xxx&#34;``} &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- \6. 提交前，向 TC 注册分支：申请 `product` 表中，主键值等于 1 的记录的 **全局锁** 。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- \7. 本地事务提交：业务数据的更新和前面步骤中生成的 UNDO LOG 一并提交。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- \8. 将本地事务提交的结果上报给 TC。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- #### 2 二阶段-回滚&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- 1. 收到 TC 的分支回滚请求，开启一个本地事务，执行如下操作。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  2. 通过 XID 和 Branch ID 查找到相应的 UNDO LOG 记录。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  3. 数据校验：拿     UNDO LOG 中的后镜与当前数据进行比较，如果有不同，说明数据被当前全局事务之外的动作做了修改。这种情况，需要根据配置策略来做处理，详细的说明在另外的文档中介绍。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  4. 根据 UNDO     LOG 中的前镜像和业务 SQL 的相关信息生成并执行回滚的语句：&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- ```&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          update product set name = &amp;#x27;TXC&amp;#x27; where id = 1;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;ol type=&#34;1&#34;&gt;
-&lt;li&gt;提交本地事务。并把本地事务的执行结果（即分支事务回滚的结果）上报给
-TC&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;li&gt;&lt;h4 id=&#34;二阶段-提交&#34;&gt;3 二阶段-提交&lt;/h4&gt;&lt;/li&gt;
-&lt;li&gt;&lt;ol type=&#34;1&#34;&gt;
-&lt;li&gt;收到 TC
-的分支提交请求，把请求放入一个异步任务的队列中，马上返回提交成功的结果给
-TC。&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;异步任务阶段的分支提交请求将异步和批量地删除相应 UNDO LOG
-记录&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;tcc模式&#34;&gt;3、TCC模式&lt;/h4&gt;
-&lt;p&gt;一个分布式的全局事务，整体是 &lt;strong&gt;两阶段提交&lt;/strong&gt;
-的模型。全局事务是由若干分支事务组成的，分支事务要满足
-&lt;strong&gt;两阶段提交&lt;/strong&gt;
-的模型要求，即需要每个分支事务都具备自己的：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一阶段 prepare 行为&lt;/li&gt;
-&lt;li&gt;二阶段 commit 或 rollback 行为&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;saga模式&#34;&gt;4、SAGA模式&lt;/h4&gt;
-&lt;p&gt;Saga模式是SEATA提供的长事务解决方案，在Saga模式中，业务流程中每个参与者都提交本地事务，当出现某一个参与者失败则补偿前面已经成功的参与者，一阶段正向服务和二阶段补偿服务都由业务开发实现。&lt;/p&gt;
-&lt;h4 id=&#34;xa模式&#34;&gt;5、XA模式&lt;/h4&gt;
-&lt;p&gt;前提&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;支持XA 事务的数据库。&lt;/li&gt;
-&lt;li&gt;Java 应用，通过 JDBC 访问数据库。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;整体机制&lt;/p&gt;
-&lt;p&gt;在 Seata 定义的分布式事务框架内，利用事务资源（数据库、消息服务等）对
-XA 协议的支持，以 XA 协议的机制来管理分支事务的一种 事务模式。&lt;/p&gt;
-&lt;h1 id=&#34;sky-walking链式跟踪&#34;&gt;---07-Sky Walking链式跟踪&lt;/h1&gt;
-&lt;h3 id=&#34;一sky-walking简介&#34;&gt;一、Sky Walking简介&lt;/h3&gt;
-&lt;h4 id=&#34;主要功能-1&#34;&gt;1、主要功能&lt;/h4&gt;
-&lt;p&gt;Sky Walking
-是针对&lt;strong&gt;分布式系统的APM（应用性能监控）系统&lt;/strong&gt;，特别针对微服务、cloud
-native 和容器化(Docker, Kubernetes, Mesos)架构，
-其核心是个&lt;strong&gt;分布式追踪系统&lt;/strong&gt;。它通过探针自动收集所需的指标，且&lt;strong&gt;基于探针技术对应用零侵入零耦合&lt;/strong&gt;。主要提供以下功能：&lt;/p&gt;
-&lt;p&gt;\1. 服务、服务实例和端点(如：单个HTTP URI）的性能指标分析&lt;/p&gt;
-&lt;p&gt;\2. 根本原因分析&lt;/p&gt;
-&lt;p&gt;\3. 服务拓扑图分析&lt;/p&gt;
-&lt;p&gt;\4. 服务和端点依赖分析&lt;/p&gt;
-&lt;p&gt;\5. 慢服务和慢端点检测&lt;/p&gt;
-&lt;p&gt;\6. 分布式追踪和上下文传播&lt;/p&gt;
-&lt;p&gt;\7. 告警&lt;/p&gt;
-&lt;h4 id=&#34;总体框架&#34;&gt;2、总体框架&lt;/h4&gt;
-&lt;p&gt;\1. collector：链路数据归集器，数据可以落地MySQL、Elastic
-Search等&lt;/p&gt;
-&lt;p&gt;\2. agent：探针，使用Java
-agent做字节码植入，无侵入式的收集，并通过HTTP或者g
-RPC方式发送数据collector&lt;/p&gt;
-&lt;p&gt;\3. web ：web可视化平台，用来展示落地的数据&lt;/p&gt;
-&lt;h1 id=&#34;spring-security&#34;&gt;---08-Spring Security&lt;/h1&gt;
-&lt;h3 id=&#34;一认证授权的基础概念&#34;&gt;一、认证授权的基础概念&lt;/h3&gt;
-&lt;h4 id=&#34;什么是认证登录&#34;&gt;1、什么是认证（登录）&lt;/h4&gt;
-&lt;p&gt;进入移动互联网时代，大家每天都在刷手机，常用的软件有微信、支付宝、头条等，下边拿微信来举例子说明认证相关的基本概念，在初次使用微信前需要注册成为微信用户，然后输入账号和密码即可登录微信，输入账号和密码登录微信的过程就是认证。&lt;/p&gt;
-&lt;p&gt;系统为什么要认证？&lt;/p&gt;
-&lt;p&gt;认证是为了保护系统的隐私数据与资源，用户的身份合法方可访问该系统的资源。&lt;/p&gt;
-&lt;p&gt;认证
-：&lt;strong&gt;用户认证就是判断一个用户的身份是否合法的过程&lt;/strong&gt;，用户去访问系统资源（url接口）时系统要求验证用户的身份信息，身份合法方可继续访问，不合法则拒绝访问。常见的用户身份认证方式有：用户名密码登录，二维码登录，手机短信登录，指纹认证等方式。&lt;/p&gt;
-&lt;p&gt;user.getUserByUsername(“zhangsan”)&lt;/p&gt;
-&lt;h4 id=&#34;什么是会话&#34;&gt;2、什么是会话&lt;/h4&gt;
-&lt;p&gt;用户认证通过后，为了避免用户的每次操作都进行认证可将用户的信息保证在会话中。会话就是系统为了保持当前用户的登录状态所提供的机制，&lt;strong&gt;常见的有基于session方式、基于token方式&lt;/strong&gt;等。&lt;/p&gt;
-&lt;p&gt;1 基于session的认证方式&lt;/p&gt;
-&lt;p&gt;它的交互流程是，用户认证成功后，在服务端生成用户相关的数据保存在session(当前会话)中，发给客户端的sesssion_id
-存放到 cookie 中，这样用户客户端请求时带上 session_id
-就可以验证服务器端是否存在 session
-数据，以此完成用户的合法校验，当用户退出系统或session过期销毁时,客户端的session_id也就无效了&lt;/p&gt;
-&lt;p&gt;2 基于token方式认证方式&lt;/p&gt;
-&lt;p&gt;它的交互流程是，用户认证成功后，服务端生成一个token发给客户端，客户端可以放到
-cookie 或 local Storage等存储中，每次请求时带上
-token，服务端收到token通过验证后即可确认用户身份。Redis 存的用户信息
-&lt;strong&gt;共享session&lt;/strong&gt; （分布式中）&lt;/p&gt;
-&lt;p&gt;基于session的认证方式由Servlet规范定制，服务端要存储session信息需要占用内存资源，客户端需要支持cookie；基于token的方式则一般不需要服务端存储token，并且不限制客户端的存储方式。&lt;strong&gt;如今移动互联网时代更多类型的客户端需要接入系统，系统多是采用前后端分离的架构进行实现，所以基于token的方式更适合&lt;/strong&gt;。&lt;/p&gt;
-&lt;h4 id=&#34;什么是授权给用户颁发权限&#34;&gt;3、什么是授权（给用户颁发权限）&lt;/h4&gt;
-&lt;p&gt;还拿微信来举例子，微信登录成功后用户即可使用微信的功能，比如，发红包、发朋友圈、添加好友等，没有绑定银行卡的用户是无法发送红包的，绑定银行卡的用户才可以发红包，发红包功能、发朋友圈功能都是微信的资源即功能资源，用户拥有发红包功能的权限才可以正常使用发送红包功能，拥有发朋友圈功能的权限才可以使用发朋友圈功能，这个根据用户的权限来控制用户使用资源的过程就是授权。
-&lt;strong&gt;鉴权（判断用户是否有这个权限）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;java应用中什么叫资源 url就是资源 （接口就是资源）&lt;/p&gt;
-&lt;h4 id=&#34;授权的数据模型rbac&#34;&gt;4、授权的数据模型（RBAC）&lt;/h4&gt;
-&lt;p&gt;用户 角色 权限&lt;/p&gt;
-&lt;p&gt;如何进行授权即如何对用户访问资源进行控制，首先需要学习授权相关的数据模型。&lt;/p&gt;
-&lt;p&gt;授权可简单理解为&lt;strong&gt;Who对What(which)进行How操作&lt;/strong&gt;，包括如下：&lt;/p&gt;
-&lt;p&gt;Who，即主体（Subject），主体一般是指用户，也可以是程序，需要访问系统中的资源。
-What，即资源（Resource），如系统菜单、页面、按钮、代码方法、系统商品信息、系统订单信息等。系统菜单、页面、按钮、代码方法都属于系统功能资源，对于web系统每个功能资源通常对应一个URL；系统商品信息、系统订单信息都属于实体资源（数据资源），实体资源由资源类型和资源实例组成，比如商品信息为资源类型，商品编号
-为001的商品为资源实例。
-How，权限/许可（Permission），规定了用户对资源的操作许可，权限离开资源没有意义，如用户查询权限、用户添加权限、某个代码方法的调用权限、编号为001的用户的修改权限等，通过权限可知用户对哪些资源都有哪些操作可。&lt;/p&gt;
-&lt;p&gt;主体、资源、权限关系如下图：&lt;/p&gt;
-&lt;figure&gt;
-&lt;img data-src=&#34;D:\Pictures\typore\clip_image002-17150487587261.jpg&#34;
-alt=&#34;IMG_256&#34; /&gt;
-&lt;figcaption aria-hidden=&#34;true&#34;&gt;IMG_256&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;主体、资源、权限相关的数据模型如下：&lt;/p&gt;
-&lt;p&gt;主体（用户id、账号、密码、...）&lt;/p&gt;
-&lt;p&gt;资源（资源id、资源名称、访问地址、...）&lt;/p&gt;
-&lt;p&gt;权限（权限id、权限标识、权限名称、资源id、...）&lt;/p&gt;
-&lt;p&gt;角色（角色id、角色名称、...）&lt;/p&gt;
-&lt;p&gt;角色和权限关系（角色 id、权限id、...）&lt;/p&gt;
-&lt;p&gt;主体（用户）和角色关系（用户id、角色id、...）&lt;/p&gt;
-&lt;p&gt;主体（用户）、资源、权限关系如下图：&lt;/p&gt;
-&lt;figure&gt;
-&lt;img data-src=&#34;D:\Pictures\typore\clip_image002-17150487703522.jpg&#34;
-alt=&#34;IMG_257&#34; /&gt;
-&lt;figcaption aria-hidden=&#34;true&#34;&gt;IMG_257&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;通常企业开发中将资源和权限表合并为一张权限表，如下：&lt;/p&gt;
-&lt;p&gt;资源（资源id、资源名称、访问地址、...）&lt;/p&gt;
-&lt;p&gt;权限（权限id、权限标识、权限名称、资源id、...）&lt;/p&gt;
-&lt;p&gt;合并为：&lt;/p&gt;
-&lt;p&gt;权限（权限id、权限标识、权限名称、资源名称、资源访问地址、...）&lt;/p&gt;
-&lt;p&gt;修改后数据模型之间的关系如下图：&lt;/p&gt;
-&lt;figure&gt;
-&lt;img data-src=&#34;D:\Pictures\typore\clip_image002-17150487790833.jpg&#34;
-alt=&#34;IMG_258&#34; /&gt;
-&lt;figcaption aria-hidden=&#34;true&#34;&gt;IMG_258&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;h4 id=&#34;rbac&#34;&gt;5、RBAC&lt;/h4&gt;
-&lt;p&gt;用户，角色，权限 本质：就是把权限打包给角色，分配给用户&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;RBAC一般指基于角色的访问控制&lt;/strong&gt; 权限 五张表
-（最少五张表）&lt;/p&gt;
-&lt;p&gt;基于角色的访问控制（RBAC）是实施面向企业安全策略的一种有效的访问控制方式。&lt;/p&gt;
-&lt;p&gt;系统的资源访问级别会更加细化&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1 基于角色的访问控制&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;RBAC基于角色的访问控制（Role-Based Access
-Control）是按角色进行授权，比如：主体的角色为总经理可以查询企业运营报表，查询员工工资信息等&lt;/p&gt;
-&lt;p&gt;根据上图中的判断逻辑，授权代码可表示如下：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;if(主体.hasRole(&#34;总经理角色id&#34;)){&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;查询工资&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;}&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;如果上图中查询工资所需要的角色变化为总经理和部门经理，此时就需要修改判断逻辑为“判断用户的角色是否是总经理或部门经理”，修改代码如下：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;if(主体.hasRole(&#34;总经理角色id&#34;) ||&lt;/strong&gt;
-&lt;strong&gt;主体.hasRole(&#34;部门经理角色id&#34;)){&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;查询工资&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;}&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;根据上边的例子发现，当需要修改角色的权限时就需要修改授权的相关代码，系统可扩展性差。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2 基于权限的访问控制&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;RBAC基于资源的访问控制（Resource-Based Access
-Control）是按资源（或权限）进行授权，比如：用户必须具有查询工资权限才可以查询员工工资信息等，如下的判断&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;if(主体.hasPermission(&#34;查询工资&#34;) ){&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;查询工资&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;}&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;优点：系统设计时定义好查询工资的权限标识，即使查询工资所需要的角色变化为总经理和部门经理也不需要修改授权代码，系统可扩展性强。&lt;/p&gt;
-&lt;h3 id=&#34;二spring-security简介&#34;&gt;二、Spring Security简介&lt;/h3&gt;
-&lt;p&gt;官网： https://spring.io/projects/spring-security&lt;/p&gt;
-&lt;p&gt;中文文档： https://www.springcloud.cc/spring-security.html&lt;/p&gt;
-&lt;h4 id=&#34;什么是spring-security&#34;&gt;1、什么是Spring Security&lt;/h4&gt;
-&lt;p&gt;Spring
-Security是一个能够为基于Spring的企业应用系统提供&lt;strong&gt;声明式（注解）的安全访问控制解决方案的安全框架&lt;/strong&gt;。它提供了一组可以在Spring应用上下文中配置的Bean，充分利用了Spring
-IoC，DI（控制反转Inversion of Control ,DI:Dependency Injection
-依赖注入）和AOP（面向切面编程）功能，为应用系统提供声明式的安全访问控制功能，减少了为企业系统安全控制编写大量重复代码的工作。&lt;/p&gt;
-&lt;p&gt;以上解释来源于百度百科。可以一句话来概括，SpringSecurity
-是一个安全框架。&lt;/p&gt;
-&lt;h3 id=&#34;三jwt概述&#34;&gt;三、JWT概述&lt;/h3&gt;
-&lt;h4 id=&#34;什么是jwt&#34;&gt;1、什么是JWT&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;Json web token (JWT)&lt;/strong&gt;,
-是&lt;strong&gt;为了在网络应用环境间传递声明而执行的一种基于JSON的开放标准&lt;/strong&gt;（(RFC
-7519).该token被设计为&lt;strong&gt;紧凑且安全&lt;/strong&gt;的，特别适用于&lt;strong&gt;分布式站点的单点登录（&lt;/strong&gt;SSO）场景。JWT的声明一般被用来在身份提供者和服务提供者间传递被认证的用户身份信息，以便于从资源服务器获取资源，也可以增加一些额外的其它业务逻辑所必须的声明信息，该token也可直接被用于认证，也可被加密。&lt;/p&gt;
-&lt;p&gt;官网： &lt;a
-href=&#34;https://jwt.io/&#34;&gt;&lt;strong&gt;https://jwt.io/&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&#34;跨域认证问题&#34;&gt;2、跨域认证问题&lt;/h4&gt;
-&lt;p&gt;互联网服务离不开用户认证。一般流程是下面这样。&lt;/p&gt;
-&lt;p&gt;l 用户向服务器发送用户名和密码。&lt;/p&gt;
-&lt;p&gt;l
-服务器验证通过后，在当前对话（session）里面保存相关数据，比如用户角色、登录时间等等。&lt;/p&gt;
-&lt;p&gt;l 服务器向用户返回一个 session_id，写入浏览器的
-Cookie。（Cookie不能跨域携带）&lt;/p&gt;
-&lt;p&gt;l 用户随后的每一次请求，都会通过 Cookie，将 session_id
-传回服务器。&lt;/p&gt;
-&lt;p&gt;l 服务器收到 session_id，找到前期保存的数据，由此得知用户的身份。&lt;/p&gt;
-&lt;p&gt;这种模式的问题在于，扩展性（scaling）不好。单机当然没有问题，如果是服务器集群，或者是跨域的服务导向架构，就要求
-session 数据共享，每台服务器都能够读取 session。&lt;/p&gt;
-&lt;p&gt;举例来说，A 网站和 B
-网站是同一家公司的关联服务。现在要求，用户只要在其中一个网站登录，再访问另一个网站就会自动登录，请问怎么实现？&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;一种解决方案是 session&lt;/strong&gt;
-&lt;strong&gt;数据持久化&lt;/strong&gt;，写入数据库或别的持久层。各种服务收到请求后，都向持久层请求数据。这种方案的优点是架构清晰，缺点是工程量比较大。另外，持久层万一挂了，就会单点失败。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;另一种方案是服务器索性不保存 session&lt;/strong&gt;
-&lt;strong&gt;数据了，所有数据都保存在客户端，每次请求都发回服务器&lt;/strong&gt;。JWT
-就是这种方案的一个代表。 服务器不存数据，客户端存，服务器解析就行了&lt;/p&gt;
-&lt;h4 id=&#34;jwt原理&#34;&gt;3、JWT原理&lt;/h4&gt;
-&lt;p&gt;JWT 的原理是，服务器认证以后，生成一个 JSON
-对象，发回给用户，就像下面这样。&lt;/p&gt;
-&lt;p&gt;{ &#34;姓名&#34;: &#34;张三&#34;, &#34;角色&#34;: &#34;管理员&#34;, &#34;到期时间&#34;: &#34;2018年7月1日0点0分&#34;
-}&lt;/p&gt;
-&lt;p&gt;以后，用户与服务端通信的时候，都要发回这个 JSON
-对象。服务器完全只靠这个对象认定用户身份。为了防止用户篡改数据，服务器在生成这个对象的时候，会加&lt;strong&gt;上签名&lt;/strong&gt;（详见后文）。&lt;/p&gt;
-&lt;p&gt;服务器就不保存任何 session
-数据了，也就是说，服务器变成&lt;strong&gt;无状态&lt;/strong&gt;了，从而比较容易实现扩展。&lt;/p&gt;
-&lt;h4 id=&#34;jwt数据结构&#34;&gt;4、JWT数据结构&lt;/h4&gt;
-&lt;p&gt;实际的 JWT 大概就像下面这样。&lt;/p&gt;
-&lt;figure&gt;
-&lt;img data-src=&#34;D:\Pictures\typore\clip_image002-17150492894634.png&#34;
-alt=&#34;IMG_256&#34; /&gt;
-&lt;figcaption aria-hidden=&#34;true&#34;&gt;IMG_256&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;它是一个很长的字符串，中间用点（.）分隔成三个部分。注意，JWT
-内部是没有换行的，这里只是为了便于展示，将它写成了几行。&lt;/p&gt;
-&lt;p&gt;JWT 的三个部分依次如下。&lt;/p&gt;
-&lt;p&gt;面试问题： jwt知道吗？谈谈你的理解（由浅入深的聊）&lt;/p&gt;
-&lt;p&gt;Ø Header（头部）&lt;/p&gt;
-&lt;p&gt;Ø Payload（负载）&lt;/p&gt;
-&lt;p&gt;Ø Signature（签名）&lt;/p&gt;
-&lt;p&gt;写成一行，就是下面的样子。&lt;/p&gt;
-&lt;figure&gt;
-&lt;img data-src=&#34;D:\Pictures\typore\clip_image002-17150492956465.png&#34;
-alt=&#34;IMG_257&#34; /&gt;
-&lt;figcaption aria-hidden=&#34;true&#34;&gt;IMG_257&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;strong&gt;1、Header&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Header 部分是一个 JSON 对象，描述 JWT
-的元数据，通常是下面的样子。&lt;/p&gt;
-&lt;figure class=&#34;highlight json&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; &lt;span class=&#34;attr&#34;&gt;&amp;quot;alg&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;HS256&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; &lt;span class=&#34;attr&#34;&gt;&amp;quot;typ&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;JWT&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;上面代码中，alg属性表示签名的算法（algorithm），默认是 HMAC
-SHA256（写成 HS256）；typ属性表示这个令牌（token）的类型（type），JWT
-令牌统一写为JWT。&lt;/p&gt;
-&lt;p&gt;最后，将上面的 JSON 对象使用 &lt;strong&gt;Base64URL&lt;/strong&gt;
-&lt;strong&gt;算法转成字符串&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2、Payload&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Payload 部分也是一个 JSON
-对象，用来存放&lt;strong&gt;实际需要传递的数据&lt;/strong&gt;。JWT
-规定了7个官方字段，供选用。&lt;/p&gt;
-&lt;p&gt;iss (issuer)：签发人&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;exp (expiration time)：过期时间&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;sub (subject)：主题&lt;/p&gt;
-&lt;p&gt;aud (audience)：受众&lt;/p&gt;
-&lt;p&gt;nbf (Not Before)：生效时间&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;iat (Issued At)：签发时间&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;jti (JWT ID)：编号&lt;/p&gt;
-&lt;p&gt;除了官方字段，你还可以在这个部分定义私有字段，下面就是一个例子。&lt;/p&gt;
-&lt;figure class=&#34;highlight json&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; &lt;span class=&#34;attr&#34;&gt;&amp;quot;sub&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;1234567890&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; &lt;span class=&#34;attr&#34;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;John Doe&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; &lt;span class=&#34;attr&#34;&gt;&amp;quot;admin&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;注意，JWT
-默认是不加密的，任何人都可以读到，所以不要把&lt;strong&gt;秘密信息（密码，手机号等）&lt;/strong&gt;放在这个部分。&lt;/p&gt;
-&lt;p&gt;这个 JSON 对象也要使用 Base64URL 算法转成字符串。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3、Signature（保证数据安全）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Signature 部分是对前两部分的签名，&lt;strong&gt;防止数据篡改&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;钥匙：一个字符串 秘钥 abcdefg 对称加密 非对称加密 A B&lt;/p&gt;
-&lt;p&gt;首先，需要指定一个&lt;strong&gt;密钥（secret）&lt;/strong&gt;。这个密钥只有服务器才知道，不能泄露给用户。然后，使用
-Header 里面指定的签名算法（默认是 HMAC
-SHA256），按照下面的公式产生签名。&lt;/p&gt;
-&lt;figure class=&#34;highlight json&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;HMACSHA256(&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;base64UrlEncode(header) + &lt;span class=&#34;string&#34;&gt;&amp;quot;.&amp;quot;&lt;/span&gt; +&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;base64UrlEncode(payload)&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;secret)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;算出签名以后，把 Header、Payload、Signature
-三个部分拼成一个字符串，每个部分之间用&#34;点&#34;（.）分隔，就可以返回给用户。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;4、Base64URL（转码）&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;前面提到，Header 和 Payload 串型化的算法是 Base64URL。这个算法跟
-Base64 算法基本类似，但有一些小的不同。&lt;/p&gt;
-&lt;p&gt;JWT 作为一个令牌（token），有些场合可能会放到 URL（比如
-api.example.com/?token=xxx）。&lt;/p&gt;
-&lt;p&gt;Base64 有三个字符+、/和=，在 URL
-里面有特殊含义，所以要被替换掉：=被省略、+替换成-，/替换成_ 。这就是
-&lt;strong&gt;Base64URL 算法&lt;/strong&gt;。&lt;/p&gt;
-&lt;h4 id=&#34;jwt的使用方式重点&#34;&gt;5、JWT的使用方式【重点】&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;客户端收到服务器返回的 JWT，可以储存在 Cookie&lt;/strong&gt;
-&lt;strong&gt;里面，也可以储存在 localStorage&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;此后，客户端每次与服务器通信，都要带上这个 JWT。你可以把它放在
-Cookie里面自动发送，但是这样不能跨域，所以更好的做法是放在
-HTTP请求的头信息Authorization字段里面&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Authorization: Bearer jwt&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;另一种做法是，跨域的时候，JWT&lt;/strong&gt; &lt;strong&gt;就放在
-POST&lt;/strong&gt; &lt;strong&gt;请求的数据体里面。&lt;/strong&gt;&lt;/p&gt;
-&lt;h4 id=&#34;jwt的特点&#34;&gt;6、JWT的特点&lt;/h4&gt;
-&lt;p&gt;JWT 默认是不加密，但也是可以加密的。生成原始 Token
-以后，可以用密钥再加密一次。&lt;/p&gt;
-&lt;p&gt;JWT 不加密的情况下，不能将秘密数据写入 JWT。&lt;/p&gt;
-&lt;p&gt;JWT 不仅可以用于认证，也可以用于交换信息。有效使用
-JWT，可以降低服务器查询数据库的次数。&lt;/p&gt;
-&lt;p&gt;JWT 的最大缺点是，由于服务器不保存 session
-状态，因此无法在使用过程中废止某个 token，或者更改 token
-的权限。也就是说，一旦 JWT
-签发了，在到期之前就会始终有效，除非服务器部署额外的逻辑（JWT的登出问题）。就是因为服务端无状态了&lt;/p&gt;
-&lt;p&gt;正常情况下 修改了密码后就会跳转到登录页面
-：修改成功后清空浏览器保存的token了&lt;/p&gt;
-&lt;p&gt;后端怎么玩？ 因为服务端不保留token 我用之前的token
-还是可以继续访问的&lt;/p&gt;
-&lt;p&gt;从有状态（后端也会存一个）的变成无状态的了&lt;/p&gt;
-&lt;p&gt;我们就要把它从无状态再变成有状态了&lt;/p&gt;
-&lt;p&gt;JWT
-本身包含了认证信息，一旦泄露，任何人都可以获得该令牌的所有权限。为了减少盗用，JWT
-的有效期应该设置得比较短。对于一些比较重要的权限，使用时应该再次对用户进行认证。&lt;/p&gt;
-&lt;p&gt;为了减少盗用，JWT 不应该使用 HTTP 协议明码传输，要使用 HTTPS
-协议传输。&lt;/p&gt;
-&lt;p&gt;我们颁发一个令牌 用户名称 用户的权限信息 这个令牌2个小时有效&lt;/p&gt;
-&lt;p&gt;Jwt只要能解析 就认为你是可用的 做不了 登出 后端不存储用户信息了
-后端无状态了&lt;/p&gt;
-&lt;h1 id=&#34;docker&#34;&gt;---09-Docker&lt;/h1&gt;
-&lt;h3 id=&#34;一docker简介&#34;&gt;一、Docker简介&lt;/h3&gt;
-&lt;p&gt;1、什么是Docker&lt;/p&gt;
-&lt;p&gt;​
-Docker是一个开源项目，&lt;strong&gt;它的目标是实现经量级的操作系统虚拟化解决方案。Docker是一种容器技术。Docker的基础是Linux容器（LXC）等技术。在LXC的基础上Docker进行了进一步的封装，让用户不需要关心容器的管理，使得操作更加简单。用户操作Docker的容器就像操作一个快速轻量级的虚拟机一样简单。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;2、Docker设计思想&lt;/p&gt;
-&lt;p&gt;​
-Docker的思想来自于集装箱，集装箱解决了什么问题？在一艘大船上，可以把货物规整的摆放起来。并且各种各样的货物被集装箱标准化了，集装箱和集装箱之间不会互相影响。那么我就不需要专门运送水果的船和专门运送化学品的船了。只要这些货物在集装箱里封装的好好的，那我就可以用一艘大船把他们都运走。docker就是类似的理念。现在都流行云计算了，云计算就好比大货轮。&lt;/p&gt;
-&lt;p&gt;通过Docker能够把
-net，php开发的应用作为容器（集装箱）运行。net和php开发的两个应用是各自独立的环境。基于容器（集装箱）可以运行多种应用，redis，mysql，tomcat，centos等等。总之Docker就是集装箱原理。&lt;/p&gt;
-&lt;p&gt;3、为什么要使用Docker&lt;/p&gt;
-&lt;p&gt;作为一种新兴的虚拟化方式，Docker
-跟传统的虚拟化方式相比具有众多的优势。首先，&lt;strong&gt;Docker&lt;/strong&gt;
-&lt;strong&gt;容器的启动可以在秒级实现&lt;/strong&gt;，这相比传统的虚拟机方式要快得多。其次，&lt;strong&gt;Docker&lt;/strong&gt;
-&lt;strong&gt;对系统资源的利用率很高，一台主机上可以同时运行数千个Docker&lt;/strong&gt;
-&lt;strong&gt;容器&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;容器除了运行其中应用外，基本不消耗额外的系统资源，使得应用的性能很高，同时系统的开销尽量小。&lt;/p&gt;
-&lt;p&gt;传统虚拟机方式运行10 个不同的应用就要起10 个虚拟机，而Docker
-只需要启动10 个隔离的应用即可。具体说来，Docker
-在如下几个方面具有较大的优势。&lt;/p&gt;
-&lt;ol type=&#34;1&#34;&gt;
-&lt;li&gt;更快速的交付和部署&lt;/li&gt;
-&lt;li&gt;更轻松的迁移和扩展&lt;/li&gt;
-&lt;li&gt;更简单的管理&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;4、Docker的局限&lt;/p&gt;
-&lt;ol type=&#34;1&#34;&gt;
-&lt;li&gt;&lt;strong&gt;Docker是基于Linux
-64bit的，无法在32bit的linux/Windows/unix环境下使用&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;隔离性相比虚拟机之类的虚拟化方案还是有些欠缺，所有容器公用一部分的运行库&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;网络管理相对简单&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Docker对磁盘的管理比较有限&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;容器随着用户进程的停止而销毁，容器中的日志等用户数据不便收集&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;二掌握docker说明&#34;&gt;二、【掌握】Docker说明&lt;/h3&gt;
-&lt;p&gt;官网 http://www.docker.com&lt;/p&gt;
-&lt;p&gt;中文官网 https://docker-cn.com&lt;/p&gt;
-&lt;p&gt;仓库（镜像网站） https://hub.docker.com&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
