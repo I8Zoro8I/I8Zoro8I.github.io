@@ -16,11 +16,12 @@
         <category term="springboot" />
         <item>
             <guid isPermalink="true">http://example.com/2024/08/27/post/golang/13-Gin-%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/</guid>
-            <title></title>
+            <title>13-Gin-日志管理</title>
             <link>http://example.com/2024/08/27/post/golang/13-Gin-%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/</link>
+            <category term="Go" scheme="http://example.com/categories/Go/" />
+            <category term="go" scheme="http://example.com/tags/go/" />
             <pubDate>Tue, 27 Aug 2024 10:03:14 +0800</pubDate>
-            <description><![CDATA[ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;title: 13-Gin-日志管理&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;date: 2024年8月27日10:05:54&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tags:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- go&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;categories:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- [Go]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cover: assets/9.png&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h1 id=&#34;gin-日志管理&#34;&gt;Gin-日志管理&lt;/h1&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;gin-日志管理&#34;&gt;Gin-日志管理&lt;/h1&gt;
 &lt;p&gt;Gin默认使用的日志中间件采用的是&lt;code&gt;os.Stdout&lt;/code&gt;，只有最基本的功能，毕竟Gin只专注于Web服务，大多数情况下应该使用更加成熟的日志框架，不过这并不在本章的讨论范围内，而且Gin的拓展性很高，可以很轻易的整合其他框架，这里只讨论其自带的日志服务。&lt;/p&gt;
 &lt;h3 id=&#34;控制台颜色&#34;&gt;控制台颜色&lt;/h3&gt;
 &lt;figure class=&#34;highlight go&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;gin.DisableConsoleColor() &lt;span class=&#34;comment&#34;&gt;// 关闭控制台日志颜色&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -40,11 +41,12 @@
         </item>
         <item>
             <guid isPermalink="true">http://example.com/2024/08/27/post/golang/12-Gin-%E4%BC%9A%E8%AF%9D%E6%8E%A7%E5%88%B6/</guid>
-            <title></title>
+            <title>12-Gin-会话控制</title>
             <link>http://example.com/2024/08/27/post/golang/12-Gin-%E4%BC%9A%E8%AF%9D%E6%8E%A7%E5%88%B6/</link>
+            <category term="Go" scheme="http://example.com/categories/Go/" />
+            <category term="go" scheme="http://example.com/tags/go/" />
             <pubDate>Tue, 27 Aug 2024 09:58:36 +0800</pubDate>
-            <description><![CDATA[ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;title: 12-Gin-会话控制&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;date: 2024年8月27日10:02:39&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tags:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- go&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;categories:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- [Go]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cover: assets/9.png&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h1 id=&#34;gin-会话控制&#34;&gt;Gin-会话控制&lt;/h1&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;gin-会话控制&#34;&gt;Gin-会话控制&lt;/h1&gt;
 &lt;h2 id=&#34;会话控制&#34;&gt;会话控制&lt;/h2&gt;
 &lt;p&gt;在目前的时代中，流行的三种Web会话控制总共有三种，&lt;code&gt;cookie&lt;/code&gt;，&lt;code&gt;session&lt;/code&gt;，&lt;code&gt;JWT&lt;/code&gt;。&lt;/p&gt;
 &lt;h3 id=&#34;cookie&#34;&gt;Cookie&lt;/h3&gt;
@@ -101,11 +103,12 @@ href=&#34;https://golang.halfiisland.com/community/pkgs/auth/jwt.html&#34;&gt;JW
         </item>
         <item>
             <guid isPermalink="true">http://example.com/2024/08/27/post/golang/11-Gin-%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/</guid>
-            <title></title>
+            <title>11-Gin-服务配置</title>
             <link>http://example.com/2024/08/27/post/golang/11-Gin-%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/</link>
+            <category term="Go" scheme="http://example.com/categories/Go/" />
+            <category term="go" scheme="http://example.com/tags/go/" />
             <pubDate>Tue, 27 Aug 2024 09:55:09 +0800</pubDate>
-            <description><![CDATA[ &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;title: 11-Gin-服务配置&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;date: 2024年8月27日09:57:55&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tags:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- go&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;categories:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;- [Go]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cover: assets/9.png&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h1 id=&#34;gin-服务配置&#34;&gt;Gin-服务配置&lt;/h1&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;gin-服务配置&#34;&gt;Gin-服务配置&lt;/h1&gt;
 &lt;p&gt;光是使用默认的配置是远远不够的，大多数情况下都需求修改很多的服务配置才能达到需求。&lt;/p&gt;
 &lt;h3 id=&#34;http配置&#34;&gt;Http配置&lt;/h3&gt;
 &lt;p&gt;可以通过&lt;code&gt;net/http&lt;/code&gt;创建Server来配置，Gin本身也支持像原生API一样使用Gin。&lt;/p&gt;
